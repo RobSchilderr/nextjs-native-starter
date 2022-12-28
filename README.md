@@ -23,8 +23,9 @@ This turborepo uses Yarn as a package manager. It includes the following package
 - `next-app`: a [Next.js](https://nextjs.org) app using [Supertokens](https://supertokens.com/) and [Capacitor](https://capacitorjs.com/)
 - `next-web`: another [Next.js](https://nextjs.org) app using only [Supertokens](https://supertokens.com/)
 - `ui`: a React component library shared by both `next-web` and `next-app` applications
-- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`) and configurations for CORS domains and Supertokens config
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `lib`: shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup. 
 
 ### Utilities
 
