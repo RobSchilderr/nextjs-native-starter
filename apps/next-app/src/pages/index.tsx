@@ -1,26 +1,24 @@
-import React from 'react'
-
-import HelloWorld from '@src/components/HelloWorld'
 import Head from 'next/head'
-import { CoolInterface } from 'server/src/lib/CoolInterface'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const coolKid: CoolInterface = {
-  amICool: false,
-}
+// import { Footer } from 'ui/components/Footer'
+// import { Header } from 'ui/components/Header'
+// import { Hero } from 'ui/components/Hero'
 
 const Home = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen py-2">
+  <>
     <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>TaxPal - Accounting made simple for small businesses</title>
+      <meta
+        name="description"
+        content="Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited."
+      />
     </Head>
-
-    <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-      <HelloWorld />
-      <div className="bg-yellow-200 h-12 w-12" />
+    {/* <Header />
+    <main>
+      <Hero />
     </main>
-  </div>
+    <Footer /> */}
+  </>
 )
 
 export default Home
