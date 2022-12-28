@@ -14,7 +14,7 @@ This repository provides a starter project for building a web application with N
 
 ---
 
-## What's inside this turborepo?
+## What's inside?
 
 This turborepo uses Yarn as a package manager. It includes the following packages/apps:
 
