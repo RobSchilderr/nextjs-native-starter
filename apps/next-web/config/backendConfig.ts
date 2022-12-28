@@ -1,6 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/prefer-default-export */
-import { IS_IN_PRODUCTION_ENVIRONMENT } from 'config/config'
+
+import { IS_IN_PRODUCTION_ENVIRONMENT } from 'lib/utils/config'
+
 import Session from 'supertokens-node/recipe/session'
 import ThirdPartyEmailPassword from 'supertokens-node/recipe/thirdpartyemailpassword'
 import { TypeInput } from 'supertokens-node/types'

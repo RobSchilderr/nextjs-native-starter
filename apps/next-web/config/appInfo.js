@@ -1,4 +1,4 @@
-import { FRONTEND_URL } from 'config/config'
+import { FRONTEND_URL } from 'lib/utils/config'
 
 export const appInfo = {
   appName: 'SuperTokens Capacitor Demo Web',
