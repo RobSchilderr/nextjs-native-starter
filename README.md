@@ -4,7 +4,7 @@ This monorepo provides a starter project for building a web application with Nex
 
 ---
 
-## Differences from Related Repositories:
+## Differences from related repositories:
 
 [Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) - This current repository uses Turborepo, while the [Ionic example](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) does not. In addition, this current repository uses Supertokens for authentication and session management, while the Ionic one does not. This starter also uses Tailwind CSS for styling instead of the Ionic Framework. It serves as a good example of how to use Ionic with Capacitor, but does not address the issues that arise when using Supertokens with Capacitor in a Monorepo setup.
 
