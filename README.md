@@ -10,7 +10,7 @@ This repository provides a starter project for building a web application with N
 
 [SuperTokens Example](https://github.com/supertokens/next.js/tree/canary/examples/with-supertokens): This example does not use Capacitor or address Capacitor-related issues such as CORS, cookies, and domain configuration. It also uses Server Side Rendering in Next.js and the supertokens-auth-react package, while this starter project utilizes supertokens-web-js and ThirdPartyEmailPassword.
 
-[Turborepo Tutorial](hhttps://github.com/leoroese/turborepo-tutorial) - A tutorial on how to use Turborepo, along with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s)
+[Turborepo Tutorial](https://github.com/leoroese/turborepo-tutorial) - A tutorial on how to use Turborepo, along with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s)
 
 ---
 
