@@ -46,6 +46,16 @@ The `next-app` in this starter project relies on the API routes of the `next-web
 To develop all apps and packages, run the following command:
 
 ```
-yarn run dev
+yarn dev
 ```
+
+To open the iOS app (make sure you have xCode setup): 
+
+```
+cd packages
+cd next-app
+yarn build
+yarn open:ios
+```
+
 
