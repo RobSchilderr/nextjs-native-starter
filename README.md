@@ -1,20 +1,30 @@
-# Turborepo starter
+# Next.js + Tailwind CSS + Supertokens + Capacitor Mobile Starter
 
-This is an official Yarn v1 starter turborepo.
+This repository provides a starter project for building a web application with Next.js, Tailwind CSS, and Supertokens for authentication and session management, as well as a mobile application using Capacitor. The project is structured using Turborepo, with one repository for the web application and another for the mobile app. The code for both is shared using a ui package.
 
-## What's inside?
+---
 
-This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
+## Differences from Related Repositories:
+
+[Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) - This starter project does not use Turborepo, while the one from the Ionic team does. It also does not use Supertokens for authentication and session management. Also, it uses Ionic Framework, while this starter relies on Tailwind CSS for styling.
+
+[SuperTokens Example](https://github.com/supertokens/next.js/tree/canary/examples/with-supertokens): This example does not use Capacitor or address Capacitor-related issues such as CORS, cookies, and domain configuration. It also uses Server Side Rendering in Next.js and the supertokens-auth-react package, while this starter project utilizes supertokens-web-js and ThirdPartyEmailPassword.
+
+[Turborepo Tutorial](hhttps://github.com/leoroese/turborepo-tutorial) - A tutorial on how to use Turborepo, along with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s)
+
+---
+
+## What's inside this turborepo?
+
+This turborepo uses Yarn as a package manager. It includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `next-app`: a [Next.js](https://nextjs.org) app using [Supertokens](https://supertokens.com/) and [Capacitor](https://capacitorjs.com/)
+- `next-web`: another [Next.js](https://nextjs.org) app using only [Supertokens](https://supertokens.com/)
+- `ui`: a React component library shared by both `next-web` and `next-app` applications
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`) and configurations for CORS domains and Supertokens config
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ### Utilities
 
@@ -24,19 +34,23 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Jest](https://jestjs.io) test runner for all things JavaScript
 - [Prettier](https://prettier.io) for code formatting
+- [Capacitor](https://capacitorjs.com/) A cross-platform native runtime for web apps.
+- [Supertokens](https://supertokens.com/) Open-source authentication and session management system for your web apps.
 
-## Setup
+## Caveats
 
-This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
+The `next-app` needs to rely on the `next-web` API routes for utilizing Supertokens. Because the `next-app` must be able to run purely client-side and use [Next.js's Export command](https://nextjs.org/docs/advanced-features/static-html-export), that means no Server Side Rendering in this app. Features that require a Node.js server, or dynamic logic that cannot be computed during the build process, are not supported in the `next-app`:
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn run build
-```
+- Image Optimization (default loader)
+- Internationalized Routing
+- API Routes
+- Rewrites
+- Redirects
+- Headers
+- Middleware
+- Incremental Static Regeneration
+- fallback: true
+- getServerSideProps
 
 ### Develop
 
@@ -46,33 +60,3 @@ To develop all apps and packages, run the following command:
 cd my-turborepo
 yarn run dev
 ```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turborepo.org/docs/features/pipelines)
-- [Caching](https://turborepo.org/docs/features/caching)
-- [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/features/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
