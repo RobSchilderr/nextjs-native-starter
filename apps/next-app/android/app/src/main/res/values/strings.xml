@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">next-app-supertokens</string>
+    <string name="title_activity_main">next-app-supertokens</string>
+    <string name="package_name">next.supertokens.app</string>
+    <string name="custom_url_scheme">next.supertokens.app</string>
+</resources>
