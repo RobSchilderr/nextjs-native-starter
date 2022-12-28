@@ -15,9 +15,11 @@ if (typeof window !== 'undefined') {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <div className="min-h-screen mt-30">
-    <Component {...pageProps} />
+    <Component
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...pageProps}
+    />
   </div>
 )
 
