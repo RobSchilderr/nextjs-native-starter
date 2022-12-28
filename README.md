@@ -37,6 +37,9 @@ This turborepo has some additional tools already setup for you:
 - [Prettier](https://prettier.io) for code formatting
 - [Capacitor](https://capacitorjs.com/) A cross-platform native runtime for web apps.
 - [Supertokens](https://supertokens.com/) Open-source authentication and session management system for your web apps.
+- [React Hook Form](https://react-hook-form.com/) Performant, flexible and extensible forms with easy-to-use validation.
+- [Tailwind CSS](https://tailwindcss.com/) CSS framework - rapidly build modern websites without ever leaving your HTML.
+
 
 ## Caveats
 
