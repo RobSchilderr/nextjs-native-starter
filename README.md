@@ -6,11 +6,11 @@ This repository provides a starter project for building a web application with N
 
 ## Differences from Related Repositories:
 
-[Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) - This starter project does not use Turborepo, while the one from the Ionic team does. It also does not use Supertokens for authentication and session management. Also, it uses Ionic Framework, while this starter relies on Tailwind CSS for styling.
+[Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) - This current repository uses Turborepo, while the [Ionic example](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) does not. In addition, this current repository uses Supertokens for authentication and session management, while the Ionic one does not. This starter also uses Tailwind CSS for styling instead of the Ionic Framework. It serves as a good example of how to use Ionic with Capacitor, but does not address the issues that arise when using Supertokens with Capacitor in a Monorepo setup.
 
-[SuperTokens Example](https://github.com/supertokens/next.js/tree/canary/examples/with-supertokens): This example does not use Capacitor or address Capacitor-related issues such as CORS, cookies, and domain configuration. It also uses Server Side Rendering in Next.js and the supertokens-auth-react package, while this starter project utilizes supertokens-web-js and ThirdPartyEmailPassword.
+[SuperTokens Example](https://github.com/supertokens/next.js/tree/canary/examples/with-supertokens): This example does not use Capacitor or address Capacitor-related issues such as CORS, cookies, and domain configuration. It also uses Server Side Rendering in Next.js and the supertokens-auth-react package, while this starter project utilizes supertokens-web-js and ThirdPartyEmailPassword. It serves as a good example of how to use Supertokens in a Next.js app, but does not address the issues that arise when using Supertokens with Capacitor.
 
-[Turborepo Tutorial](https://github.com/leoroese/turborepo-tutorial) - A tutorial on how to use Turborepo, along with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s)
+[Turborepo Tutorial](https://github.com/leoroese/turborepo-tutorial) - This current repository is build on top of the Turborepo tutorial. This makes it easier to follow along for those that have not heard of Turborepo yet. The Turborepo tutorial comes with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s). The Turborepo tutorial does not use Capacitor or Supertokens.
 
 ---
 
@@ -39,18 +39,7 @@ This turborepo has some additional tools already setup for you:
 
 ## Caveats
 
-The `next-app` needs to rely on the `next-web` API routes for utilizing Supertokens. Because the `next-app` must be able to run purely client-side and use [Next.js's Export command](https://nextjs.org/docs/advanced-features/static-html-export), that means no Server Side Rendering in this app. Features that require a Node.js server, or dynamic logic that cannot be computed during the build process, are not supported in the `next-app`:
-
-- Image Optimization (default loader)
-- Internationalized Routing
-- API Routes
-- Rewrites
-- Redirects
-- Headers
-- Middleware
-- Incremental Static Regeneration
-- fallback: true
-- getServerSideProps
+The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options.
 
 ### Develop
 
