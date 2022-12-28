@@ -46,6 +46,6 @@ The `next-app` in this starter project relies on the API routes of the `next-web
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 yarn run dev
 ```
+
