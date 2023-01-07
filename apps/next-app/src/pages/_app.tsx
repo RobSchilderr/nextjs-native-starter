@@ -4,11 +4,11 @@ import { AppProps } from 'next/app'
 import '../../styles/globals.css'
 import SuperTokens from 'supertokens-web-js'
 import capacitorCookieHandler from 'lib/utils/capacitorCookieHandler'
-import { frontendConfig } from '../../config/frontendConfig'
 import { APP_BUNDLE_URL, PROD_URL_NO_HTTPS } from 'lib/utils/config'
 import { useRouter } from 'next/router'
 import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
+import { frontendConfig } from '../../config/frontendConfig'
 
 if (typeof window !== 'undefined') {
   SuperTokens.init({

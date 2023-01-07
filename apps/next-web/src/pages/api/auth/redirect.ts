@@ -3,7 +3,9 @@
  */
 import { NextApiRequest, NextApiResponse } from 'next'
 import NextCors from 'nextjs-cors'
-import { REDIRECT_URL } from 'lib/utils/config'
+import { APP_BUNDLE_URL } from 'lib/utils/config'
+
+// TODO: add deeplink.
 
 export default async function redirectAuthUrl(
   req: NextApiRequest & Request,
@@ -18,19 +20,18 @@ export default async function redirectAuthUrl(
   console.log(req.query)
 
   if (req.query?.token) {
-    const redirectUrl = `${REDIRECT_URL}://auth/reset-password?token=${req.query.token}&rid=thirdpartyemailpassword`
+    const redirectUrl = `${APP_BUNDLE_URL}://auth/reset-password?token=${req.query.token}&rid=thirdpartyemailpassword`
     return res.redirect(redirectUrl)
   }
 
   const code = req.query?.code ?? null
   console.log(code)
   if (req.query?.provider && code) {
-    const redirectUrl = `${REDIRECT_URL}://auth/callback/${req.query.provider}?code=${code}&state=${req.query.state}`
+    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}?code=${code}&state=${req.query.state}`
     console.log(redirectUrl)
-    // const redirectUrl = `client.gigplan.mobile.app://auth/callback/google?code=DOETIEUT`
 
     return res.redirect(redirectUrl)
   }
 
-  return res.redirect(`${REDIRECT_URL}://`)
+  return res.redirect(`${APP_BUNDLE_URL}://`)
 }
