@@ -25,7 +25,7 @@ This turborepo uses Yarn as a package manager. It includes the following package
 - `ui`: a React component library shared by both `next-web` and `next-app` applications
 - `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
-- `lib`: shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup. 
+- `lib`: shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
 
 ### Utilities
 
@@ -40,7 +40,6 @@ This turborepo has some additional tools already setup for you:
 - [React Hook Form](https://react-hook-form.com/) Performant, flexible and extensible forms with easy-to-use validation.
 - [Tailwind CSS](https://tailwindcss.com/) CSS framework - rapidly build modern websites without ever leaving your HTML.
 
-
 ## Caveats
 
 The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options.
@@ -53,7 +52,7 @@ To develop all apps and packages, run the following command:
 yarn dev
 ```
 
-To open the iOS app (make sure you have xCode setup): 
+To open the iOS app (make sure you have xCode setup):
 
 ```
 cd packages
@@ -80,11 +79,10 @@ GOOGLE_CLIENT_SECRET=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
 GITHUB_CLIENT_ID=467101b197249757c71f
 GITHUB_CLIENT_SECRET=e97051221f4b6426e8fe8d51486396703012f5bd
 
-APPLE_CLIENT_ID=4398792-io.supertokens.example.service
-APPLE_KEY_ID=7M48Y4RYDL
-APPLE_TEAM_ID=YWQCXGJRJL
-APPLE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----
+APPLE_CLIENT_ID="4398792-io.supertokens.example.service"
+APPLE_KEY_ID="7M48Y4RYDL"
+APPLE_TEAM_ID="YWQCXGJRJL"
+APPLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----"
 ```
 
 These are the test environment variables from Supertokens. You should replace these with your own later on.
-

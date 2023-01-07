@@ -1,6 +1,6 @@
 import { signupWithEmailPassword } from './supertokensUtilities'
 
-const handleRegister = async ({
+export const handleRegister = async ({
   email,
   password,
 }: {
@@ -13,9 +13,9 @@ const handleRegister = async ({
       password: password,
     })
 
-    if (superTokensResponse.status !== 'OK') {
-      throw new Error('Error creating Supertokens account')
-    }
+    // if (superTokensResponse !== 'OK') {
+    //   throw new Error('Error creating Supertokens account')
+    // }
     return superTokensResponse
   } catch (err: any) {
     // handle error
