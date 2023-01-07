@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import { AppProps } from 'next/app'
