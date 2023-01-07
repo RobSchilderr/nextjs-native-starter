@@ -25,7 +25,8 @@ export default async function redirectAuthUrl(
   const code = req.query?.code ?? null
   console.log(code)
   if (req.query?.provider && code) {
-    const redirectUrl = `${REDIRECT_URL}://auth/callback/${req.query.provider}?code=${code}`
+    const redirectUrl = `${REDIRECT_URL}://auth/callback/${req.query.provider}?code=${code}&state=${req.query.state}`
+    console.log(redirectUrl)
     // const redirectUrl = `client.gigplan.mobile.app://auth/callback/google?code=DOETIEUT`
 
     return res.redirect(redirectUrl)
