@@ -16,22 +16,23 @@
     "@types/react": "18.0.1",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.0",
-    "config": "*",
     "clsx": "^1.2.1",
+    "config": "*",
     "eslint": "^8.5.0",
     "lib": "*",
     "next": "^13.1.1",
     "nextjs-cors": "^2.1.2",
     "postcss": "^8.4.4",
+    "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.2",
     "server": "*",
     "supertokens-node": "^12.0.0",
     "supertokens-web-js": "^0.3.0",
-    "ui": "*",
     "tailwindcss": "^3.0.0",
     "tsconfig": "*",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "ui": "*"
   }
 }
