@@ -27,7 +27,7 @@ export default async function redirectAuthUrl(
   const code = req.query?.code ?? null
   console.log(code)
   if (req.query?.provider && code) {
-    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}?code=${code}&state=${req.query.state}`
+    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}?code=${code}`
     console.log(redirectUrl)
 
     return res.redirect(redirectUrl)

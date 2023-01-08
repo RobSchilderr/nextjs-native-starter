@@ -22,6 +22,8 @@ export const AuthCallback = ({
   const router = useRouter()
   const platform = usePlatform()
 
+  console.log('CAME HERE AUTHCALLBACK', router.asPath)
+
   useEffect(() => {
     // Browser.close()
     const code = router.query?.code ?? null
@@ -30,6 +32,7 @@ export const AuthCallback = ({
       // const previousPath = await getPreviousPath()
 
       try {
+        console.log('fired the login function')
         const loginResponse = await loginToThirdParty()
         executedQuery.current = true
 
@@ -68,9 +71,11 @@ export const AuthCallback = ({
       }
     }
 
-    if (code && !executedQuery.current) {
-      login()
-    }
+    login()
+
+    // if (code && !executedQuery.current) {
+    //   login()
+    // }
   }, [router])
 
   if (error) return <Error title={`Something went wrong, ${error?.message}`} />

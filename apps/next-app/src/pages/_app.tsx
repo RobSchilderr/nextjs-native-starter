@@ -22,6 +22,8 @@ if (typeof window !== 'undefined') {
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
 
+  console.log(router.asPath)
+
   useEffect(() => {
     // add capacitor listeners
     if (Capacitor.isNativePlatform()) {
