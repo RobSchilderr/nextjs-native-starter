@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:next-capacitor-supertokens.app?mode=&lt;alternate mode&gt;</string>
+		<string>applinks:next-capacitor-supertokens.app</string>
 	</array>
 </dict>
 </plist>
