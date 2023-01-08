@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:capacitor-supertokens-nextjs-turborepo-next-web-one.vercel.app</string>
+		<string>applinks:next-capacitor-supertokens.app/</string>
 	</array>
 </dict>
 </plist>
