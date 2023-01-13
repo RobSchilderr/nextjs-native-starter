@@ -1,6 +1,7 @@
 export const PROD_URL_NO_HTTPS = 'yourprodurl.com'
 
-export const IS_IN_PRODUCTION_ENVIRONMENT = false
+export const IS_IN_PRODUCTION_ENVIRONMENT =
+  process.env.NEXT_PUBLIC_APP_STAGE !== 'development'
 
 export const FRONTEND_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'http://localhost:3001'
