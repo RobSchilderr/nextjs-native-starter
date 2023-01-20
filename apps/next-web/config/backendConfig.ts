@@ -11,7 +11,8 @@ import { appInfo } from './appInfo'
 export const backendConfig = (): TypeInput => ({
   framework: 'express',
   supertokens: {
-    connectionURI: 'https://try.supertokens.io',
+    connectionURI: process.env.SUPERTOKENS_CONNECTION_URI as string,
+    apiKey: process.env.SUPERTOKENS_API_KEY as string,
   },
   appInfo,
   recipeList: [
