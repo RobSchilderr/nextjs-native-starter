@@ -20,9 +20,8 @@ export const backendConfig = (): TypeInput => ({
         // We have provided you with development keys which you can use for testing.
         // IMPORTANT: Please replace them with your own OAuth keys for production use.
         ThirdPartyEmailPassword.Google({
-          clientId:
-            '972333541879-oaujtc2l52i9aa45cc8s0trk67u1cqpl.apps.googleusercontent.com',
-          clientSecret: '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',
+          clientId: process.env.GOOGLE_CLIENT_ID as string,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
 
         ThirdPartyEmailPassword.Apple({

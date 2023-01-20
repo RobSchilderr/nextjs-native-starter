@@ -6,6 +6,7 @@ import { AppleButton, GoogleButton } from '../../components/SocialButtons'
 import { onThirdPartyLogin } from 'lib/utils/supertokensUtilities'
 import { usePlatform } from 'lib/utils/capacitor'
 import TextDivider from '../../components/TextDivider'
+import Link from 'next/link'
 
 export const Login = () => {
   const platform = usePlatform()
@@ -17,9 +18,12 @@ export const Login = () => {
       <AuthLayout>
         <div className="flex flex-col">
           <p className="mt-2 text-sm text-gray-700">
-            <a href="/" className="font-medium text-blue-600 hover:underline">
+            <Link
+              href="/"
+              className="font-medium text-blue-600 hover:underline"
+            >
               Go back to home{' '}
-            </a>{' '}
+            </Link>{' '}
           </p>
           <div className="mt-8">
             <h2 className="text-lg font-semibold text-gray-900">
@@ -27,12 +31,12 @@ export const Login = () => {
             </h2>
             <p className="mt-2 text-sm text-gray-700">
               Or{' '}
-              <a
+              <Link
                 href="/register"
                 className="font-medium text-blue-600 hover:underline"
               >
                 go to register{' '}
-              </a>{' '}
+              </Link>{' '}
             </p>
           </div>
         </div>

@@ -22,23 +22,19 @@ const ErrorPage: React.FC<Props> = ({ title }) => {
                 Try again or contact us if the problem persists.
               </p>
               <div className="mt-6">
-                <Link href="/">
-                  <a className="text-base font-medium text-indigo-600 hover:text-indigo-500">
-                    Go back to home
-                  </a>
-                </Link>
+                <Link href="/">Go back to home</Link>
               </div>
             </div>
           </div>
         </main>
         <footer className="flex-shrink-0 w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <nav className="flex justify-center space-x-4">
-            <a
+            <Link
               href="#"
               className="text-sm font-medium text-gray-500 hover:text-gray-600"
             >
               Contact Support
-            </a>
+            </Link>
           </nav>
         </footer>
       </div>
