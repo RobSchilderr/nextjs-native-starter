@@ -16,6 +16,9 @@ export const REDIRECT_URL = !IS_IN_PRODUCTION_ENVIRONMENT
 export const APP_ORIGIN_URLS = [
   'capacitor://localhost',
   'http://localhost',
+  'ionic://localhost',
+  `ionic://${FRONTEND_URL.split('://')[1]}`,
+  `next.supertokens.app`,
   'capacitor://',
   `capacitor://${FRONTEND_URL.split('://')[1]}`,
   `http://${FRONTEND_URL.split('://')[1]}`,
@@ -25,4 +28,7 @@ export const ALLOWED_CORS_URLS = [
   ...APP_ORIGIN_URLS,
   'http://localhost:3000',
   'http://localhost:3001',
+  'https://www.next-capacitor-supertokens.app/',
+  'https://capacitor-supertokens-nextjs-turborepo-next-web-one.vercel.app',
+  'http://localhost',
 ]
