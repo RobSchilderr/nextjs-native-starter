@@ -1,5 +1,6 @@
 import { FRONTEND_URL } from 'lib/utils/config'
 import { signout } from 'lib/utils/supertokensUtilities'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
@@ -30,7 +31,7 @@ const Home = () => {
   return (
     <main className="px-6 mt-6 space-y-6">
       <h1>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
+        Welcome to <Link href="https://nextjs.org">Next.js!</Link>
       </h1>
       <p>You are authenticated with SuperTokens!</p>
 
