@@ -25,12 +25,18 @@ export const backendConfig = (): TypeInput => ({
           clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
 
+        /**
+         * These credentials are provided by the SuperTokens team for debugging purposes: https://supertokens.com/docs/thirdpartyemailpassword/custom-ui/init/backend#3-initialise-social-login-providers
+         * 
+         * Remember to replace these with your own before deploying to production
+         */
         ThirdPartyEmailPassword.Apple({
-          clientId: process.env.APPLE_CLIENT_ID as string,
+          clientId: "4398792-io.supertokens.example.service",
           clientSecret: {
-            keyId: process.env.APPLE_KEY_ID as string,
-            privateKey: process.env.APPLE_PRIVATE_KEY as string,
-            teamId: process.env.APPLE_TEAM_ID as string,
+              keyId: "7M48Y4RYDL",
+              privateKey:
+                  "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----",
+              teamId: "YWQCXGJRJL",
           },
         }),
       ],
