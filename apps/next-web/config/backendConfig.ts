@@ -27,16 +27,16 @@ export const backendConfig = (): TypeInput => ({
 
         /**
          * These credentials are provided by the SuperTokens team for debugging purposes: https://supertokens.com/docs/thirdpartyemailpassword/custom-ui/init/backend#3-initialise-social-login-providers
-         * 
+         *
          * Remember to replace these with your own before deploying to production
          */
         ThirdPartyEmailPassword.Apple({
-          clientId: "4398792-io.supertokens.example.service",
+          clientId: '4398792-io.supertokens.example.service',
           clientSecret: {
-              keyId: "7M48Y4RYDL",
-              privateKey:
-                  "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----",
-              teamId: "YWQCXGJRJL",
+            keyId: '7M48Y4RYDL',
+            privateKey:
+              '-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----',
+            teamId: 'YWQCXGJRJL',
           },
         }),
       ],
