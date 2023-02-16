@@ -94,3 +94,39 @@ APPLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49
 ```
 
 These are the test environment variables from Supertokens. You should replace these with your own later on.
+
+
+##### Apple login testing on native device
+
+Testing Apple login doesn't work in your xCode simulator. For this, use a native device. Remember to change your `FRONTEND_URL` in the `config` file to use your local IP address.
+
+
+### Known caveats
+
+#### Caveat 1: 
+
+We are using auth requests with the `Authorization` header: 
+```Supertokens recommends cookie-based sessions in browsers because header-based sessions require saving the access and refresh tokens in storage vulnerable to XSS attacks.```
+
+Supertokens supports 2 methods of authorizing requests:
+
+1. Based on cookies
+The default in our web SDKs
+Uses HttpOnly cookies by default to prevent token theft via XSS
+
+2. Based on the Authorization header
+The default in our mobile SDKs
+Uses the Authorization header with a Bearer auth-scheme
+This can make it easier to work with API gateways and third-party services
+Preferable in mobile environments, since they can have buggy and/or unreliable cookie implementations
+
+Possible solution if you want extra security: use Supertokens anyway with cookies on Capacitor with the custom cookie handler that is in this repository. This works, but requires extra effort, you need to know what you're doing.
+
+
+#### Caveat 2: 
+
+Apple login does not work on the mobile web right now. You can find more information about this on the /temp route of the web. Supertokens developers are currently working on a solution that will allow information to be stored in the state sent to the provider, which can then be checked in the API layer to determine if it's mobile or web. However, until this solution is available, a workaround is being used that prevents iOS login from working on the web, so it should be removed from the UI until further notice.
+
+#### Caveat 3:
+
+Live reload is not working on Capacitor when using Supertokens. We are looking into a solution.
