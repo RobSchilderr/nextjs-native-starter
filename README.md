@@ -103,7 +103,7 @@ Testing Apple login doesn't work in your xCode simulator. For this, use a native
 
 ### Known caveats
 
-#### Caveat 1: 
+#### Caveat 1 - [Token Transfer Method](https://supertokens.com/docs/thirdpartyemailpassword/common-customizations/sessions/token-transfer-method)
 
 We are using auth requests with the `Authorization` header: 
 ```Supertokens recommends cookie-based sessions in browsers because header-based sessions require saving the access and refresh tokens in storage vulnerable to XSS attacks.```
