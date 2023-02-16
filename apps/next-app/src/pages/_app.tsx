@@ -9,11 +9,11 @@ import { APP_BUNDLE_URL, PROD_URL_NO_HTTPS } from 'lib/utils/config'
 import { useRouter } from 'next/router'
 import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
-import { frontendConfig } from '../../config/frontendConfig'
+import { getFrontendConfig } from '../../config/frontendConfig'
 
 if (typeof window !== 'undefined') {
   SuperTokens.init({
-    ...frontendConfig(),
+    ...getFrontendConfig(),
     cookieHandler: capacitorCookieHandler,
     // enableDebugLogs: !IS_IN_PRODUCTION_ENVIRONMENT,
   })

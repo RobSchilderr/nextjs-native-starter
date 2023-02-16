@@ -28,6 +28,7 @@ export const APP_ORIGIN_URLS = [
 
 export const ALLOWED_CORS_URLS = [
   ...APP_ORIGIN_URLS,
+  'capacitor://next-capacitor-supertokens.app',
   'http://localhost:3000',
   'http://localhost:3001',
   'https://www.next-capacitor-supertokens.app',
@@ -36,4 +37,4 @@ export const ALLOWED_CORS_URLS = [
   'http://localhost',
 ]
 
-export const AUTH_MODE: AuthMode = "thirdpartypasswordless";
+export const AUTH_MODE: AuthMode = "emailpassword";
