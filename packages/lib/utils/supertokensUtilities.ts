@@ -1,6 +1,7 @@
 import ThirdPartyEmailPassword from 'supertokens-web-js/recipe/thirdpartyemailpassword'
 import ThirdParty from "supertokens-web-js/recipe/thirdparty";
 import EmailPassword from "supertokens-web-js/recipe/emailpassword";
+import ThirdPartyPasswordless from "supertokens-web-js/recipe/thirdpartypasswordless";
 import Session from "supertokens-web-js/recipe/session";
 import { AUTH_MODE, FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
 
@@ -82,6 +83,10 @@ export const loginToThirdParty = async () => {
     return ThirdParty.signInAndUp();
   }
 
+  if (AUTH_MODE === "thirdpartypasswordless") {
+    return ThirdPartyPasswordless.thirdPartySignInAndUp();
+  }
+
   return ThirdPartyEmailPassword.thirdPartySignInAndUp();
 }
 
@@ -140,6 +145,13 @@ const getThirdPartyURL = async (
       providerId: thirdPartyId,
       authorisationURL,
     });
+  }
+
+  if (AUTH_MODE === "thirdpartypasswordless") {
+    return ThirdPartyPasswordless.getThirdPartyAuthorisationURLWithQueryParamsAndSetState({
+      providerId: thirdPartyId,
+      authorisationURL,
+    })
   }
 
   return ThirdPartyEmailPassword.getAuthorisationURLWithQueryParamsAndSetState({

@@ -126,12 +126,9 @@ export const RegisterComponent = () => {
     return <EmailPasswordRegister />;
   }
 
-  if (AUTH_MODE === "thirdparty") {
+  // These do not need a separate register flow
+  if (AUTH_MODE === "thirdparty" || AUTH_MODE === "passwordless" || AUTH_MODE === "thirdpartypasswordless") {
     return <LoginComponent />;
-  }
-
-  if (AUTH_MODE === "passwordless") {
-    return <LoginComponent />
   }
 
   return <ThirdPartyEmailPasswordRegister />;
