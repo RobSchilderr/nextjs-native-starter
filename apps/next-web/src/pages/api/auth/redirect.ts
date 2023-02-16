@@ -5,8 +5,6 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import NextCors from 'nextjs-cors'
 import { APP_BUNDLE_URL } from 'lib/utils/config'
 
-// TODO: add deeplink.
-
 export default async function redirectAuthUrl(
   req: NextApiRequest & Request,
   res: NextApiResponse & Response,
@@ -16,8 +14,6 @@ export default async function redirectAuthUrl(
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     origin: '*',
   })
-  console.log('came here')
-  console.log(req.query)
 
   if (req.query?.token) {
     const redirectUrl = `${APP_BUNDLE_URL}://auth/reset-password?token=${req.query.token}&rid=thirdpartyemailpassword`
@@ -25,24 +21,22 @@ export default async function redirectAuthUrl(
   }
 
   const code = req.query?.code ?? null
-  console.log(code)
   if (req.query?.provider && code) {
-    let queryClone = {...req.query}
+    let queryClone = { ...req.query }
     // Remove the provider query since we use that for the path
-    delete queryClone.provider;
+    delete queryClone.provider
 
-    //Create a query string that consumes all current query params from the url 
-    let queryParts: string[] = [];
+    // Create a query string that consumes all current query params from the url
+    let queryParts: string[] = []
     Object.keys(queryClone).forEach(key => {
       // We need to URL encode the value of the query to make it URL friendly
-      queryParts.push(`${key}=${encodeURIComponent(queryClone[key] as string)}`);
+      queryParts.push(`${key}=${encodeURIComponent(queryClone[key] as string)}`)
     })
 
     // Combine all current query params in a single string
-    let queryString = queryParts.length === 0 ? "" : queryParts.join("&")
+    let queryString = queryParts.length === 0 ? '' : queryParts.join('&')
 
-    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}?${queryString}`
-    console.log(redirectUrl)
+    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}&${queryString}`
 
     return res.redirect(redirectUrl)
   }
