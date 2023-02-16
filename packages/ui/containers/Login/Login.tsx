@@ -9,7 +9,7 @@ import TextDivider from '../../components/TextDivider'
 import Link from 'next/link'
 import { AUTH_MODE } from 'lib/utils/config'
 
-export const Login = () => {
+const ThirdPartyEmailPasswordLogin = () => {
   const platform = usePlatform()
   return (
     <>
@@ -192,5 +192,5 @@ export const LoginComponent = () => {
     return <ThirdPartyLogin />
   }
 
-  return <Login />
+  return <ThirdPartyEmailPasswordLogin />
 }

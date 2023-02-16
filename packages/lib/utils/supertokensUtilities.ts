@@ -1,5 +1,6 @@
 import ThirdPartyEmailPassword from 'supertokens-web-js/recipe/thirdpartyemailpassword'
 import ThirdParty from "supertokens-web-js/recipe/thirdparty";
+import EmailPassword from "supertokens-web-js/recipe/emailpassword";
 import Session from "supertokens-web-js/recipe/session";
 import { AUTH_MODE, FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
 
@@ -13,8 +14,23 @@ type LoginWithEmailPasswordArgs = {
 export const signupWithEmailPassword = async ({
   email,
   password,
-}: LoginWithEmailPasswordArgs) =>
-  ThirdPartyEmailPassword.emailPasswordSignUp({
+}: LoginWithEmailPasswordArgs) => {
+  if (AUTH_MODE === "emailpassword") {
+    return EmailPassword.signIn({
+      formFields: [
+        {
+          id: 'email',
+          value: email,
+        },
+        {
+          id: 'password',
+          value: password,
+        },
+      ],
+    })
+  }
+
+  return ThirdPartyEmailPassword.emailPasswordSignUp({
     formFields: [
       {
         id: 'email',
@@ -25,13 +41,29 @@ export const signupWithEmailPassword = async ({
         value: password,
       },
     ],
-  })
+  });
+}
 
 export const signinWithEmailPassword = async ({
   email,
   password,
-}: LoginWithEmailPasswordArgs) =>
-  ThirdPartyEmailPassword.emailPasswordSignIn({
+}: LoginWithEmailPasswordArgs) => {
+  if (AUTH_MODE === "emailpassword") {
+    return EmailPassword.signIn({
+      formFields: [
+        {
+          id: 'email',
+          value: email,
+        },
+        {
+          id: 'password',
+          value: password,
+        },
+      ],
+    })
+  }
+
+  return ThirdPartyEmailPassword.emailPasswordSignIn({
     formFields: [
       {
         id: 'email',
@@ -43,6 +75,7 @@ export const signinWithEmailPassword = async ({
       },
     ],
   })
+}
 
 export const loginToThirdParty = async () => {
   if (AUTH_MODE === "thirdparty") {
@@ -54,25 +87,49 @@ export const loginToThirdParty = async () => {
 
 export const signout = async () => Session.signOut()
 
-export const resetPassword = async ({ password }: { password: string }) =>
-  ThirdPartyEmailPassword.submitNewPassword({
+export const resetPassword = async ({ password }: { password: string }) => {
+  if (AUTH_MODE === "emailpassword") {
+    return EmailPassword.submitNewPassword({
+      formFields: [
+        {
+          id: 'password',
+          value: password,
+        },
+      ],
+    })
+  }
+
+  return ThirdPartyEmailPassword.submitNewPassword({
     formFields: [
       {
         id: 'password',
         value: password,
       },
     ],
-  })
+  });
+}
 
-export const requestPassword = async ({ email }: { email: string }) =>
-  ThirdPartyEmailPassword.sendPasswordResetEmail({
+export const requestPassword = async ({ email }: { email: string }) => {
+  if (AUTH_MODE === "emailpassword") {
+    return EmailPassword.sendPasswordResetEmail({
+      formFields: [
+        {
+          id: 'email',
+          value: email,
+        },
+      ],
+    })
+  }
+
+  return ThirdPartyEmailPassword.sendPasswordResetEmail({
     formFields: [
       {
         id: 'email',
         value: email,
       },
     ],
-  })
+  });
+}
 
 const getThirdPartyURL = async (
   thirdPartyId: 'google' | 'apple',
