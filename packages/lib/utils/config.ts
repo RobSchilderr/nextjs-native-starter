@@ -1,10 +1,11 @@
-import { AuthMode } from "./common.types"
+import { AuthMode } from './common.types'
 
 export const PROD_URL_NO_HTTPS = 'next-capacitor-supertokens.app'
 
 export const IS_IN_PRODUCTION_ENVIRONMENT =
   process.env.NEXT_PUBLIC_APP_STAGE !== 'development'
 
+// if you want to test Apple login on your iPhone, set the API server to be your local IP address (so instead of http://localhost:3001, it would be  http://000.000.0.0:3001)
 export const FRONTEND_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'http://localhost:3001'
   : `https://${PROD_URL_NO_HTTPS}`
@@ -37,4 +38,4 @@ export const ALLOWED_CORS_URLS = [
   'http://localhost',
 ]
 
-export const AUTH_MODE: AuthMode = "thirdpartyemailpassword";
+export const AUTH_MODE: AuthMode = 'thirdpartyemailpassword'

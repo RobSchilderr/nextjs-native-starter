@@ -3,8 +3,8 @@
 
 import {
   AUTH_MODE,
+  FRONTEND_URL,
   IS_IN_PRODUCTION_ENVIRONMENT,
-  REDIRECT_URL,
 } from 'lib/utils/config'
 
 import Session from 'supertokens-node/recipe/session'
@@ -28,6 +28,21 @@ const supertokens: SuperTokensInfo = {
 
 const isInServerlessEnv: boolean = true
 
+const overrideAppleThirdParty = {
+  apis: (oI: any) => ({
+    ...oI,
+    async appleRedirectHandlerPOST(input: any) {
+      // redirect to frontend domain/auth/callback/apple/temp with query params code and state
+      // we do this because Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening.
+      const { code, state } = input
+      const redirectUrl = `${FRONTEND_URL}/auth/callback/apple/temp?code=${code}&state=${state}`
+      input.options.res.sendHTMLResponse(
+        `<html><head><script>window.location.replace("${redirectUrl}");</script></head></html>`,
+      )
+    },
+  }),
+}
+
 const framework = 'express'
 
 const sessionInit: RecipeListFunction = Session.init({
@@ -41,11 +56,6 @@ const sessionInit: RecipeListFunction = Session.init({
  * Remember to replace these with your own before deploying to production
  */
 const appleClientInfo = {
-  authorisationRedirect: {
-    params: {
-      redirect_uri: `${REDIRECT_URL}/api/auth/redirect?provider=apple`,
-    },
-  },
   clientId: '4398792-io.supertokens.example.service',
   clientSecret: {
     keyId: '7M48Y4RYDL',
@@ -72,6 +82,8 @@ const thirdPartyEmailPasswordConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdPartyEmailPassword.init({
+      override: overrideAppleThirdParty,
+
       providers: [
         ThirdPartyEmailPassword.Google(googleClientInfo),
         ThirdPartyEmailPassword.Apple(appleClientInfo),
@@ -110,6 +122,7 @@ const thirdPartyConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdParty.init({
+      override: overrideAppleThirdParty,
       signInAndUpFeature: {
         providers: [
           ThirdParty.Google(googleClientInfo),
@@ -117,6 +130,7 @@ const thirdPartyConfig = (): TypeInput => ({
         ],
       },
     }),
+
     sessionInit,
   ],
 })
@@ -128,6 +142,8 @@ const thirdPartyPasswordlessConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdPartyPasswordless.init({
+      override: overrideAppleThirdParty,
+
       contactMethod: 'EMAIL',
       flowType: 'USER_INPUT_CODE',
       providers: [
