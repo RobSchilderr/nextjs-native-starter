@@ -42,7 +42,7 @@ This turborepo has some additional tools already setup for you:
 - [React Hook Form](https://react-hook-form.com/) Performant, flexible and extensible forms with easy-to-use validation.
 - [Tailwind CSS](https://tailwindcss.com/) CSS framework - rapidly build modern websites without ever leaving your HTML.
 
-## Note on Server Side rendering
+### Note on Server Side rendering
 
 The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options.
 
