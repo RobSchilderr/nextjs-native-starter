@@ -63,6 +63,12 @@ yarn build
 yarn open:ios
 ```
 
+#### Changing authentication method
+
+By default `next-app` and `next-web` uses Social + Email password based login with SuperTokens to implement auth. To change this, set the value of `AUTH_MODE` in `packages/lib/utils/config.ts` to the type of auth you want to use.
+
+Refer to the comments in `packages/lib/utils/common.types.ts` to know what the different values of `AUTH_MODE` mean
+
 ### Instructions
 
 Please create an `env.local` file and add the following ENV variables for testing:
