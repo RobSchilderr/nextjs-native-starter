@@ -2,7 +2,8 @@ import { AuthMode } from "./common.types"
 
 export const PROD_URL_NO_HTTPS = 'next-capacitor-supertokens.app'
 
-export const IS_IN_PRODUCTION_ENVIRONMENT = false;
+export const IS_IN_PRODUCTION_ENVIRONMENT =
+  process.env.NEXT_PUBLIC_APP_STAGE !== 'development'
 
 export const FRONTEND_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'http://localhost:3001'
@@ -35,4 +36,4 @@ export const ALLOWED_CORS_URLS = [
   'http://localhost',
 ]
 
-export const AUTH_MODE: AuthMode = "thirdparty";
+export const AUTH_MODE: AuthMode = "passwordless";

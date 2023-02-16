@@ -1,6 +1,6 @@
 import React from 'react'
-import { Login } from 'ui/containers/Login/Login'
+import { LoginComponent } from 'ui/containers/Login/Login'
 
-const LoginPage = () => <Login />
+const LoginPage = () => <LoginComponent />
 
 export default LoginPage

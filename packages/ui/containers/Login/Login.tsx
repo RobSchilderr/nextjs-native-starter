@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import { EmailPasswordLoginForm, LoginForm } from 'ui/containers/Forms/LoginForm'
+import { EmailPasswordLoginForm, LoginForm, PasswordlessLoginForm } from 'ui/containers/Forms/LoginForm'
 import { AuthLayout } from 'ui/components/AuthLayout'
 import { AppleButton, GoogleButton } from '../../components/SocialButtons'
 import { onThirdPartyLogin } from 'lib/utils/supertokensUtilities'
@@ -141,15 +141,6 @@ const ThirdPartyLogin = () => {
             <h2 className="text-lg font-semibold text-gray-900">
               Sign in to your account
             </h2>
-            <p className="mt-2 text-sm text-gray-700">
-              Or{' '}
-              <Link
-                href="/register"
-                className="font-medium text-blue-600 hover:underline"
-              >
-                go to register{' '}
-              </Link>{' '}
-            </p>
           </div>
         </div>
 
@@ -183,6 +174,37 @@ const ThirdPartyLogin = () => {
   );
 }
 
+const PasswordlessLogin = () => {
+  return (
+    <>
+      <Head>
+        <title>Sign In - Supertokens</title>
+      </Head>
+      <AuthLayout>
+        <div className="flex flex-col">
+          <p className="mt-2 text-sm text-gray-700">
+            <Link
+              href="/"
+              className="font-medium text-blue-600 hover:underline"
+            >
+              Go back to home{' '}
+            </Link>{' '}
+          </p>
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold text-gray-900">
+              Sign in to your account
+            </h2>
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <PasswordlessLoginForm />
+        </div>
+      </AuthLayout>
+    </>
+  );
+}
+
 export const LoginComponent = () => {
   if (AUTH_MODE === "emailpassword") {
     return <EmailPasswordLogin />
@@ -190,6 +212,10 @@ export const LoginComponent = () => {
 
   if (AUTH_MODE === "thirdparty") {
     return <ThirdPartyLogin />
+  }
+
+  if (AUTH_MODE === "passwordless") {
+    return <PasswordlessLogin />
   }
 
   return <ThirdPartyEmailPasswordLogin />
