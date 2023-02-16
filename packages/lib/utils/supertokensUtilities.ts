@@ -1,5 +1,7 @@
 import ThirdPartyEmailPassword from 'supertokens-web-js/recipe/thirdpartyemailpassword'
-import { FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
+import ThirdParty from "supertokens-web-js/recipe/thirdparty";
+import Session from "supertokens-web-js/recipe/session";
+import { AUTH_MODE, FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
 
 import { Platform } from './common.types'
 
@@ -42,10 +44,15 @@ export const signinWithEmailPassword = async ({
     ],
   })
 
-export const loginToThirdParty = async () =>
-  ThirdPartyEmailPassword.thirdPartySignInAndUp()
+export const loginToThirdParty = async () => {
+  if (AUTH_MODE === "thirdparty") {
+    return ThirdParty.signInAndUp();
+  }
 
-export const signout = async () => ThirdPartyEmailPassword.signOut()
+  return ThirdPartyEmailPassword.thirdPartySignInAndUp();
+}
+
+export const signout = async () => Session.signOut()
 
 export const resetPassword = async ({ password }: { password: string }) =>
   ThirdPartyEmailPassword.submitNewPassword({
@@ -70,11 +77,19 @@ export const requestPassword = async ({ email }: { email: string }) =>
 const getThirdPartyURL = async (
   thirdPartyId: 'google' | 'apple',
   authorisationURL: string,
-) =>
-  ThirdPartyEmailPassword.getAuthorisationURLWithQueryParamsAndSetState({
+) => {
+  if (AUTH_MODE === "thirdparty") {
+    return ThirdParty.getAuthorisationURLWithQueryParamsAndSetState({
+      providerId: thirdPartyId,
+      authorisationURL,
+    });
+  }
+
+  return ThirdPartyEmailPassword.getAuthorisationURLWithQueryParamsAndSetState({
     providerId: thirdPartyId,
     authorisationURL,
-  })
+  });
+}
 
 export const onThirdPartyLogin = async ({
   provider,
