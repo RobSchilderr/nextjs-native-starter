@@ -10,6 +10,7 @@ import { doesSessionExist } from 'supertokens-web-js/recipe/session'
 import EmailPassword from 'supertokens-web-js/recipe/emailpassword';
 import Passwordless, {} from "supertokens-web-js/recipe/passwordless";
 import { useState } from 'react'
+import { consumePasswordlessCode, createPasswordlessCode } from 'lib/utils/supertokensUtilities'
 
 export type LoginFormVariables = {
   email: string
@@ -249,9 +250,7 @@ export const PasswordlessLoginForm = () => {
     setIsGettingCode(true);
     const emailLowerCase = email.toLocaleLowerCase().trim()
     
-    const response = await Passwordless.createCode({
-      email: emailLowerCase,
-    });
+    const response = await createPasswordlessCode(emailLowerCase);
 
     setCodeResponse({
       deviceId: response.deviceId,
@@ -265,9 +264,7 @@ export const PasswordlessLoginForm = () => {
       return;
     }
 
-    const response = await Passwordless.consumeCode({
-      userInputCode: password,
-    })
+    const response = await consumePasswordlessCode(password)
 
     const validSession = await doesSessionExist()
     console.log({ validSession }, 'valid')
