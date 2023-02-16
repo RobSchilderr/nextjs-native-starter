@@ -7,6 +7,7 @@ import { Button } from 'ui/components/Button'
 // import { SavePassword } from 'capacitor-ios-autofill-save-password'
 import { emailPasswordSignIn } from 'supertokens-web-js/recipe/thirdpartyemailpassword'
 import { doesSessionExist } from 'supertokens-web-js/recipe/session'
+import EmailPassword from 'supertokens-web-js/recipe/emailpassword';
 
 export type LoginFormVariables = {
   email: string
@@ -83,6 +84,95 @@ export const LoginForm = ({ redirectUri }: { redirectUri?: string }) => {
     //     password: password,
     //   })
     // }
+    router.push('/login-result')
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col space-y-6">
+        <InputField
+          id="email"
+          type="text"
+          htmlForLabel="email"
+          autoComplete="email"
+          error={errors?.email?.message}
+          label="Email"
+          required
+          name="email"
+          register={register('email')}
+        />
+        <div className="space-y-2">
+          <InputField
+            id="password"
+            type="password"
+            htmlForLabel="password"
+            error={errors?.password?.message}
+            label="Password"
+            autoComplete="current-password"
+            name="password"
+            required
+            register={register('password')}
+          />
+          {/* <Link href="/forgot-password">
+            <a className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+              Forgot password?
+            </a>
+          </Link> */}
+        </div>
+      </div>
+
+      <div>
+        <Button type="submit" loading={isSubmitting} className="w-full mt-6">
+          Log in
+        </Button>
+      </div>
+    </form>
+  )
+}
+
+export const EmailPasswordLoginForm = () => {
+  const router = useRouter()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setError,
+  } = useForm<LoginFormVariables>({
+    mode: 'onBlur',
+  })
+
+  const onSubmit = async ({ email, password }: LoginFormVariables) => {
+    const emailLowerCase = email.toLocaleLowerCase().trim()
+
+    const response = await EmailPassword.signIn({
+      formFields: [
+        {
+          id: 'email',
+          value: emailLowerCase,
+        },
+        {
+          id: 'password',
+          value: password,
+        },
+      ],
+    })
+
+    const validSession = await doesSessionExist()
+    console.log({ validSession }, 'valid')
+    console.log({ response })
+
+    if (!response || response.status !== 'OK') {
+      setError('password', {
+        message: 'Gebruikersnaam of wachtwoord is incorrect',
+      })
+      setError('email', {
+        message: 'Gebruikersnaam of wachtwoord is incorrect',
+      })
+
+      return
+    }
+
     router.push('/login-result')
   }
 
