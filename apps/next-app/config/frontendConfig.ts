@@ -17,6 +17,7 @@ const sessionInit = Session.init({
       window.location.href = '/login'
     }
   },
+  tokenTransferMethod: "header",
 });
 
 const thirdPartyEmailPasswordConfig = (): SuperTokensConfig => ({
