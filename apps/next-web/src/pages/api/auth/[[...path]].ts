@@ -5,9 +5,9 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { Request, Response } from 'express'
 import { authCors } from 'lib/utils/cors'
 import supertokens from 'supertokens-node'
-import { backendConfig } from '../../../../config/backendConfig'
+import { getBackendConfig } from '../../../../config/backendConfig'
 
-supertokens.init(backendConfig())
+supertokens.init(getBackendConfig())
 
 export default async function superTokens(
   req: NextApiRequest & Request,

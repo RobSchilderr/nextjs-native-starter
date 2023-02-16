@@ -1,3 +1,5 @@
+import { AuthMode } from "./common.types"
+
 export const PROD_URL_NO_HTTPS = 'next-capacitor-supertokens.app'
 
 export const IS_IN_PRODUCTION_ENVIRONMENT =
@@ -33,3 +35,5 @@ export const ALLOWED_CORS_URLS = [
   'https://capacitor-supertokens-nextjs-turborepo-next-web-one.vercel.app',
   'http://localhost',
 ]
+
+export const AUTH_MODE: AuthMode = "thirdpartyemailpassword";
