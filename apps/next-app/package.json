@@ -37,11 +37,11 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.2",
     "server": "*",
-    "supertokens-node": "^12.0.0",
-    "supertokens-web-js": "^0.3.0",
-    "ui": "*",
+    "supertokens-node": "^13.0.2",
+    "supertokens-web-js": "^0.5.0",
     "tailwindcss": "^3.0.0",
     "tsconfig": "*",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "ui": "*"
   }
 }

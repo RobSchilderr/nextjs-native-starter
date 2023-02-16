@@ -3,9 +3,9 @@ import { superTokensNextWrapper } from 'supertokens-node/nextjs'
 import { verifySession } from 'supertokens-node/recipe/session/framework/express'
 import supertokens from 'supertokens-node'
 import { authCors } from 'lib/utils/cors'
-import { backendConfig } from '../../../config/backendConfig'
+import { getBackendConfig } from '../../../config/backendConfig'
 
-supertokens.init(backendConfig())
+supertokens.init(getBackendConfig())
 
 export default async function user(req: any, res: any) {
   await authCors(req, res)
