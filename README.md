@@ -122,7 +122,7 @@ Preferable in mobile environments, since they can have buggy and/or unreliable c
 
 Possible solution if you want extra security: use Supertokens anyway with cookies on Capacitor with the custom cookie handler that is in this repository. This works, but requires extra effort, you need to know what you're doing.
 
-> Do note that browsers have built in defense mechanisms now (CORS for example) that prevent XSS attacks. Supertokens also has anti csrf tokens that can help but in general as long as you use short lived sessions (which we enable with our rotating refresh tokens) you should be fine. Even if an attack happens it would be minimised to the duration of your access token lifetime. Moreover Supertokens has theft detection mechanisms in place that would log all sessions for that user out.
+> Do note that browsers have built in defense mechanisms now (CORS for example) that prevent XSS attacks. Supertokens also has anti csrf tokens that can help but in general as long as you use short lived sessions (which Supertokens enables with their rotating refresh tokens) you should be fine. Even if an attack happens it would be minimised to the duration of your access token lifetime. Moreover Supertokens has theft detection mechanisms in place that would log all sessions for that user out.
 
 
 #### Caveat 2: Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening
