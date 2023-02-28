@@ -4,6 +4,15 @@ This monorepo provides a starter project for building a web application with Nex
 
 Live example: https://www.next-capacitor-supertokens.app/
 
+## How to use
+
+npx create-next-app --example with-supertokens with-supertokens-app
+
+
+
+<img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
+
+
 ---
 
 ## Differences from related repositories:
