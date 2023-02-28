@@ -344,20 +344,20 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@capacitor/android@^4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-4.6.1.tgz#50e437934bf535eb839266df4d60204aace79561"
-  integrity sha512-Hnh1tmUr1SP67U6D6ry5I5BEBSN/1nkBAIjQIqf5tF82WNxKbpbC6GfkHE4hMJZinRTrCf36LkrdP8srh7SxoA==
+"@capacitor/android@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-4.7.0.tgz#00c909d800a9aa9d7e337ee5ccdfc2be2741ca20"
+  integrity sha512-hyglxuzY2mktY0ST+6Y9IpZjSKxBLsG2xtnKWsIqDvXKKBjy5xRjHJMueP4P3u5z+bpLrdY6YlyR9JMIV/Pwcg==
 
 "@capacitor/app@^4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-4.1.1.tgz#47329e19ecc080bc2934be86566a7673e0f94e5c"
   integrity sha512-SJcJA1rhFQyeH6eLfUEbdKkHzAwzahJNVPNXmU88fdmXpMgM2dJGzZj1vrm6e21aQq+Z4aBVLJ2RCdj92zD7wg==
 
-"@capacitor/cli@^4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-4.6.1.tgz#6fd109db9e96231bee638b0aab7be7c709666bf0"
-  integrity sha512-iFMK83B67RXEQyWi1kOzQmRdCFc/pPD924mjAXG7yFLVyMvVRGAwwf8LzWFzHyQDoKK+auPMHycVfzm9T6Iyyg==
+"@capacitor/cli@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-4.7.0.tgz#eefb5e33b9a3706a042c24af9d2e8dd353751c93"
+  integrity sha512-yMbHpm3CegWcNoXp743W2raaUBm0EVnl61y14O8LO/IfUMSXGWOwrWMhUY4cXkkqzLbb6vv2ZIvO8ZzvUGml3w==
   dependencies:
     "@ionic/cli-framework-output" "^2.2.5"
     "@ionic/utils-fs" "^3.1.6"
@@ -377,17 +377,17 @@
     tslib "^2.4.0"
     xml2js "^0.4.23"
 
-"@capacitor/core@^4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-4.6.1.tgz#55428b1b2b8d8bb2839fff42f8dfcdbde8d17fb9"
-  integrity sha512-7A2IV9E8umgu9u0fChUTjQJq+Jp25GJZMmWxoQN/nVx/1rcpFJ4m1xo3NPBoIRs+aV7FR+BM17mPrnkKlA8N2g==
+"@capacitor/core@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-4.7.0.tgz#da901af59ded04e695c17598cf646e1ce026e2ce"
+  integrity sha512-LkjHnIoufojVjCZXogEbotN2utXxfo6TvpSgWaYndRPm/SrPFCWM8bPf/WNd8MozOkPFgcxlZnZlGHFGTeydWQ==
   dependencies:
     tslib "^2.1.0"
 
-"@capacitor/ios@^4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-4.6.1.tgz#e6c03bbf1c9bce116bfbc71cb231afbb1bd5b7fc"
-  integrity sha512-kH1nPG2jCk7w6ASf2VX+tIxHoc2Z/c5+7d89yvtiKmEZXoPLuVyAv/Yx4PhJP2r7KSyl5S2gZZkzQrMdAjDVKg==
+"@capacitor/ios@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-4.7.0.tgz#ddea33ff3319555d92856f080eabed7d93b90598"
+  integrity sha512-GeuPXs4hoyQ5bQaSdBxLIGEd+TvO7IAQe00xe3tpEYsP3987SpkNUnhdW5ikUewFJmOtZIp+A8kCgWOJUmKbUg==
 
 "@capacitor/preferences@^4.0.2":
   version "4.0.2"
@@ -7031,10 +7031,10 @@ supertokens-js-override@0.0.4, supertokens-js-override@^0.0.4:
   resolved "https://registry.yarnpkg.com/supertokens-js-override/-/supertokens-js-override-0.0.4.tgz#9af583fbc5e1f0195dbb358c4fcf75f44c76dc09"
   integrity sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==
 
-supertokens-node@^13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-13.0.2.tgz#3eee9319d5975b5b5291b968df49a3b05eb1dbcb"
-  integrity sha512-OK6C+2WnUcKhJlsbLd0xJjt3wSfCH/QDV7RSaDgU1nZD+oejXgKylgeedfmVQ882VOD8IFhAhKVdhNOI14eXyQ==
+supertokens-node@13.1.2:
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-13.1.2.tgz#60967b4505928777f5c6fbb0ac848caaaeea4fcf"
+  integrity sha512-GPq/So8fznl+EIugOS4qGp89ugfQL5ZqwmB+KjzC49TCooqmcQh5L8uPCw2svnqIMIh5R2so100RtuGhGrTalg==
   dependencies:
     axios "0.21.4"
     body-parser "1.20.1"
