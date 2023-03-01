@@ -82,24 +82,8 @@ This turborepo has some additional tools already setup for you:
 
 ### Note on Server Side rendering
 
-The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options.
+The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options. In the future it might be possible to use SSR with Capacitor, but for now this is out of scope.
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-yarn dev
-```
-
-To open the iOS app (make sure you have xCode setup):
-
-```
-cd packages
-cd next-app
-yarn build
-yarn open:ios
-```
 
 #### Changing authentication method
 
