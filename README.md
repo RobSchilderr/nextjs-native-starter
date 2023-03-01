@@ -34,6 +34,26 @@ Live example: https://www.next-capacitor-supertokens.app/
 
 ---
 
+## Benefits of using this starter project
+
+This starter project provides several benefits to developers looking to build a web application with authentication and session management, as well as a mobile application using Capacitor. Some of the benefits include:
+
+- Faster development: At least 85% of your web/app code will be shared. Also, I provide a pre-configured development environment with several packages and tools already set up.
+
+- Unified UI: By using the same React UI for both the web and mobile application, you only have to design that component once with TailwindCSS and use it everywhere. This saves you tons of time and also gives you a consistent UI accross your applications. Have your UI for desktop, tablet and phone in only one file.
+
+- Can use any web/js library: No need to try to reinvent the wheel. 
+
+- No big difference in performance - If you're a skilled React developer, you can create a high-performance Capacitor app that can match or even exceed the performance of a React Native app. Capacitor provides access to native device features through standard web APIs, so you can leverage your existing web development skills and knowledge to build cross-platform mobile apps. Webview based apps on modern devices are quite performant nowadays.
+
+- Security: By using Supertokens for authentication and session management, you can be confident that their users' data is secure and that common security issues like XSS and CSRF attacks are mitigated. 
+
+- More developers: a bigger pool of developers to collaborate with than when using Flutter or React Native. React is now the biggest framework on the planet and is [not dying soon](https://tkdodo.eu/blog/why-react-isnt-dying). 
+
+- Scalability: This starter project is built on top of Turborepo, which allows developers to easily add new packages and applications to the monorepo as their project grows and scales.
+
+---
+
 ## What's inside?
 
 This turborepo uses Yarn as a package manager. It includes the following packages/apps:
