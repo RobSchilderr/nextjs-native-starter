@@ -15,7 +15,7 @@ Live example: https://www.next-capacitor-supertokens.app/
 
 7. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides). 
 
-8. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt), which makes is super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for a more broad role-based access control and an easy to use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. If anyone is interested in how to set this up, let me know on Discord and I might make another example repository.
+8. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt), which makes is super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for a more broad role-based access control and an easy to use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura (+Heroku/Render), you'd have a very competing alternative to Supabase or Firebase without being locked in. If anyone is interested in how to set this up, let me know on Discord and I might make another example repository.
 
 
 
