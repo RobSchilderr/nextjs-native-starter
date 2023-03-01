@@ -8,7 +8,7 @@ Live example: https://www.next-capacitor-supertokens.app/
 
 1. Run: `npx create-supertokens-app@latest --manager=yarn`
 2. Pick a name for your app
-3. Choose 'capacitor'
+3. Choose 'Capacitor'
 4. Open the folder and `yarn install` and then `yarn dev`
 5. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`
 6. for Android:  go to the `next-app` folder and run `yarn build` and `yarn open:android`
