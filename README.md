@@ -44,7 +44,7 @@ This starter project provides several benefits to developers looking to build a 
 
 - Can use any web/js library: No need to try to reinvent the wheel. 
 
-- No big difference in performance - If you're a skilled React developer, you can create a high-performance Capacitor app that can match or even exceed the performance of a React Native app. Capacitor provides access to native device features through standard web APIs, so you can leverage your existing web development skills and knowledge to build cross-platform mobile apps. Webview based apps on modern devices are quite performant nowadays.
+- No big difference in performance: If you're a skilled React developer, you can create a high-performance Capacitor app that can match or even exceed the performance of a React Native app. Capacitor provides access to native device features through standard web APIs, so you can leverage your existing web development skills and knowledge to build cross-platform mobile apps. Webview based apps on modern devices are quite performant nowadays.
 
 - Security: By using Supertokens for authentication and session management, you can be confident that their users' data is secure and that common security issues like XSS and CSRF attacks are mitigated. 
 
