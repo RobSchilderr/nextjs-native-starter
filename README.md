@@ -13,7 +13,10 @@ Live example: https://www.next-capacitor-supertokens.app/
 5. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`
 6. for Android:  go to the `next-app` folder and run `yarn build` and `yarn open:android`
 
-7. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides).
+7. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides). 
+
+8. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt), which makes is super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for a more broad role-based access control and an easy to use API. In this [youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision.
+
 
 
 <img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
