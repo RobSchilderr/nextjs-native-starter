@@ -4,6 +4,45 @@ This monorepo provides a starter project for building a web application with Nex
 
 Live example: https://www.next-capacitor-supertokens.app/
 
+## How to use
+
+1. Run: `npx create-supertokens-app@latest --manager=yarn`
+2. Pick a name for your app
+3. Choose 'Capacitor'
+4. Make sure to have `yarn` and `npm` installed on your computer: If you don't have NPM, install NPM first. Then when you have npm, make sure to install `yarn` with the following command: `npm install --global yarn`
+5. Type `cd <folder>` to go to the folder and then type `yarn install` and then `yarn dev`
+6. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`
+7. for Android:  go to the `next-app` folder and run `yarn build` and `yarn open:android`
+
+8. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides). 
+
+9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt), which makes is super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with Heroku/Render/Railway, you'd have a very compelling alternative to Supabase or Firebase without being locked in. If anyone is interested in learning how to set this up, let me know on Discord, and I might create another example repository.
+
+
+
+<img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
+
+
+---
+
+## Benefits of using this starter project
+
+This starter project provides several benefits to developers looking to build a web application with authentication and session management, as well as a mobile application using Capacitor. Some of the benefits include:
+
+- Faster development: At least 85% of your web/app code will be shared. Also, I provide a pre-configured development environment with several packages and tools already set up.
+
+- Unified UI: By using the same React UI for both the web and mobile application, you only have to design that component once with TailwindCSS and use it everywhere. This saves you tons of time and also gives you a consistent UI accross your applications. Have your UI for desktop, tablet and phone in only one file.
+
+- Can use any web/js library: No need to try to reinvent the wheel. 
+
+- No big difference in performance: If you're a skilled React developer, you can create a high-performance Capacitor app that can match or even exceed the performance of a React Native app. Capacitor provides access to native device features through standard web APIs, so you can leverage your existing web development skills and knowledge to build cross-platform mobile apps. Webview based apps on modern devices are quite performant nowadays.
+
+- Security: By using Supertokens for authentication and session management, you can be confident that your users' data is secure and that common security issues like XSS and CSRF attacks are mitigated. 
+
+- More developers: a bigger pool of developers to collaborate with than when using Flutter or React Native. React is now the biggest framework on the planet and is [not dying soon](https://tkdodo.eu/blog/why-react-isnt-dying). 
+
+- Scalability: This starter project is built on top of Turborepo, which allows developers to easily add new packages and applications to the monorepo as their project grows and scales.
+
 ---
 
 ## Differences from related repositories:
@@ -44,24 +83,8 @@ This turborepo has some additional tools already setup for you:
 
 ### Note on Server Side rendering
 
-The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options.
+The `next-app` in this starter project relies on the API routes of the `next-web` for utilizing Supertokens. However, because the `next-app` must be able to run purely client-side and use `Next.js's Export` command, it does not support Server Side Rendering. This means that certain features and functionality are not available in the next-app, including image optimization, internationalized routing, API routes, rewrites, redirects, headers, middleware, incremental static regeneration, and the fallback and getServerSideProps options. In the future it might be possible to use SSR with Capacitor, but for now this is out of scope.
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-yarn dev
-```
-
-To open the iOS app (make sure you have xCode setup):
-
-```
-cd packages
-cd next-app
-yarn build
-yarn open:ios
-```
 
 #### Changing authentication method
 
