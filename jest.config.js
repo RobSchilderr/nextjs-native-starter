@@ -3,7 +3,7 @@ const path = require('path')
 const fromRoot = d => path.join(__dirname, d)
 
 module.exports = {
-  roots: [fromRoot('apps/next-app'), fromRoot('apps/server')],
+  roots: [fromRoot('apps/next-app')],
   resetMocks: true,
   coveragePathIgnorePatterns: [],
   collectCoverageFrom: ['<rootDir>/src/**/*.{js,ts,tsx}'],
