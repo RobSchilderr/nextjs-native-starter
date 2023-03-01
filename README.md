@@ -9,13 +9,14 @@ Live example: https://www.next-capacitor-supertokens.app/
 1. Run: `npx create-supertokens-app@latest --manager=yarn`
 2. Pick a name for your app
 3. Choose 'Capacitor'
-4. Open the folder and `yarn install` and then `yarn dev`
-5. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`
-6. for Android:  go to the `next-app` folder and run `yarn build` and `yarn open:android`
+4. Make sure to have `yarn` and `npm` installed on your computer: when you have npm: `npm install --global yarn`
+5. Open the folder and `yarn install` and then `yarn dev`
+6. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`
+7. for Android:  go to the `next-app` folder and run `yarn build` and `yarn open:android`
 
-7. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides). 
+8. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides). 
 
-8. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt), which makes is super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with Heroku/Render/Railway, you'd have a very compelling alternative to Supabase or Firebase without being locked in. If anyone is interested in learning how to set this up, let me know on Discord, and I might create another example repository.
+9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt), which makes is super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with Heroku/Render/Railway, you'd have a very compelling alternative to Supabase or Firebase without being locked in. If anyone is interested in learning how to set this up, let me know on Discord, and I might create another example repository.
 
 
 
