@@ -7,10 +7,17 @@ import { Button } from 'ui/components/Button'
 // import { SavePassword } from 'capacitor-ios-autofill-save-password'
 import { emailPasswordSignIn } from 'supertokens-web-js/recipe/thirdpartyemailpassword'
 import { doesSessionExist } from 'supertokens-web-js/recipe/session'
-import EmailPassword from 'supertokens-web-js/recipe/emailpassword';
-import Passwordless, {} from "supertokens-web-js/recipe/passwordless";
+import EmailPassword from 'supertokens-web-js/recipe/emailpassword'
 import { useState } from 'react'
-import { consumePasswordlessCode, createPasswordlessCode } from 'lib/utils/supertokensUtilities'
+import {
+  consumePasswordlessCode,
+  createPasswordlessCode,
+} from 'lib/utils/supertokensUtilities'
+import { Spinner } from '../../components/ButtonSpinner'
+
+export function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export type LoginFormVariables = {
   email: string
@@ -222,13 +229,23 @@ export const EmailPasswordLoginForm = () => {
   )
 }
 
-export const PasswordlessLoginForm = () => {
+export const PasswordlessLoginForm = ({
+  hasRequestedCode,
+  setHasRequestedCode,
+  isGettingCode,
+  setIsGettingCode,
+}: {
+  hasRequestedCode: boolean
+  setHasRequestedCode: (value: boolean) => void
+  isGettingCode: boolean
+  setIsGettingCode: (value: boolean) => void
+}) => {
   const router = useRouter()
-  const [isGettingCode, setIsGettingCode] = useState<boolean>(false);
+
   const [codeResponse, setCodeResponse] = useState<{
-    deviceId: string;
-    preAuthSessionId: string;
-  }>();
+    deviceId: string
+    preAuthSessionId: string
+  }>()
 
   const {
     register,
@@ -236,32 +253,34 @@ export const PasswordlessLoginForm = () => {
     formState: { errors, isSubmitting },
     setError,
     getValues,
+    watch,
   } = useForm<LoginFormVariables>({
     mode: 'onBlur',
   })
 
-  const getPasswordlessCode = async ({email}: LoginFormVariables) => {
-    if (email === undefined || email === "") {
-      return setError("email", {
-        message: "Please enter an email",
+  const getPasswordlessCode = async ({ email }: LoginFormVariables) => {
+    if (email === undefined || email === '') {
+      return setError('email', {
+        message: 'Please enter an email',
       })
     }
 
-    setIsGettingCode(true);
+    setHasRequestedCode(true)
+    setIsGettingCode(true)
     const emailLowerCase = email.toLocaleLowerCase().trim()
-    
-    const response = await createPasswordlessCode(emailLowerCase);
+
+    const response = await createPasswordlessCode(emailLowerCase)
 
     setCodeResponse({
       deviceId: response.deviceId,
       preAuthSessionId: response.preAuthSessionId,
-    });
-    setIsGettingCode(false);
+    })
+    setIsGettingCode(false)
   }
 
   const onSubmit = async ({ password }: LoginFormVariables) => {
     if (codeResponse === undefined) {
-      return;
+      return
     }
 
     const response = await consumePasswordlessCode(password)
@@ -270,30 +289,32 @@ export const PasswordlessLoginForm = () => {
     console.log({ validSession }, 'valid')
     console.log({ response })
 
-    if (response.status === "RESTART_FLOW_ERROR") {
-      return window.location.reload();
+    if (response.status === 'RESTART_FLOW_ERROR') {
+      return window.location.reload()
     }
 
-    if (response.status === "EXPIRED_USER_INPUT_CODE_ERROR") {
-      return setError("password", {
-        message: "Code expired",
-      });
+    if (response.status === 'EXPIRED_USER_INPUT_CODE_ERROR') {
+      return setError('password', {
+        message: 'Code expired',
+      })
     }
 
-    if (response.status === "INCORRECT_USER_INPUT_CODE_ERROR") {
-      return setError("password", {
-        message: "Incorrect code",
-      });
+    if (response.status === 'INCORRECT_USER_INPUT_CODE_ERROR') {
+      return setError('password', {
+        message: 'Incorrect code',
+      })
     }
 
     router.push('/login-result')
   }
 
+  const hasEnteredEmail = watch('email') !== undefined && watch('email') !== ''
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col space-y-6">
-        <div className="flex flex-row space-x-6">
-          <InputField
+      {!hasRequestedCode && (
+        <div className="flex flex-col space-y-6">
+          {/* <InputField
             id="email"
             type="text"
             htmlForLabel="email"
@@ -303,36 +324,66 @@ export const PasswordlessLoginForm = () => {
             required
             name="email"
             register={register('email')}
+          /> */}
+          <input
+            type="text"
+            {...register('email')}
+            autoComplete="email"
+            placeholder="Email"
+            className="px-4 py-3 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
           />
+          <button
+            type="button"
+            onClick={handleSubmit(getPasswordlessCode)}
+            className={classNames(
+              !hasEnteredEmail && !isGettingCode
+                ? 'opacity-30 cursor-not-allowed'
+                : '',
+              'inline-flex items-center rounded-full justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50',
+            )}
+          >
+            {isGettingCode ? (
+              <div className="absolute flex">
+                <Spinner size={'4'} />
+              </div>
+            ) : null}
 
-          <Button type='button' loading={isGettingCode} onClick={handleSubmit(getPasswordlessCode)}>
-            Get Code
-          </Button>
+            <span className="ml-2 font-medium text-xl">Get code</span>
+          </button>
         </div>
-        <div className="space-y-2">
-          <InputField
-            id="password"
+      )}
+      {hasRequestedCode && (
+        <div className="flex flex-col space-y-6">
+          <input
             type="number"
-            htmlForLabel="password"
-            error={errors?.password?.message}
-            label="Code"
-            name="password"
+            {...register('password')}
+            placeholder="Code"
             required
-            register={register('password')}
+            className="px-4 py-4 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
           />
-          {/* <Link href="/forgot-password">
-            <a className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-              Forgot password?
-            </a>
-          </Link> */}
-        </div>
-      </div>
 
-      <div>
-        <Button type="submit" loading={isSubmitting} className="w-full mt-6">
-          Log in
-        </Button>
-      </div>
+          <button
+            type="submit"
+            className="inline-flex items-center rounded-full justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50"
+          >
+            {isSubmitting ? (
+              <div className="absolute flex">
+                <Spinner size={'4'} />
+              </div>
+            ) : null}
+            <span className="ml-2 font-medium text-xl">Log in</span>
+          </button>
+
+          {/*       
+          <ButtonText
+            type="button"
+            onClick={onChangeEmail}
+            className="mt-2 text-sm text-center text-gray-600 hover:text-gray-900"
+          >
+            Wijzig email
+          </ButtonText> */}
+        </div>
+      )}
     </form>
   )
 }

@@ -11,6 +11,7 @@ import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
 import { getFrontendConfig } from '../../config/frontendConfig'
 
+
 if (typeof window !== 'undefined') {
   SuperTokens.init({
     ...getFrontendConfig(),
@@ -59,12 +60,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <div className="min-h-screen mt-30">
-      <Component
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...pageProps}
-      />
-    </div>
+    <main className={`${bebasNeue.variable} font-display mt-28`}>
+      <div className={`${workSans.variable} font-sans`}>
+        <Component {...pageProps} />
+      </div>
+    </main>
   )
 }
 

@@ -38,4 +38,4 @@ export const ALLOWED_CORS_URLS = [
   'http://localhost',
 ]
 
-export const AUTH_MODE: AuthMode = 'thirdpartyemailpassword'
+export const AUTH_MODE: AuthMode = 'thirdpartypasswordless'

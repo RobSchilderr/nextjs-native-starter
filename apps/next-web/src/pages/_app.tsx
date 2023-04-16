@@ -6,6 +6,18 @@ import { AppProps } from 'next/app'
 import '../../styles/globals.css'
 import SuperTokens from 'supertokens-web-js'
 import { getFrontendConfig } from 'next-web/config/frontendConfig'
+import { Bebas_Neue, Work_Sans } from '@next/font/google'
+
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  variable: '--font-work-sans',
+})
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  variable: '--font-bebas-neue',
+  weight: ['400'],
+})
 
 if (typeof window !== 'undefined') {
   SuperTokens.init({
@@ -16,7 +28,13 @@ if (typeof window !== 'undefined') {
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <Component {...pageProps} />
+  <>
+    <main className={`${bebasNeue.variable} font-display`}>
+      <div className={`${workSans.variable} font-sans`}>
+        <Component {...pageProps} />
+      </div>
+    </main>
+  </>
 )
 
 export default MyApp

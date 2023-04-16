@@ -1,7 +1,10 @@
 module.exports = {
   content: ['./**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      sans: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
+    },
   },
+
   plugins: [],
 }

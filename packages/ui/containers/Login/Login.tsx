@@ -1,6 +1,10 @@
 import Head from 'next/head'
-import React from 'react'
-import { EmailPasswordLoginForm, LoginForm, PasswordlessLoginForm } from 'ui/containers/Forms/LoginForm'
+import React, { useState } from 'react'
+import {
+  EmailPasswordLoginForm,
+  LoginForm,
+  PasswordlessLoginForm,
+} from 'ui/containers/Forms/LoginForm'
 import { AuthLayout } from 'ui/components/AuthLayout'
 import { AppleButton, GoogleButton } from '../../components/SocialButtons'
 import { onThirdPartyLogin } from 'lib/utils/supertokensUtilities'
@@ -8,6 +12,7 @@ import { usePlatform } from 'lib/utils/capacitor'
 import TextDivider from '../../components/TextDivider'
 import Link from 'next/link'
 import { AUTH_MODE } from 'lib/utils/config'
+import { Montserrat, Inter, Roboto_Mono } from '@next/font/google'
 
 const ThirdPartyEmailPasswordLogin = () => {
   const platform = usePlatform()
@@ -17,15 +22,16 @@ const ThirdPartyEmailPasswordLogin = () => {
         <title>Sign In - Supertokens</title>
       </Head>
       <AuthLayout>
-        <div className="flex flex-col">
+        <div className="flex flex-col px-4 sm:[x-">
           <p className="mt-2 text-sm text-gray-700">
             <Link
               href="/"
               className="font-medium text-blue-600 hover:underline"
             >
-              Go back to home{' '}
+              Go back to homee{' '}
             </Link>{' '}
           </p>
+          {/* make some nice title with Tailwind here in the middle of the screen */}
           <div className="mt-8">
             <h2 className="text-lg font-semibold text-gray-900">
               Sign in to your account
@@ -67,7 +73,7 @@ const ThirdPartyEmailPasswordLogin = () => {
             </div>
 
             <div className="mt-6">
-              <TextDivider text="Or login with" />
+              <TextDivider text="Or" />
             </div>
           </div>
         </div>
@@ -116,7 +122,7 @@ const EmailPasswordLogin = () => {
         </div>
       </AuthLayout>
     </>
-  );
+  )
 }
 
 const ThirdPartyLogin = () => {
@@ -171,7 +177,7 @@ const ThirdPartyLogin = () => {
         </div>
       </AuthLayout>
     </>
-  );
+  )
 }
 
 const PasswordlessLogin = () => {
@@ -202,11 +208,18 @@ const PasswordlessLogin = () => {
         </div>
       </AuthLayout>
     </>
-  );
+  )
 }
 
 const ThirdPartyPasswordlessLogin = () => {
   const platform = usePlatform()
+  const [hasRequestedCode, setHasRequestedCode] = useState(false)
+  const [isGettingCode, setIsGettingCode] = useState<boolean>(false)
+
+  const onChangeEmail = () => {
+    setHasRequestedCode(false)
+    setIsGettingCode(false)
+  }
 
   return (
     <>
@@ -214,58 +227,91 @@ const ThirdPartyPasswordlessLogin = () => {
         <title>Sign In - Supertokens</title>
       </Head>
       <AuthLayout>
-        <div className="flex flex-col">
-          <p className="mt-2 text-sm text-gray-700">
+        <div className={`flex flex-col justify-center`}>
+          {/* <ButtonText
+            type="button"
+            onClick={onChangeEmail}
+            className="mt-2 text-sm text-center text-gray-600 hover:text-gray-900"
+          >
+            Wijzig email
+          </ButtonText> */}
+
+          <div className="flex max-w-7xl items-center flex-row mt-6 px-4 sm:px-6 lg:px-8">
+            {hasRequestedCode && (
+              <button
+                className="text-blue-600 w-8"
+                type="button"
+                onClick={onChangeEmail}
+              >
+                Back
+              </button>
+            )}
             <Link
               href="/"
-              className="font-medium text-blue-600 hover:underline"
+              className="text-4xl mx-auto font-display font-bold text-gray-900 "
             >
-              Go back to home{' '}
-            </Link>{' '}
-          </p>
-          <div className="mt-8">
-            <h2 className="text-lg font-semibold text-gray-900">
-              Sign in to your account
-            </h2>
+              Supertokens
+            </Link>
+            {/* // dummy link to make the logo centered */}
+            {hasRequestedCode && <div className="w-8"></div>}
+          </div>
+
+          <div className="mt-8 px-4   max-w-[320px] mx-auto">
+            {!hasRequestedCode && (
+              <h2 className="text-2xl  text-gray-900">Enter your email</h2>
+            )}
+            {hasRequestedCode && (
+              <h2 className="text-md text-gray-900">
+                Enter the code that is sent to your email
+              </h2>
+            )}
           </div>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-8 px-4 max-w-[320px] mx-auto">
           <div>
             <div>
-              <p className="text-sm font-medium text-gray-700">Login with</p>
-              <div className="flex flex-col mt-2 space-y-6">
-                <GoogleButton
-                  onClick={() =>
-                    onThirdPartyLogin({
-                      provider: 'google',
-                      platform,
-                    })
-                  }
-                />
-                <AppleButton
-                  onClick={() =>
-                    onThirdPartyLogin({
-                      provider: 'apple',
-                      platform,
-                    })
-                  }
+              <div className="mt-6">
+                <PasswordlessLoginForm
+                  isGettingCode={isGettingCode}
+                  setIsGettingCode={setIsGettingCode}
+                  hasRequestedCode={hasRequestedCode}
+                  setHasRequestedCode={setHasRequestedCode}
                 />
               </div>
-            </div>
 
-            <div className="mt-6">
-              <TextDivider text="Or login with" />
-            </div>
+              {!hasRequestedCode && (
+                <div>
+                  <div className="my-10 mt-4">
+                    <TextDivider text="Or" />
+                  </div>
 
-            <div className="mt-6">
-              <PasswordlessLoginForm />
+                  <div className="flex flex-col mt-0 space-y-6">
+                    <GoogleButton
+                      onClick={() =>
+                        onThirdPartyLogin({
+                          provider: 'google',
+                          platform,
+                        })
+                      }
+                    />
+                    <AppleButton
+                      onClick={() =>
+                        onThirdPartyLogin({
+                          provider: 'apple',
+                          platform,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </AuthLayout>
     </>
-  );
+  )
 }
 
 export const LoginComponent = () => {
