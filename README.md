@@ -4,7 +4,8 @@ This monorepo provides a starter project for building a web application with Nex
 
 Live example: https://www.next-capacitor-supertokens.app/
 
-![localhost_3001_login(iPhone X)](https://user-images.githubusercontent.com/35261620/232318901-c4bb8eeb-aa04-42f3-bc33-82cbc454ebc9.png)
+<img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="[https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png](https://user-images.githubusercontent.com/35261620/232318901-c4bb8eeb-aa04-42f3-bc33-82cbc454ebc9.png)">
+
 
 ## How to use
 
