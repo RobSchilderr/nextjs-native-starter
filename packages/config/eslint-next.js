@@ -27,7 +27,11 @@ module.exports = {
     },
   },
   rules: {
+    'prefer-const': 'off',
+
     // react
+    'react/jsx-props-no-spreading': 'off',
+
     'react/function-component-definition': [
       2,
       {
@@ -36,6 +40,7 @@ module.exports = {
     ],
 
     // next
+
     '@next/next/no-html-link-for-pages': 'off',
   },
   overrides: [

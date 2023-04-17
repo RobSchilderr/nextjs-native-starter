@@ -12,7 +12,6 @@ import { usePlatform } from 'lib/utils/capacitor'
 import TextDivider from '../../components/TextDivider'
 import Link from 'next/link'
 import { AUTH_MODE } from 'lib/utils/config'
-import { Montserrat, Inter, Roboto_Mono } from '@next/font/google'
 
 const ThirdPartyEmailPasswordLogin = () => {
   const platform = usePlatform()
@@ -181,6 +180,13 @@ const ThirdPartyLogin = () => {
 }
 
 const PasswordlessLogin = () => {
+  const [hasRequestedCode, setHasRequestedCode] = useState(false)
+  const [isGettingCode, setIsGettingCode] = useState<boolean>(false)
+
+  const onChangeEmail = () => {
+    setHasRequestedCode(false)
+    setIsGettingCode(false)
+  }
   return (
     <>
       <Head>
@@ -204,7 +210,12 @@ const PasswordlessLogin = () => {
         </div>
 
         <div className="mt-6">
-          <PasswordlessLoginForm />
+          <PasswordlessLoginForm
+            isGettingCode={isGettingCode}
+            setIsGettingCode={setIsGettingCode}
+            hasRequestedCode={hasRequestedCode}
+            setHasRequestedCode={setHasRequestedCode}
+          />
         </div>
       </AuthLayout>
     </>

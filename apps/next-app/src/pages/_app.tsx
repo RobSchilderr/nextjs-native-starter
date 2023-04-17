@@ -9,8 +9,19 @@ import { APP_BUNDLE_URL, PROD_URL_NO_HTTPS } from 'lib/utils/config'
 import { useRouter } from 'next/router'
 import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
+import { Bebas_Neue, Work_Sans } from '@next/font/google'
 import { getFrontendConfig } from '../../config/frontendConfig'
 
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  variable: '--font-work-sans',
+})
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  variable: '--font-bebas-neue',
+  weight: ['400'],
+})
 
 if (typeof window !== 'undefined') {
   SuperTokens.init({
@@ -62,7 +73,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <main className={`${bebasNeue.variable} font-display mt-28`}>
       <div className={`${workSans.variable} font-sans`}>
-        <Component {...pageProps} />
+        {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Component
+          {
+            // eslint-disable-next-line react/jsx-props-no-spreading
+
+            ...pageProps
+          }
+        />
       </div>
     </main>
   )

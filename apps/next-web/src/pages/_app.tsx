@@ -27,14 +27,17 @@ if (typeof window !== 'undefined') {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <>
-    <main className={`${bebasNeue.variable} font-display`}>
-      <div className={`${workSans.variable} font-sans`}>
-        <Component {...pageProps} />
-      </div>
-    </main>
-  </>
+  <main className={`${bebasNeue.variable} font-display`}>
+    <div className={`${workSans.variable} font-sans`}>
+      {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Component
+        {
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          ...pageProps
+        }
+      />
+    </div>
+  </main>
 )
 
 export default MyApp
