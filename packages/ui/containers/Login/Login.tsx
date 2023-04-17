@@ -238,7 +238,7 @@ const ThirdPartyPasswordlessLogin = () => {
         <title>Sign In - Supertokens</title>
       </Head>
       <AuthLayout>
-        <div className={`flex flex-col justify-center`}>
+        <div className={`flex flex-col justify-center max-w-7xl mx-auto`}>
           {/* <ButtonText
             type="button"
             onClick={onChangeEmail}
@@ -246,8 +246,7 @@ const ThirdPartyPasswordlessLogin = () => {
           >
             Wijzig email
           </ButtonText> */}
-
-          <div className="flex max-w-7xl items-center flex-row mt-6 px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center  flex-row mt-6 px-4 sm:px-6 lg:px-8">
             {hasRequestedCode && (
               <button
                 className="text-blue-600 w-8"
