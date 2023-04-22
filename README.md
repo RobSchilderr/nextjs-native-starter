@@ -119,6 +119,9 @@ APPLE_CLIENT_ID="4398792-io.supertokens.example.service"
 APPLE_KEY_ID="7M48Y4RYDL"
 APPLE_TEAM_ID="YWQCXGJRJL"
 APPLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----"
+
+SUPERTOKENS_CONNECTION_URI = "yourenv"
+SUPERTOKENS_API_KEY = "yourenv"
 ```
 
 These are the test environment variables from Supertokens. You should replace these with your own later on.
