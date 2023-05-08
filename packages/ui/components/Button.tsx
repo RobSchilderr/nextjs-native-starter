@@ -40,6 +40,8 @@ export type ButtonProps = DetailedHTMLProps<
   transition?: boolean
   type: 'button' | 'submit' | 'reset'
   ref?: React.Ref<HTMLButtonElement>
+  children: React.ReactNode
+
 }
 
 export const Button: React.FC<ButtonProps> = React.forwardRef(
@@ -73,6 +75,7 @@ export const Button: React.FC<ButtonProps> = React.forwardRef(
         ref={ref}
       >
         <span className={loading ? 'opacity-0' : `flex items-center`}>
+          
           {icon ? <span className="items-center mr-2 ">{icon}</span> : null}
           {children}
         </span>
@@ -118,8 +121,10 @@ export const RoundPlusButton: React.FC<ButtonProps> = React.forwardRef(
         ref={ref}
       >
         <span className={loading ? 'opacity-0' : `flex items-center`}>
-          {icon ? <span className="items-center ">{icon}</span> : null}
-          {children}
+        <div>  
+            {icon ? <span className="items-center ">{icon}</span> : null}
+            {children}
+          </div> 
         </span>
         {loading ? (
           <div className="absolute flex">

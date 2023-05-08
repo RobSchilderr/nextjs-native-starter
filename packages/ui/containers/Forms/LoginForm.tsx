@@ -339,7 +339,7 @@ export const PasswordlessLoginForm = ({
               !hasEnteredEmail && !isGettingCode
                 ? 'opacity-30 cursor-not-allowed'
                 : '',
-              'inline-flex items-center rounded-full justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50',
+              'inline-flex items-center  justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50',
             )}
           >
             {isGettingCode ? (

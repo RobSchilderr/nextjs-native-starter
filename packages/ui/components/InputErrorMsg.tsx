@@ -1,6 +1,8 @@
 import React from 'react'
 
-interface InputErrorMsgProps {}
+type InputErrorMsgProps = {
+  children: React.ReactNode
+}
 
 const InputErrorMsg: React.FC<InputErrorMsgProps> = ({ children }) => {
   return (

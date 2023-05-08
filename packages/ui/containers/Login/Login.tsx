@@ -239,13 +239,6 @@ const ThirdPartyPasswordlessLogin = () => {
       </Head>
       <AuthLayout>
         <div className={`flex flex-col justify-center max-w-7xl mx-auto`}>
-          {/* <ButtonText
-            type="button"
-            onClick={onChangeEmail}
-            className="mt-2 text-sm text-center text-gray-600 hover:text-gray-900"
-          >
-            Wijzig email
-          </ButtonText> */}
           <div className="flex items-center  flex-row mt-6 px-4 sm:px-6 lg:px-8">
             {hasRequestedCode && (
               <button

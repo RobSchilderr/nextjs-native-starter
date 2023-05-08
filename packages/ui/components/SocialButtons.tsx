@@ -29,7 +29,7 @@ export const AppleButton = ({ onClick }: { onClick: () => void }) => (
   <button
     type="button"
     onClick={onClick}
-    className="inline-flex items-center rounded-full justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50"
+    className="inline-flex items-center rounded-full justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 shadow-sm hover:bg-gray-50"
   >
     <span className="sr-only">Sign in with Apple</span>
     <AppleIcon />
