@@ -1,4 +1,4 @@
-import { captureException as captureExceptionNextJS } from '@sentry/nextjs'
+// import { captureException as captureExceptionNextJS } from '@sentry/nextjs'
 // import { captureException as captureExceptionCapacitor } from '@sentry/capacitor'
 // import { Capacitor } from '@capacitor/core'
 
@@ -14,5 +14,10 @@ export const logError = (err: any, extra?: Record<string, any>) => {
     console.error(err)
   }
 
-  captureExceptionNextJS(err, extra)
-}
+  // if (typeof window !== 'undefined') {
+  //   if (Capacitor.isNative) {
+  //     captureExceptionCapacitor(err)
+  //   } else {
+  //     captureExceptionNextJS(err, extra)
+  //   }
+  }
