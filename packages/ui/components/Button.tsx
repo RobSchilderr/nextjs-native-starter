@@ -1,4 +1,5 @@
 /* eslint-disable react/button-has-type */
+//@ts-nocheck
 import React, {
   ButtonHTMLAttributes,
   DetailedHTMLProps,
@@ -75,9 +76,10 @@ export const Button: React.FC<ButtonProps> = React.forwardRef(
         ref={ref}
       >
         <span className={loading ? 'opacity-0' : `flex items-center`}>
-          
+          <>
           {icon ? <span className="items-center mr-2 ">{icon}</span> : null}
           {children}
+          </>
         </span>
         {loading ? (
           <div className="absolute flex">

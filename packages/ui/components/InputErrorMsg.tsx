@@ -4,7 +4,7 @@ type InputErrorMsgProps = {
   children: React.ReactNode
 }
 
-const InputErrorMsg: React.FC<InputErrorMsgProps> = ({ children }) => {
+const InputErrorMsg = ({ children }: InputErrorMsgProps) => {
   return (
     <div className={`flex text-red-600`} data-testid='input-error-msg'>
       {children}
