@@ -20,12 +20,14 @@
     "clsx": "^1.2.1",
     "config": "*",
     "eslint": "^8.5.0",
+    "jest-watch-typeahead": "^2.2.2",
     "lib": "*",
+    "msw": "^1.2.1",
     "next": "^13.4.1",
     "nextjs-cors": "^2.1.2",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
-    "qs": "^6.11.0",
+    "qs": "^6.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
@@ -36,5 +38,8 @@
     "tsconfig": "*",
     "typescript": "^4.9.4",
     "ui": "*"
+  },
+  "devDependencies": {
+    "lint-staged": "^13.2.2"
   }
 }
