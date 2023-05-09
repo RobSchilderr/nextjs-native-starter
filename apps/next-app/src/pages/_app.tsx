@@ -11,6 +11,8 @@ import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
 import { Bebas_Neue, Work_Sans } from '@next/font/google'
 import { getFrontendConfig } from '../../config/frontendConfig'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { queryClient } from 'lib/utils/reactQuery'
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -71,6 +73,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
+    <QueryClientProvider client={queryClient}>
+
     <main className={`${bebasNeue.variable} font-display mt-28`}>
       <div className={`${workSans.variable} font-sans`}>
         {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
@@ -83,6 +87,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         />
       </div>
     </main>
+    </QueryClientProvider>
+
   )
 }
 
