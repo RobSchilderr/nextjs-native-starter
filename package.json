@@ -31,33 +31,6 @@
     "prettier": "^2.8.8",
     "turbo": "*"
   },
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "dist/**",
-          ".next/**"
-        ]
-      },
-      "test": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "coverage/**"
-        ]
-      },
-      "lint": {
-        "outputs": []
-      },
-      "dev": {
-        "cache": false
-      }
-    }
-  },
   "lint-staged": {
     "apps/**/*.{js,ts,jsx,tsx}": [
       "eslint --fix"
