@@ -10,9 +10,9 @@ import { useRouter } from 'next/router'
 import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
 import { Bebas_Neue, Work_Sans } from '@next/font/google'
-import { getFrontendConfig } from '../../config/frontendConfig'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from 'lib/utils/reactQuery'
+import { getFrontendConfig } from '../../config/frontendConfig'
 
 const workSans = Work_Sans({
   subsets: ['latin'],

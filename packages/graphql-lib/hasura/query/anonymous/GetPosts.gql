@@ -1,0 +1,6 @@
+query GetPosts {
+  posts {
+    content
+    id
+  }
+}

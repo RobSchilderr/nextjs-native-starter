@@ -10,6 +10,8 @@
     "@types/react-dom": "^18.2.4",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.23",
+    "graphql-generated": "*",
+    "graphql-lib": "*",
     "tailwindcss": "^3.3.2",
     "tsconfig": "*",
     "typescript": "^4.9.4"

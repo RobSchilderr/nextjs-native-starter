@@ -3,6 +3,7 @@
 // import { Capacitor } from '@capacitor/core'
 
 // TODO: fix that all Errors are logged as type Error
+// TODO: Waiting for sentry cap v5
 
 // type Error = {
 //   message: string
