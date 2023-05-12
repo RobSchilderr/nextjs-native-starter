@@ -67,6 +67,7 @@
     "tsconfig": "*",
     "turbo": "*",
     "typescript": "^4.9.4",
-    "ui": "*"
+    "ui": "*",
+    "zustand": "^4.3.8"
   }
 }
