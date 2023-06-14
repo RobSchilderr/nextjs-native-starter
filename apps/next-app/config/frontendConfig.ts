@@ -17,6 +17,14 @@ const sessionInit = Session.init({
       window.location.href = '/login'
     }
   },
+  // * 2. Important Capacitor note:
+  /*
+   * Note: The 'header' token transfer method is only being used in the app, and not in the web.
+   * This is a crucial difference in how the application handles sessions compared to the web.
+   * This design choice has been made due to the specific requirements and limitations in the app environment.
+   * For more information on the token transfer method, refer to the Supertokens documentation at
+   * https://supertokens.com/docs/thirdparty/common-customizations/sessions/token-transfer-method
+   */
   tokenTransferMethod: "header",
 });
 

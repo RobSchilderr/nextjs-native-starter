@@ -28,6 +28,14 @@ const bebasNeue = Bebas_Neue({
 if (typeof window !== 'undefined') {
   SuperTokens.init({
     ...getFrontendConfig(),
+       /*
+     * 1. Important Capacitor note:
+     * This section deals with a challenge faced while working with SDKs in the context of frameworks like Electron and Capacitor.
+     * These frameworks add an abstraction layer on top of the browser logic, which causes issues with how the SDK uses frontend cookies for information storage.
+     * Because of this, a cookie handler is necessary, regardless of the token transfer method specified in the frontendConfig.
+     *
+     * In this instance, we are using the 'capacitorCookieHandler' to handle cookies.
+     */
     cookieHandler: capacitorCookieHandler,
     // enableDebugLogs: !IS_IN_PRODUCTION_ENVIRONMENT,
   })

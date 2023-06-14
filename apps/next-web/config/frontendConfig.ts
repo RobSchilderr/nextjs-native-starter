@@ -17,6 +17,9 @@ const sessionInit = Session.init({
       window.location.href = '/login'
     }
   },
+    // * 3.  Important Capacitor note:
+    // * Here we are not setting the tokenTransferMethod to 'header' as it's only used for the app not the web.
+
 });
 
 const thirdPartyEmailPasswordConfig = (): SuperTokensConfig => ({
