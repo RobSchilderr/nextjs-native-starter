@@ -51,6 +51,43 @@ This starter project provides several benefits to developers looking to build a 
 
 ---
 
+## Common questions:
+
+### Why not make a PWA instead?
+
+The biggest advantage Capacitor brings is full native access and app store distribution. Yes, PWAs can do a lot, but they
+
+- Can't interface with every native iOS/Android SDK or feature out today or coming out tomorrow. Capacitor can.
+
+- Can't use the massive ecosystem of third-party native SDKs. Capacitor can.
+
+- As of yet, push notifications on iOS for PWA's is not fully done yet.
+
+So, if those things matter to you, Capacitor is the way to go. You can build your app such that you're building a PWA first but then "enhancing" it with native Capacitor plugins or custom native code. The decision is not either/or because Capacitor was built to enable PWAs to run natively with almost 100% code sharing on the web.
+
+Capacitor will offer APIs for various smartphone functionalities like the keyboard, camera, Near Field Communication (NFC), and contacts. It will also provide interfaces for native machine learning Software Development Kits (SDKs) and Google Maps. Moreover, Capacitor allows the execution of code even when the app is closed, thanks to its background plugins, among other features.
+
+One side note that I have to add is that, if your app requires a lot of performance on Android (especially old Android phones), there is this trade off you have to make: (WebView performance significantly slower than PWA) [https://ionic.io/blog/capacitor-everything-youve-ever-wanted-to-know]. I do not experience this issue on iOS and it is barely noticable on newer Android phones.
+
+### Why did you use to not use Ionic? 
+
+I appreciate the swift development process that comes from working exclusively with React and TailwindCSS. Leveraging pre-existing Tailwind components means I can bypass the need for original design work, thereby speeding up the development process. Utilizing Ionic would necessitate designing the UI/UX myself, and its web support doesn't replicate the same feel or appearance as when I develop with Tailwind.
+
+### When would you choose Ionic?
+
+Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application.
+
+### So when to choose Capacitor over other alternatives like React Native or Flutter?
+
+Please refer to: <img width="800" src="https://ionic.io/blog/wp-content/uploads/2023/01/Framework-Decision-Flowchart-1-1024x830.png" />
+
+If you have more questions about Capacitor, I recommend you to read: [Capacitor: Everything You’ve Ever Wanted to Know](https://ionic.io/blog/capacitor-everything-youve-ever-wanted-to-know)
+
+
+
+
+---
+
 ## Differences from related repositories:
 
 [Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) - This current repository uses Turborepo, while the [Ionic example](https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter) does not. In addition, this current repository uses Supertokens for authentication and session management, while the Ionic example does not. This current repository also uses Tailwind CSS for all of it's styling instead of the Ionic Framework. The Ionic example serves as a good starterpack of how to use Ionic with Capacitor, but does not address the issues a lot other challanges that arise when using Next.JS and Capacitor in a monorepo. 
