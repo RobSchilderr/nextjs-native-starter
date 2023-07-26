@@ -79,7 +79,7 @@ Ionic would be my go-to if I had a project that necessitated designing all eleme
 
 ### So when to choose Capacitor over other alternatives like React Native or Flutter?
 
-Please refer to: <img width="800" src="https://ionic.io/blog/wp-content/uploads/2023/01/Framework-Decision-Flowchart-1-1024x830.png" />
+<img width="800" src="https://ionic.io/blog/wp-content/uploads/2023/01/Framework-Decision-Flowchart-1-1024x830.png" />
 
 If you have more questions about Capacitor, I recommend you to read: [Capacitor: Everything You’ve Ever Wanted to Know](https://ionic.io/blog/capacitor-everything-youve-ever-wanted-to-know)
 
