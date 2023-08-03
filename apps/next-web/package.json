@@ -50,7 +50,7 @@
     "react-hook-form": "^7.43.9",
     "react-hot-toast": "^2.4.1",
     "react-responsive": "^9.0.2",
-    "supertokens-node": "13.6.0",
+    "supertokens-node": "14.1.2",
     "supertokens-web-js": "^0.5.0",
     "tailwindcss": "^3.3.2",
     "ts-node": "^10.9.1",

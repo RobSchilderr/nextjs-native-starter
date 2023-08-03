@@ -2,6 +2,9 @@ import { toast, ToastOptions } from 'react-hot-toast'
 
 const toastOptions: ToastOptions = {
   duration: 4000,
+  style: {
+    marginTop: 'env(safe-area-inset-top)',
+  },
 }
 
 export const toastError = (msg: string, options?: ToastOptions): string =>
@@ -18,6 +21,8 @@ export const toastDanger = (msg: string, options?: ToastOptions): string =>
     style: {
       background: '#fb923c',
       color: '#fff',
+      marginTop: 'env(safe-area-inset-top)',
+
     },
   })
 
