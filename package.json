@@ -29,6 +29,7 @@
     "lint-staged": "^13.2.2",
     "msw": "^1.2.1",
     "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
     "turbo": "1.9.3"
   },
   "lint-staged": {

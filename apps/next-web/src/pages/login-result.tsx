@@ -69,7 +69,7 @@ const Home = () => {
 
         <p>
           {' '}
-          We also enabled JWTs for you. You can get the JWT by clicking the
+          I also enabled JWTs for you. You can get the JWT by clicking the
           button:{' '}
         </p>
 

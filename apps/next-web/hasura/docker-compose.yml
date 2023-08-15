@@ -19,13 +19,19 @@ services:
       PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       ## enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: 'true' # set to "false" to disable console
-      HASURA_GRAPHQL_JWT_SECRET: '{"jwk_url":"https://b038eca080c9.ngrok.app/api/auth/jwt/jwks.json", "allowed_skew": 86400}'
+      HASURA_GRAPHQL_JWT_SECRET: '{"jwk_url":"https://supertokenshasura.eu.ngrok.io/api/auth/jwt/jwks.json", "allowed_skew": 86400}'
       ## enable debugging mode. It is recommended to disable this in production
       HASURA_GRAPHQL_DEV_MODE: 'true'
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       ## uncomment next line to set an admin secret
       HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: 'anonymous'
+
 volumes:
   db_data_hasura:
 # for the JWT, generate your own key and replace the jwk_url with your own ngrok url with:
 # ngrok http 3001
+
+## or if you have a paid account, you can use a custom domain with:
+## ngrok http --region=eu --hostname=supertokenshasura.eu.ngrok.io 3001
+

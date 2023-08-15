@@ -18,7 +18,7 @@ import EmailPassword from 'supertokens-node/recipe/emailpassword'
 import Passwordless from 'supertokens-node/recipe/passwordless'
 import ThirdParty from 'supertokens-node/recipe/thirdparty'
 import ThirdPartyPasswordless from 'supertokens-node/recipe/thirdpartypasswordless'
-
+import { createNewSessionPayload } from 'lib/next-apps/api/auth/createNewSessionPayload'
 import { appInfo } from './appInfo'
 
 const supertokens: SuperTokensInfo = {
@@ -26,6 +26,7 @@ const supertokens: SuperTokensInfo = {
   apiKey: process.env.SUPERTOKENS_API_KEY as string,
 }
 
+const isUsingJWTAuth = true
 const isInServerlessEnv: boolean = true
 
 const overrideAppleThirdParty = {
@@ -50,9 +51,27 @@ const sessionInit: RecipeListFunction = Session.init({
   // For localhost, we need to set sameSite to strict, due to no https
   cookieSameSite: !IS_IN_PRODUCTION_ENVIRONMENT ? 'strict' : 'none',
   // For cookie based auth, the access token is not available on the frontend by default: https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt
-  exposeAccessTokenToFrontendInCookieBasedAuth: true,
+  exposeAccessTokenToFrontendInCookieBasedAuth: isUsingJWTAuth,
   // For the apps we want to use header-based sessions: https://supertokens.com/docs/thirdparty/common-customizations/sessions/token-transfer-method
   getTokenTransferMethod: () => 'any',
+
+  ...(isUsingJWTAuth && {
+    override: {
+      functions(originalImplementation) {
+        return {
+          ...originalImplementation,
+          async createNewSession(input) {
+            // This we are using to add custom claims to the JWT: https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt#3--add-custom-claims-to-the-jwt
+            const payload = await createNewSessionPayload(input)
+            return originalImplementation.createNewSession({
+              ...input,
+              accessTokenPayload: payload,
+            })
+          },
+        }
+      },
+    },
+  }),
 })
 
 /**
