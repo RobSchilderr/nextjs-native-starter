@@ -8270,25 +8270,6 @@ supertokens-js-override@0.0.4, supertokens-js-override@^0.0.4:
   resolved "https://registry.yarnpkg.com/supertokens-js-override/-/supertokens-js-override-0.0.4.tgz#9af583fbc5e1f0195dbb358c4fcf75f44c76dc09"
   integrity sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==
 
-supertokens-node@13.6.0:
-  version "13.6.0"
-  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-13.6.0.tgz#01f376eff9efcaa43b658c9bc35b184410cef159"
-  integrity sha512-sErvcZOVUnHb5YazGTjHGKRdxlPT/as+S7t2UAA0FChCPa8p8NtVPR494VJYrXuVT1eBUqwie55BIFh7EvZJqQ==
-  dependencies:
-    axios "0.21.4"
-    body-parser "1.20.1"
-    co-body "6.1.0"
-    cookie "0.4.0"
-    debug "^4.3.3"
-    jsonwebtoken "^9.0.0"
-    jwks-rsa "^2.0.5"
-    libphonenumber-js "^1.9.44"
-    nodemailer "^6.7.2"
-    psl "1.8.0"
-    supertokens-js-override "^0.0.4"
-    twilio "^4.7.2"
-    verify-apple-id-token "^3.0.1"
-
 supertokens-node@14.1.2:
   version "14.1.2"
   resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-14.1.2.tgz#674865771998f99c9c2237042f4740d6dfa825bc"
