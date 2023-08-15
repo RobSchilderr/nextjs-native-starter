@@ -1,4 +1,4 @@
-import { NEXT_PUBLIC_HASURA_ENDPOINT } from 'lib/utils/config'
+import { HASURA_ENDPOINT } from 'lib/utils/config'
 // import { logError } from '../shared/utils/logError'
 
 export const hasuraAnonymousFetcher =
@@ -8,7 +8,7 @@ export const hasuraAnonymousFetcher =
   ): (() => Promise<TData>) =>
   async () => {
     try {
-      const res = await fetch(NEXT_PUBLIC_HASURA_ENDPOINT as string, {
+      const res = await fetch(HASURA_ENDPOINT as string, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

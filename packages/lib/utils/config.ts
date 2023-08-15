@@ -5,7 +5,7 @@ export const PROD_URL_NO_HTTPS = 'next-capacitor-supertokens.app'
 export const IS_IN_PRODUCTION_ENVIRONMENT =
   process.env.NEXT_PUBLIC_APP_STAGE !== 'development'
 
-export const NEXT_PUBLIC_HASURA_ENDPOINT = 'http://localhost:8080/v1/graphql'
+export const HASURA_ENDPOINT = 'http://localhost:8080/v1/graphql'
 // if you want to test Apple login on your iPhone, set the API server to be your local IP address (so instead of http://localhost:3001, it would be  http://000.000.0.0:3001)
 export const FRONTEND_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'http://localhost:3001'
