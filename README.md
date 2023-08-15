@@ -41,7 +41,7 @@ This starter project provides several benefits to developers looking to build a 
 
 - Can use any web/js library: No need to try to reinvent the wheel. 
 
-- No big difference in performance: If you're a skilled React developer, you can create a high-performance Capacitor app that can match or even exceed the performance of a React Native app. Capacitor provides access to native device features through standard web APIs, so you can leverage your existing web development skills and knowledge to build cross-platform mobile apps. Webview based apps on modern devices are quite performant nowadays.
+- No big difference in performance: If you're a skilled React developer, you can create a high-performance Capacitor app that can match or even exceed the performance of a React Native app. Capacitor provides access to native device features through standard web APIs, so you can leverage your existing web development skills and knowledge to build cross-platform mobile apps. Webview based apps on modern devices are quite performant nowadays, especially on iOS.
 
 - Security: By using Supertokens for authentication and session management, you can be confident that your users' data is secure and that common security issues like XSS and CSRF attacks are mitigated. 
 
@@ -67,7 +67,7 @@ So, if those things matter to you, Capacitor is the way to go. You can build you
 
 Capacitor will offer APIs for various smartphone functionalities like the keyboard, camera, Near Field Communication (NFC), and contacts. It will also provide interfaces for native machine learning Software Development Kits (SDKs) and Google Maps. Moreover, Capacitor allows the execution of code even when the app is closed, thanks to its background plugins, among other features.
 
-One side note that I have to add is that, if your app requires a lot of performance on Android (especially old Android phones), there is this trade off you have to make: (WebView performance significantly slower than PWA) [https://ionic.io/blog/capacitor-everything-youve-ever-wanted-to-know]. I do not experience this issue on iOS and it is barely noticable on newer Android phones.
+One side note that I have to add is that, if your app requires a lot of performance on Android (especially old Android phones), there is this trade off you have to make: [WebView performance significantly slower than PWA](https://bugs.chromium.org/p/chromium/issues/detail?id=1289741). I do not experience this issue on iOS and it is barely noticable on newer Android phones.
 
 ### Why did you use to not use Ionic? 
 
