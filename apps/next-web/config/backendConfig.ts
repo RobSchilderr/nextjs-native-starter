@@ -32,7 +32,7 @@ const overrideAppleThirdParty = {
   apis: (oI: any) => ({
     ...oI,
     async appleRedirectHandlerPOST(input: any) {
-       // 5. Important Capacitor note (iOS login only):
+      // 5. Important Capacitor note (iOS login only):
       // redirect to frontend domain/auth/callback/apple/temp with query params code and state
       // we do this because Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening.
       const { code, state } = input
