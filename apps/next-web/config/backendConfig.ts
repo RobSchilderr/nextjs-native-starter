@@ -49,6 +49,10 @@ const framework = 'express'
 const sessionInit: RecipeListFunction = Session.init({
   // For localhost, we need to set sameSite to strict, due to no https
   cookieSameSite: !IS_IN_PRODUCTION_ENVIRONMENT ? 'strict' : 'none',
+  // For cookie based auth, the access token is not available on the frontend by default: https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt
+  exposeAccessTokenToFrontendInCookieBasedAuth: true,
+  // For the apps we want to use header-based sessions: https://supertokens.com/docs/thirdparty/common-customizations/sessions/token-transfer-method
+  getTokenTransferMethod: () => 'any',
 })
 
 /**
