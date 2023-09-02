@@ -1,0 +1,4 @@
+table:
+  name: role
+  schema: public
+is_enum: true

@@ -1,0 +1,7 @@
+query GetPerson {
+  person {
+    email
+    id
+    role
+  }
+}

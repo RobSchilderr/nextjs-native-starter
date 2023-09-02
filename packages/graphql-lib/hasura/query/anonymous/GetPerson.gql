@@ -1,0 +1,5 @@
+query GetPerson {
+  person {
+    given_name
+  }
+}

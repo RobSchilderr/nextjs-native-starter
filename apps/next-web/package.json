@@ -6,6 +6,7 @@
     "dev": "next dev --port 3001",
     "build": "next build",
     "graphql-codegen": "graphql-codegen --config codegen.js",
+    "hasuraConsole": "(cd ./hasura; hasura console --skip-update-check --no-browser --console-port 9690)",
     "start": "next start",
     "test": "jest --coverage",
     "lint": "eslint src --fix"

@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
-import { hasuraAnonymousFetcher } from 'lib/next-apps/fetchers/hasuraAnonymousFetcher';
+import { hasuraUserFetcher } from 'lib/next-apps/fetchers/hasuraUserFetcher';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -12,6 +12,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  uuid: any;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
@@ -74,7 +75,10 @@ export enum Order_By {
 /** columns and relationships of "person" */
 export type Person = {
   __typename?: 'person';
+  email: Scalars['String'];
   given_name: Scalars['String'];
+  id: Scalars['uuid'];
+  role: Role_Enum;
 };
 
 /** Boolean expression to filter rows from the table "person". All fields are combined with a logical 'AND'. */
@@ -82,18 +86,30 @@ export type Person_Bool_Exp = {
   _and?: InputMaybe<Array<Person_Bool_Exp>>;
   _not?: InputMaybe<Person_Bool_Exp>;
   _or?: InputMaybe<Array<Person_Bool_Exp>>;
+  email?: InputMaybe<String_Comparison_Exp>;
   given_name?: InputMaybe<String_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  role?: InputMaybe<Role_Enum_Comparison_Exp>;
 };
 
 /** Ordering options when selecting data from "person". */
 export type Person_Order_By = {
+  email?: InputMaybe<Order_By>;
   given_name?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  role?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "person" */
 export enum Person_Select_Column {
   /** column name */
-  GivenName = 'given_name'
+  Email = 'email',
+  /** column name */
+  GivenName = 'given_name',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Role = 'role'
 }
 
 /** Streaming cursor of the table "person" */
@@ -106,13 +122,18 @@ export type Person_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Person_Stream_Cursor_Value_Input = {
+  email?: InputMaybe<Scalars['String']>;
   given_name?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['uuid']>;
+  role?: InputMaybe<Role_Enum>;
 };
 
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "person" */
   person: Array<Person>;
+  /** fetch data from the table: "person" using primary key columns */
+  person_by_pk?: Maybe<Person>;
 };
 
 
@@ -124,10 +145,31 @@ export type Query_RootPersonArgs = {
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
+
+export type Query_RootPerson_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+export enum Role_Enum {
+  Admin = 'admin',
+  Moderator = 'moderator'
+}
+
+/** Boolean expression to compare columns of type "role_enum". All fields are combined with logical 'AND'. */
+export type Role_Enum_Comparison_Exp = {
+  _eq?: InputMaybe<Role_Enum>;
+  _in?: InputMaybe<Array<Role_Enum>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _neq?: InputMaybe<Role_Enum>;
+  _nin?: InputMaybe<Array<Role_Enum>>;
+};
+
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "person" */
   person: Array<Person>;
+  /** fetch data from the table: "person" using primary key columns */
+  person_by_pk?: Maybe<Person>;
   /** fetch data from the table in a streaming manner: "person" */
   person_stream: Array<Person>;
 };
@@ -142,22 +184,42 @@ export type Subscription_RootPersonArgs = {
 };
 
 
+export type Subscription_RootPerson_By_PkArgs = {
+  id: Scalars['uuid'];
+};
+
+
 export type Subscription_RootPerson_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Person_Stream_Cursor_Input>>;
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
+/** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
+export type Uuid_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['uuid']>;
+  _gt?: InputMaybe<Scalars['uuid']>;
+  _gte?: InputMaybe<Scalars['uuid']>;
+  _in?: InputMaybe<Array<Scalars['uuid']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['uuid']>;
+  _lte?: InputMaybe<Scalars['uuid']>;
+  _neq?: InputMaybe<Scalars['uuid']>;
+  _nin?: InputMaybe<Array<Scalars['uuid']>>;
+};
+
 export type GetPersonQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', given_name: string }> };
+export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', email: string, id: any, role: Role_Enum }> };
 
 
 export const GetPersonDocument = `
     query GetPerson {
   person {
-    given_name
+    email
+    id
+    role
   }
 }
     `;
@@ -170,7 +232,7 @@ export const useGetPersonQuery = <
     ) =>
     useQuery<GetPersonQuery, TError, TData>(
       variables === undefined ? ['GetPerson'] : ['GetPerson', variables],
-      hasuraAnonymousFetcher<GetPersonQuery, GetPersonQueryVariables>(GetPersonDocument, variables),
+      hasuraUserFetcher<GetPersonQuery, GetPersonQueryVariables>(GetPersonDocument, variables),
       options
     );
 export const namedOperations = {
