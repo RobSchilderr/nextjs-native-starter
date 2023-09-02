@@ -16,12 +16,14 @@ type UserFromDatabase = {
 type UserState = {
   user: UserFromDatabase | null
   isFetched: boolean
+  isSupertokensAuthenticated: boolean
   deviceToken?: string
 }
 
 const getDefaultValues = (): UserState => ({
   user: null,
   isFetched: false,
+  isSupertokensAuthenticated: false,
 })
 
 export const useUserStore = create(
@@ -43,7 +45,23 @@ export const useUserStore = create(
 
         if (!hasuraClaims) {
           set(getDefaultValues())
-          set(state => ({ ...state, isFetched: true }))
+          set(state => ({
+            ...state,
+            isFetched: true,
+            // isSupertokensAuthenticated: true,
+          }))
+          return
+        }
+
+        if (!hasuraClaims['https://hasura.io/jwt/claims']) {
+          toastError('You are not allowed to access this page')
+          set(getDefaultValues())
+
+          set(state => ({
+            ...state,
+            isFetched: true,
+            isSupertokensAuthenticated: true,
+          }))
           return
         }
 
@@ -60,7 +78,11 @@ export const useUserStore = create(
           if (window && window.location.href !== '/login') {
             window.location.href = '/login'
           }
-          set(state => ({ ...state, isFetched: true }))
+          set(state => ({
+            ...state,
+            isFetched: true,
+            isSupertokensAuthenticated: true,
+          }))
           return
         }
 
@@ -80,6 +102,7 @@ export const useUserStore = create(
           ...state,
           user,
           isFetched: true,
+          isSupertokensAuthenticated: true,
         }))
       } catch (err) {
         await signout()

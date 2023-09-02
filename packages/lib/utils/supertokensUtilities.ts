@@ -228,9 +228,9 @@ export const getAccessTokenPayload = async () => {
   return payload
 }
 
-async function fetchUserData() {
+export async function fetchUserData() {
   try {
-    const res = await fetch('/api/user')
+    const res = await fetch(`${FRONTEND_URL}/api/user`)
 
     if (!res.ok) {
       console.error(`An error occurred: ${res.statusText}`)
