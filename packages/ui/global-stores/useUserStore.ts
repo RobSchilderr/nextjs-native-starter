@@ -51,7 +51,8 @@ export const useUserStore = create(
           'x-hasura-default-role'
         ] as Role_Enum
 
-        // check if role is allowed else signout and redirect to login, in createNewSessionPayload.ts we are setting allowed roles based on UUID
+        // check if role is allowed else signout and redirect to login
+        //  in createNewSessionPayload.ts we are setting allowed roles based on UUID
         if (!allowedRoles.includes(role)) {
           toastError('You are not allowed to access this page')
 

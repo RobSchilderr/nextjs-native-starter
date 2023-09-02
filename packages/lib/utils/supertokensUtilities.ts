@@ -227,3 +227,20 @@ export const getAccessTokenPayload = async () => {
 
   return payload
 }
+
+async function fetchUserData() {
+  try {
+    const res = await fetch('/api/user')
+
+    if (!res.ok) {
+      console.error(`An error occurred: ${res.statusText}`)
+      return null
+    }
+
+    const json = await res.json()
+    return json
+  } catch (error) {
+    console.error(`Fetch failed: ${error}`)
+    return null
+  }
+}

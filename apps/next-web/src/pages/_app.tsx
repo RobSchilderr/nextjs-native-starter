@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-// @ts-nocheck
 import React from 'react'
 import { AppProps } from 'next/app'
 import '../../styles/globals.css'

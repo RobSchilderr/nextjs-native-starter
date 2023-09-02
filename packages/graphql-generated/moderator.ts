@@ -5,47 +5,49 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
-  uuid: any;
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
+  uuid: { input: any; output: any; }
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['String']>;
-  _gt?: InputMaybe<Scalars['String']>;
-  _gte?: InputMaybe<Scalars['String']>;
+  _eq?: InputMaybe<Scalars['String']['input']>;
+  _gt?: InputMaybe<Scalars['String']['input']>;
+  _gte?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars['String']>;
-  _in?: InputMaybe<Array<Scalars['String']>>;
+  _ilike?: InputMaybe<Scalars['String']['input']>;
+  _in?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars['String']>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _iregex?: InputMaybe<Scalars['String']['input']>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars['String']>;
-  _lt?: InputMaybe<Scalars['String']>;
-  _lte?: InputMaybe<Scalars['String']>;
-  _neq?: InputMaybe<Scalars['String']>;
+  _like?: InputMaybe<Scalars['String']['input']>;
+  _lt?: InputMaybe<Scalars['String']['input']>;
+  _lte?: InputMaybe<Scalars['String']['input']>;
+  _neq?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars['String']>;
-  _nin?: InputMaybe<Array<Scalars['String']>>;
+  _nilike?: InputMaybe<Scalars['String']['input']>;
+  _nin?: InputMaybe<Array<Scalars['String']['input']>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars['String']>;
+  _niregex?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars['String']>;
+  _nlike?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars['String']>;
+  _nregex?: InputMaybe<Scalars['String']['input']>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars['String']>;
+  _nsimilar?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars['String']>;
+  _regex?: InputMaybe<Scalars['String']['input']>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars['String']>;
+  _similar?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** ordering argument of a cursor */
@@ -75,9 +77,9 @@ export enum Order_By {
 /** columns and relationships of "person" */
 export type Person = {
   __typename?: 'person';
-  email: Scalars['String'];
-  given_name: Scalars['String'];
-  id: Scalars['uuid'];
+  email: Scalars['String']['output'];
+  given_name: Scalars['String']['output'];
+  id: Scalars['uuid']['output'];
   role: Role_Enum;
 };
 
@@ -122,9 +124,9 @@ export type Person_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Person_Stream_Cursor_Value_Input = {
-  email?: InputMaybe<Scalars['String']>;
-  given_name?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['uuid']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  given_name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
   role?: InputMaybe<Role_Enum>;
 };
 
@@ -139,15 +141,15 @@ export type Query_Root = {
 
 export type Query_RootPersonArgs = {
   distinct_on?: InputMaybe<Array<Person_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Person_Order_By>>;
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
 
 export type Query_RootPerson_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['uuid']['input'];
 };
 
 export enum Role_Enum {
@@ -159,7 +161,7 @@ export enum Role_Enum {
 export type Role_Enum_Comparison_Exp = {
   _eq?: InputMaybe<Role_Enum>;
   _in?: InputMaybe<Array<Role_Enum>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
   _neq?: InputMaybe<Role_Enum>;
   _nin?: InputMaybe<Array<Role_Enum>>;
 };
@@ -177,35 +179,35 @@ export type Subscription_Root = {
 
 export type Subscription_RootPersonArgs = {
   distinct_on?: InputMaybe<Array<Person_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
   order_by?: InputMaybe<Array<Person_Order_By>>;
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
 
 export type Subscription_RootPerson_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['uuid']['input'];
 };
 
 
 export type Subscription_RootPerson_StreamArgs = {
-  batch_size: Scalars['Int'];
+  batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Person_Stream_Cursor_Input>>;
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['uuid']>;
-  _gt?: InputMaybe<Scalars['uuid']>;
-  _gte?: InputMaybe<Scalars['uuid']>;
-  _in?: InputMaybe<Array<Scalars['uuid']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['uuid']>;
-  _lte?: InputMaybe<Scalars['uuid']>;
-  _neq?: InputMaybe<Scalars['uuid']>;
-  _nin?: InputMaybe<Array<Scalars['uuid']>>;
+  _eq?: InputMaybe<Scalars['uuid']['input']>;
+  _gt?: InputMaybe<Scalars['uuid']['input']>;
+  _gte?: InputMaybe<Scalars['uuid']['input']>;
+  _in?: InputMaybe<Array<Scalars['uuid']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['uuid']['input']>;
+  _lte?: InputMaybe<Scalars['uuid']['input']>;
+  _neq?: InputMaybe<Scalars['uuid']['input']>;
+  _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
 };
 
 export type GetPersonQueryVariables = Exact<{ [key: string]: never; }>;

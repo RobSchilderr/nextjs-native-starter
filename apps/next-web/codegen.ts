@@ -1,14 +1,44 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { HASURA_ENDPOINT } from 'lib/utils/config'
+import { CodegenConfig } from '@graphql-codegen/cli'
+
 const dotenv = require('dotenv')
+
 const path = process.env.ENV_PATH || '.env.local'
 dotenv.config({ path })
 
-module.exports = {
+const config: CodegenConfig = {
   overwrite: true,
   generates: {
+    '../../packages/graphql-generated/admin.ts': {
+      schema: {
+        [HASURA_ENDPOINT]: {
+          headers: {
+            'x-hasura-admin-secret': 'myadminsecretkey',
+            'x-hasura-role': 'admin',
+          },
+        },
+      },
+      documents: [
+        '../../packages/graphql-lib/hasura/query/admin/**/*.gql',
+        // '../../packages/graphql-lib/hasura/mutation/admin/**/*.gql',
+      ],
+      plugins: [
+        'typescript',
+        'typescript-operations',
+        'typescript-graphql-request',
+        'named-operations-object',
+      ],
+      config: {
+        skipTypename: false,
+        withComponent: false,
+        rawRequest: true,
+        documentMode: 'string',
+      },
+    },
     '../../packages/graphql-generated/anonymous.ts': {
       schema: {
-        [process.env.NEXT_PUBLIC_HASURA_ENDPOINT]: {
+        [HASURA_ENDPOINT]: {
           headers: {
             'x-hasura-admin-secret': 'myadminsecretkey',
             'x-hasura-role': 'anonymous',
@@ -36,7 +66,7 @@ module.exports = {
     },
     '../../packages/graphql-generated/moderator.ts': {
       schema: {
-        [process.env.NEXT_PUBLIC_HASURA_ENDPOINT]: {
+        [HASURA_ENDPOINT]: {
           headers: {
             'x-hasura-admin-secret': 'myadminsecretkey',
             'x-hasura-role': 'moderator',
@@ -61,3 +91,5 @@ module.exports = {
     },
   },
 }
+
+export default config
