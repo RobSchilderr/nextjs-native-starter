@@ -1,12 +1,16 @@
 import ThirdPartyEmailPassword from 'supertokens-web-js/recipe/thirdpartyemailpassword'
-import ThirdParty from "supertokens-web-js/recipe/thirdparty";
-import EmailPassword from "supertokens-web-js/recipe/emailpassword";
-import Passwordless from "supertokens-web-js/recipe/passwordless";
-import ThirdPartyPasswordless from "supertokens-web-js/recipe/thirdpartypasswordless";
-import Session from "supertokens-web-js/recipe/session";
+import ThirdParty from 'supertokens-web-js/recipe/thirdparty'
+import EmailPassword from 'supertokens-web-js/recipe/emailpassword'
+import Passwordless from 'supertokens-web-js/recipe/passwordless'
+import ThirdPartyPasswordless from 'supertokens-web-js/recipe/thirdpartypasswordless'
+import Session from 'supertokens-web-js/recipe/session'
 import { AUTH_MODE, FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
-
 import { Platform } from './common.types'
+import {
+  doesSessionExist,
+  getAccessTokenPayloadSecurely,
+} from 'supertokens-web-js/recipe/session'
+import { Payload } from './authUtils'
 
 type LoginWithEmailPasswordArgs = {
   email: string
@@ -17,7 +21,7 @@ export const signupWithEmailPassword = async ({
   email,
   password,
 }: LoginWithEmailPasswordArgs) => {
-  if (AUTH_MODE === "emailpassword") {
+  if (AUTH_MODE === 'emailpassword') {
     return EmailPassword.signIn({
       formFields: [
         {
@@ -43,14 +47,14 @@ export const signupWithEmailPassword = async ({
         value: password,
       },
     ],
-  });
+  })
 }
 
 export const signinWithEmailPassword = async ({
   email,
   password,
 }: LoginWithEmailPasswordArgs) => {
-  if (AUTH_MODE === "emailpassword") {
+  if (AUTH_MODE === 'emailpassword') {
     return EmailPassword.signIn({
       formFields: [
         {
@@ -80,21 +84,21 @@ export const signinWithEmailPassword = async ({
 }
 
 export const loginToThirdParty = async () => {
-  if (AUTH_MODE === "thirdparty") {
-    return ThirdParty.signInAndUp();
+  if (AUTH_MODE === 'thirdparty') {
+    return ThirdParty.signInAndUp()
   }
 
-  if (AUTH_MODE === "thirdpartypasswordless") {
-    return ThirdPartyPasswordless.thirdPartySignInAndUp();
+  if (AUTH_MODE === 'thirdpartypasswordless') {
+    return ThirdPartyPasswordless.thirdPartySignInAndUp()
   }
 
-  return ThirdPartyEmailPassword.thirdPartySignInAndUp();
+  return ThirdPartyEmailPassword.thirdPartySignInAndUp()
 }
 
 export const signout = async () => Session.signOut()
 
 export const resetPassword = async ({ password }: { password: string }) => {
-  if (AUTH_MODE === "emailpassword") {
+  if (AUTH_MODE === 'emailpassword') {
     return EmailPassword.submitNewPassword({
       formFields: [
         {
@@ -112,11 +116,11 @@ export const resetPassword = async ({ password }: { password: string }) => {
         value: password,
       },
     ],
-  });
+  })
 }
 
 export const requestPassword = async ({ email }: { email: string }) => {
-  if (AUTH_MODE === "emailpassword") {
+  if (AUTH_MODE === 'emailpassword') {
     return EmailPassword.sendPasswordResetEmail({
       formFields: [
         {
@@ -134,31 +138,33 @@ export const requestPassword = async ({ email }: { email: string }) => {
         value: email,
       },
     ],
-  });
+  })
 }
 
 const getThirdPartyURL = async (
   thirdPartyId: 'google' | 'apple',
   authorisationURL: string,
 ) => {
-  if (AUTH_MODE === "thirdparty") {
+  if (AUTH_MODE === 'thirdparty') {
     return ThirdParty.getAuthorisationURLWithQueryParamsAndSetState({
-      providerId: thirdPartyId,
-      authorisationURL,
-    });
-  }
-
-  if (AUTH_MODE === "thirdpartypasswordless") {
-    return ThirdPartyPasswordless.getThirdPartyAuthorisationURLWithQueryParamsAndSetState({
       providerId: thirdPartyId,
       authorisationURL,
     })
   }
 
+  if (AUTH_MODE === 'thirdpartypasswordless') {
+    return ThirdPartyPasswordless.getThirdPartyAuthorisationURLWithQueryParamsAndSetState(
+      {
+        providerId: thirdPartyId,
+        authorisationURL,
+      },
+    )
+  }
+
   return ThirdPartyEmailPassword.getAuthorisationURLWithQueryParamsAndSetState({
     providerId: thirdPartyId,
     authorisationURL,
-  });
+  })
 }
 
 export const onThirdPartyLogin = async ({
@@ -188,25 +194,36 @@ export const onThirdPartyLogin = async ({
 }
 
 export const createPasswordlessCode = async (email: string) => {
-  if (AUTH_MODE === "thirdpartypasswordless") {
+  if (AUTH_MODE === 'thirdpartypasswordless') {
     return ThirdPartyPasswordless.createPasswordlessCode({
       email,
-    });
+    })
   }
 
   return Passwordless.createCode({
     email,
-  });
+  })
 }
 
 export const consumePasswordlessCode = async (userInputCode: string) => {
-  if (AUTH_MODE === "thirdpartypasswordless") {
+  if (AUTH_MODE === 'thirdpartypasswordless') {
     return ThirdPartyPasswordless.consumePasswordlessCode({
       userInputCode,
-    });
+    })
   }
 
   return Passwordless.consumeCode({
     userInputCode,
-  });
+  })
+}
+
+export const getAccessTokenPayload = async () => {
+  // 1. check if valid session, if not return null
+  const validSession = await doesSessionExist()
+  if (!validSession) return null
+  const payload = (await getAccessTokenPayloadSecurely()) as Payload
+
+  if (!payload) return null
+
+  return payload
 }

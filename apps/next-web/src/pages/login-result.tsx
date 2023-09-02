@@ -1,6 +1,4 @@
-import { signout } from 'lib/utils/supertokensUtilities'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { AuthLayout } from 'ui/components/AuthLayout'
 import {
@@ -8,16 +6,12 @@ import {
   getAccessToken,
 } from 'supertokens-web-js/recipe/session'
 
-const Home = () => {
-  const router = useRouter()
+import { useSignout } from 'lib/next-apps/hooks/signout'
 
+const Home = () => {
   const [sessionHandle, setSessionHandle] = React.useState()
   const [userId, setUserId] = React.useState()
-
-  async function logoutClicked() {
-    await signout()
-    await router.push('/login')
-  }
+  const logOut = useSignout()
 
   async function fetchUserData() {
     const res = await fetch('/api/user')
@@ -83,14 +77,22 @@ const Home = () => {
         </button>
 
         <div className="flex flex-col space-y-3">
-          <p>Now lets log out again:</p>
+          <p>Now you could log out again:</p>
           <button
             className="px-6 py-2 text-sm text-white bg-blue-600 border border-transparent rounded-md  hover:bg-blue-700 focus:ring-blue-500 disabled:text-accent-disabled disabled:bg-accent-hover"
             type="button"
-            onClick={logoutClicked}
+            onClick={logOut}
           >
             Logout
           </button>
+          <p> Or check a role based protected-route: </p>
+
+          <Link
+            href="/protected-route"
+            className="px-6 py-2 text-sm text-white bg-blue-600 border border-transparent rounded-md  hover:bg-blue-700 focus:ring-blue-500 disabled:text-accent-disabled disabled:bg-accent-hover"
+          >
+            Auth protected Route
+          </Link>
         </div>
       </main>
     </AuthLayout>

@@ -1,3 +1,5 @@
+import { Role_Enum } from '../../../utils/authUtils'
+
 type Input = {
   accessTokenPayload?: any
   userId: string
@@ -10,8 +12,8 @@ export const createNewSessionPayload = async (input: Input) => {
   const userId = input.userId
 
   // Now that you have the userId, here you could fetch the user's roles from your database
-  const roles = ['user', 'anonymous']
-  const role = 'user'
+  const roles = ['admin', 'moderator'] as Role_Enum[]
+  const role = 'moderator'
 
   // Important: Hasura requires claims to be set in a specifc way
   // Read the official documentation to know more:

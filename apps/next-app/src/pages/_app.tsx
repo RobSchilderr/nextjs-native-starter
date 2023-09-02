@@ -12,6 +12,7 @@ import { App as CapApp } from '@capacitor/app'
 import { Bebas_Neue, Work_Sans } from '@next/font/google'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from 'lib/utils/reactQuery'
+import { InitiateLayout } from 'ui/containers/Login/InitiateLayout'
 import { getFrontendConfig } from '../../config/frontendConfig'
 
 const workSans = Work_Sans({
@@ -28,7 +29,7 @@ const bebasNeue = Bebas_Neue({
 if (typeof window !== 'undefined') {
   SuperTokens.init({
     ...getFrontendConfig(),
-       /*
+    /*
      * 1. Important Capacitor note:
      * This section deals with a challenge faced while working with SDKs in the context of frameworks like Electron and Capacitor.
      * These frameworks add an abstraction layer on top of the browser logic, which causes issues with how the SDK uses frontend cookies for information storage.
@@ -82,21 +83,21 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <main className={`${bebasNeue.variable} font-display mt-28`}>
+        <div className={`${workSans.variable} font-sans`}>
+          <InitiateLayout>
+            {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
+            <Component
+              {
+                // eslint-disable-next-line react/jsx-props-no-spreading
 
-    <main className={`${bebasNeue.variable} font-display mt-28`}>
-      <div className={`${workSans.variable} font-sans`}>
-        {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component
-          {
-            // eslint-disable-next-line react/jsx-props-no-spreading
-
-            ...pageProps
-          }
-        />
-      </div>
-    </main>
+                ...pageProps
+              }
+            />
+          </InitiateLayout>
+        </div>
+      </main>
     </QueryClientProvider>
-
   )
 }
 
