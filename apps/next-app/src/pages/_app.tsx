@@ -13,6 +13,7 @@ import { Bebas_Neue, Work_Sans } from '@next/font/google'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from 'lib/utils/reactQuery'
 import { InitiateLayout } from 'ui/containers/Login/InitiateLayout'
+import { Toaster } from 'react-hot-toast'
 import { getFrontendConfig } from '../../config/frontendConfig'
 
 const workSans = Work_Sans({
@@ -86,6 +87,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <main className={`${bebasNeue.variable} font-display mt-28`}>
         <div className={`${workSans.variable} font-sans`}>
           <InitiateLayout>
+            <Toaster />
+
             {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
             <Component
               {

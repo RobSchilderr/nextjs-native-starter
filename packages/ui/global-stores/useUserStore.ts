@@ -3,18 +3,17 @@ import { combine } from 'zustand/middleware'
 import { doesSessionExist } from 'supertokens-web-js/recipe/session'
 import { logError } from 'lib/utils/logError'
 import { getAccessTokenPayload, signout } from 'lib/utils/supertokensUtilities'
-import { Role_Enum, allowedRoles } from 'lib/utils/authUtils'
+import { Role_Enum } from 'graphql-generated/admin'
 import { toastError } from 'ui/components/Toast/toast'
 import { getUserFromDatabase } from 'ui/global-stores/helpers/useUserStore.helpers'
+import { GetPersonQuery } from 'graphql-generated/moderator'
 
-type UserFromDatabase = {
-  id: string
-  email: string
-  role: Role_Enum
-}
+export type User = Pick<GetPersonQuery, 'person'>['person'][0]
+
+const allowedRoles = [Role_Enum.Moderator, Role_Enum.User]
 
 type UserState = {
-  user: UserFromDatabase | null
+  user: User | null
   isFetched: boolean
   isSupertokensAuthenticated: boolean
   deviceToken?: string
@@ -32,7 +31,6 @@ export const useUserStore = create(
       set(state => ({ ...state, deviceToken })),
     fetchUser: async () => {
       try {
-        // 1.  check if valid session
         const validSession = await doesSessionExist()
 
         if (!validSession) {
@@ -100,7 +98,7 @@ export const useUserStore = create(
 
         set(state => ({
           ...state,
-          user,
+          user: user?.person[0],
           isFetched: true,
           isSupertokensAuthenticated: true,
         }))

@@ -1,19 +1,19 @@
-import { Role_Enum } from 'lib/utils/authUtils'
+import {
+  GetPersonDocument,
+  GetPersonQuery,
+  GetPersonQueryVariables,
+} from 'graphql-generated/moderator'
+import { hasuraUserFetcher } from 'lib/next-apps/fetchers/hasuraUserFetcher'
 import { logError } from 'lib/utils/logError'
 
 export async function getUserFromDatabase() {
   try {
-    // in reality you would do a query to your database here:
-    const user: {
-      id: string
-      email: string
-      role: Role_Enum
-    } = {
-      id: '1',
-      email: 'test@test.com',
-      role: 'moderator',
-    }
-    return user
+    const person = await hasuraUserFetcher<
+      GetPersonQuery,
+      GetPersonQueryVariables
+    >(GetPersonDocument)()
+
+    return person
   } catch (err) {
     logError(err)
 

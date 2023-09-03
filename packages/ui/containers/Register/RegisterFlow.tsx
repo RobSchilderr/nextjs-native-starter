@@ -5,8 +5,17 @@ import { SingleFieldTextForm } from 'ui/components/Form/SingleFieldTextForm'
 import { useNativeOS } from 'lib/utils/capacitor'
 import { useUserStore } from '../../global-stores/useUserStore'
 import { useRegisterPersonMutation } from 'graphql-generated/anonymous'
-// - add supertokensId to init database
-// - insert user into database
+import {
+  SuperTokensUserData,
+  fetchUserData,
+  renewSession,
+} from 'lib/utils/supertokensUtilities'
+import { toastError, toastSuccess } from '../../components/Toast/toast'
+import { logError } from 'lib/utils/logError'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+// import Success from '../../components/SuccessRegister'
+import { useRefreshUser } from 'lib/next-apps/hooks/useRefreshUser'
 
 const pageTitle = 'Complete registration'
 
@@ -14,37 +23,67 @@ export const RegisterFlow = () => {
   const isNative = useNativeOS()
   const deviceToken = useUserStore(state => state.deviceToken)
 
+  // We fetch the supertokens ID and query the email on the backend in register.ts
+  const router = useRouter()
+  const { success } = router.query
+  const refreshUser = useRefreshUser()
+
+  const [supertokensUserData, setSupertokensUserData] = useState<
+    SuperTokensUserData | undefined | null
+  >(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchUserData()
+      setSupertokensUserData(data)
+    }
+    fetchData()
+  }, [])
   const { mutateAsync: register } = useRegisterPersonMutation()
 
   const handleFormSubmit = async (values: { text: string }) => {
-    console.log('handleFormSubmit, values: ', values)
-
     try {
-      // register stuff
-
-      await register({
+      if (!supertokensUserData?.userId) {
+        throw new Error('userId not found')
+      }
+      const registerResult = await register({
         variables: {
-          email: 'test@test.nl',
-          givenName: 'test',
-          deviceToken: 'test',
-          marketingSource: 'test',
-          supertokensUserId: 'test',
+          givenName: values.text,
+          supertokensUserId: supertokensUserData.userId,
+          ...(isNative && {
+            deviceToken: deviceToken,
+          }),
         },
       })
+
+      if (registerResult.registerPerson.success) {
+        toastSuccess('Successfully registered!')
+        // we create the new payload with the JWT token
+        await renewSession()
+        // we add the user to the global store
+        await refreshUser()
+
+        await router.push('/myaccount')
+      }
     } catch (error) {
+      toastError('Error: something went wrong. Please try again.')
+      logError(error)
       console.log('error: ', error)
     }
   }
   return (
     <RegisterLayout pageTitle={pageTitle}>
-      <SingleFieldTextForm
-        onFormSubmit={handleFormSubmit}
-        label="What is your first name?"
-        maxLengthString={50}
-        errorMessage="First name is required"
-        name="firstName"
-        id="firstName"
-      />
+      {/* {success === 'true' && <Success />} */}
+      {success !== 'true' && (
+        <SingleFieldTextForm
+          onFormSubmit={handleFormSubmit}
+          label="What is your first name?"
+          maxLengthString={50}
+          errorMessage="First name is required"
+          name="firstName"
+          id="firstName"
+        />
+      )}
     </RegisterLayout>
   )
 }

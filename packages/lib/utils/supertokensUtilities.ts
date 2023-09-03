@@ -228,6 +228,19 @@ export const getAccessTokenPayload = async () => {
   return payload
 }
 
+export type SuperTokensUserData = {
+  note: string
+  userId: string
+  sessionHandle: string
+  accessTokenPayload: {
+    iat: number
+    exp: number
+    sub: string
+    sessionHandle: string
+    refreshTokenHash1: string
+  }
+}
+
 export async function fetchUserData() {
   try {
     const res = await fetch(`${FRONTEND_URL}/api/user`)
@@ -238,9 +251,13 @@ export async function fetchUserData() {
     }
 
     const json = await res.json()
-    return json
+    return json as SuperTokensUserData
   } catch (error) {
     console.error(`Fetch failed: ${error}`)
     return null
   }
+}
+
+export const renewSession = async (frontendUrl: string = FRONTEND_URL) => {
+  await fetch(`${frontendUrl}/api/auth/renew`)
 }

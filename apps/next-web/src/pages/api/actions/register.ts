@@ -4,6 +4,7 @@ import { eventAuthentication } from 'lib/next-apps/api/middleware/eventAuthentic
 import * as z from 'zod'
 import sdk from 'lib/next-apps/fetchers/graphqlSdk'
 import { Role_Enum } from 'graphql-generated/admin'
+import { getUserById } from 'lib/utils/supertokensNodeUtilities'
 
 /**
  * @description Register a new user
@@ -12,11 +13,10 @@ import { Role_Enum } from 'graphql-generated/admin'
 const bodySchema = z.object({
   input: z.object({
     object: z.object({
-      email: z.string(),
       givenName: z.string().min(2, {
         message: 'A valid first name is required',
       }),
-      supertokensUserId: z.string().optional(),
+      supertokensUserId: z.string(),
       deviceToken: z.string().optional(),
       marketingSource: z.string().optional(),
     }),
@@ -38,9 +38,11 @@ const registerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
     const values = input.object
 
+    const userInfo = await getUserById(values.supertokensUserId)
+
     const personResponse = await sdk.InsertPerson({
       variables: {
-        email: values.email,
+        email: userInfo?.email,
         given_name: values.givenName,
         role: Role_Enum.Moderator,
       },

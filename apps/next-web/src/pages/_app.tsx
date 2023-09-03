@@ -4,6 +4,7 @@ import { AppProps } from 'next/app'
 import '../../styles/globals.css'
 import SuperTokens from 'supertokens-web-js'
 import { Bebas_Neue, Work_Sans } from '@next/font/google'
+import { Toaster } from 'react-hot-toast'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from 'lib/utils/reactQuery'
 import { getFrontendConfig } from 'next-web/config/frontendConfig'
@@ -30,6 +31,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   <QueryClientProvider client={queryClient}>
     <main className={`${bebasNeue.variable} font-display`}>
       <div className={`${workSans.variable} font-sans`}>
+        <Toaster />
+
         {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component
           {

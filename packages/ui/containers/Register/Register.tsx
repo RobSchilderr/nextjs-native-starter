@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import React from 'react'
 import { AuthLayout } from 'ui/components/AuthLayout'
 import { RegisterForm } from 'ui/containers/Forms/RegisterForm'
 import TextDivider from 'ui/components/TextDivider'
@@ -118,18 +117,22 @@ const EmailPasswordRegister = () => {
         </div>
       </AuthLayout>
     </>
-  );
+  )
 }
 
 export const RegisterComponent = () => {
-  if (AUTH_MODE === "emailpassword") {
-    return <EmailPasswordRegister />;
+  if (AUTH_MODE === 'emailpassword') {
+    return <EmailPasswordRegister />
   }
 
   // These do not need a separate register flow
-  if (AUTH_MODE === "thirdparty" || AUTH_MODE === "passwordless" || AUTH_MODE === "thirdpartypasswordless") {
-    return <LoginComponent />;
+  if (
+    AUTH_MODE === 'thirdparty' ||
+    AUTH_MODE === 'passwordless' ||
+    AUTH_MODE === 'thirdpartypasswordless'
+  ) {
+    return <LoginComponent />
   }
 
-  return <ThirdPartyEmailPasswordRegister />;
+  return <ThirdPartyEmailPasswordRegister />
 }

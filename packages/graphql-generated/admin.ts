@@ -19,7 +19,6 @@ export type Scalars = {
 
 export type RegisterInput = {
   deviceToken?: InputMaybe<Scalars['String']['input']>;
-  email: Scalars['String']['input'];
   givenName: Scalars['String']['input'];
   marketingSource?: InputMaybe<Scalars['String']['input']>;
   supertokensUserId?: InputMaybe<Scalars['String']['input']>;

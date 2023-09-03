@@ -5,10 +5,9 @@ type Mutation {
 }
 
 input RegisterInput {
-  email: String!
   givenName: String!
   marketingSource: String
-  supertokensUserId: String
+  supertokensUserId: String!
   deviceToken: String
 }
 
