@@ -1,6 +1,19 @@
-actions: []
+actions:
+  - name: registerPerson
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_URL}}/api/actions/register'
+      forward_client_headers: true
+      headers:
+        - name: x-event-secret
+          value_from_env: EVENT_SECRET
+    permissions:
+      - role: anonymous
+    comment: registerPerson
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: RegisterInput
+  objects:
+    - name: RegisterOutput
   scalars: []

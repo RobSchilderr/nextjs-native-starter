@@ -1,0 +1,18 @@
+type Mutation {
+  registerPerson(
+    object: RegisterInput!
+  ): RegisterOutput!
+}
+
+input RegisterInput {
+  email: String!
+  givenName: String!
+  marketingSource: String
+  supertokensUserId: String
+  deviceToken: String
+}
+
+type RegisterOutput {
+  success: Boolean!
+}
+

@@ -26,6 +26,8 @@ services:
       ## uncomment next line to set an admin secret
       HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
       HASURA_GRAPHQL_UNAUTHORIZED_ROLE: 'anonymous'
+      ACTION_BASE_URL: 'http://host.docker.internal:3001'
+      EVENT_SECRET: 'SaabbssseradJ29952JadfswDz'
 
 volumes:
   db_data_hasura:

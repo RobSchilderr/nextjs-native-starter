@@ -1,0 +1,5 @@
+mutation InsertPerson($variables: person_insert_input!) {
+  insert_person_one(object: $variables) {
+    id
+  }
+}

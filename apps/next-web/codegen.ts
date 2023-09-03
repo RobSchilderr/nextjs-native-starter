@@ -21,7 +21,7 @@ const config: CodegenConfig = {
       },
       documents: [
         '../../packages/graphql-lib/hasura/query/admin/**/*.gql',
-        // '../../packages/graphql-lib/hasura/mutation/admin/**/*.gql',
+        '../../packages/graphql-lib/hasura/mutation/admin/**/*.gql',
       ],
       plugins: [
         'typescript',
@@ -47,7 +47,7 @@ const config: CodegenConfig = {
       },
       documents: [
         '../../packages/graphql-lib/hasura/query/anonymous/**/*.gql',
-        // '../../packages/graphql-lib/hasura/mutation/anonymous/**/*.gql',
+        '../../packages/graphql-lib/hasura/mutation/anonymous/**/*.gql',
       ],
 
       plugins: [

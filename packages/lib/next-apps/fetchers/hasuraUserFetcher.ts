@@ -14,7 +14,7 @@ import { logError } from '../../utils/logError'
  * @returns
  */
 
-export const hasuraUserStoreFetcher =
+export const hasuraUserFetcher =
   <TData, TVariables>(
     query: string,
     variables?: TVariables,

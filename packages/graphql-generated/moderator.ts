@@ -153,8 +153,8 @@ export type Query_RootPerson_By_PkArgs = {
 };
 
 export enum Role_Enum {
-  Admin = 'admin',
-  Moderator = 'moderator'
+  Moderator = 'moderator',
+  User = 'user'
 }
 
 /** Boolean expression to compare columns of type "role_enum". All fields are combined with logical 'AND'. */

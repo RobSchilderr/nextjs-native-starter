@@ -17,6 +17,19 @@ export type Scalars = {
   uuid: { input: any; output: any; }
 };
 
+export type RegisterInput = {
+  deviceToken?: InputMaybe<Scalars['String']['input']>;
+  email: Scalars['String']['input'];
+  givenName: Scalars['String']['input'];
+  marketingSource?: InputMaybe<Scalars['String']['input']>;
+  supertokensUserId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RegisterOutput = {
+  __typename?: 'RegisterOutput';
+  success: Scalars['Boolean']['output'];
+};
+
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']['input']>;
@@ -77,6 +90,8 @@ export type Mutation_Root = {
   insert_role?: Maybe<Role_Mutation_Response>;
   /** insert a single row into the table: "role" */
   insert_role_one?: Maybe<Role>;
+  /** registerPerson */
+  registerPerson: RegisterOutput;
   /** update data of the table: "person" */
   update_person?: Maybe<Person_Mutation_Response>;
   /** update single row of the table: "person" */
@@ -141,6 +156,12 @@ export type Mutation_RootInsert_RoleArgs = {
 export type Mutation_RootInsert_Role_OneArgs = {
   object: Role_Insert_Input;
   on_conflict?: InputMaybe<Role_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootRegisterPersonArgs = {
+  object: RegisterInput;
 };
 
 
@@ -460,8 +481,8 @@ export enum Role_Constraint {
 }
 
 export enum Role_Enum {
-  Admin = 'admin',
-  Moderator = 'moderator'
+  Moderator = 'moderator',
+  User = 'user'
 }
 
 /** Boolean expression to compare columns of type "role_enum". All fields are combined with logical 'AND'. */
@@ -646,6 +667,13 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
 };
 
+export type InsertPersonMutationVariables = Exact<{
+  variables: Person_Insert_Input;
+}>;
+
+
+export type InsertPersonMutation = { __typename?: 'mutation_root', insert_person_one?: { __typename?: 'person', id: any } | null };
+
 export type GetPersonQueryVariables = Exact<{
   condition: Person_Bool_Exp;
 }>;
@@ -654,6 +682,13 @@ export type GetPersonQueryVariables = Exact<{
 export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', email: string, id: any, role: Role_Enum }> };
 
 
+export const InsertPersonDocument = `
+    mutation InsertPerson($variables: person_insert_input!) {
+  insert_person_one(object: $variables) {
+    id
+  }
+}
+    `;
 export const GetPersonDocument = `
     query GetPerson($condition: person_bool_exp!) {
   person(where: $condition) {
@@ -671,6 +706,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    InsertPerson(variables: InsertPersonMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: InsertPersonMutation; extensions?: any; headers: Headers; status: number; }> {
+        return withWrapper((wrappedRequestHeaders) => client.rawRequest<InsertPersonMutation>(InsertPersonDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'InsertPerson', 'mutation');
+    },
     GetPerson(variables: GetPersonQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: GetPersonQuery; extensions?: any; headers: Headers; status: number; }> {
         return withWrapper((wrappedRequestHeaders) => client.rawRequest<GetPersonQuery>(GetPersonDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPerson', 'query');
     }
@@ -680,5 +718,8 @@ export type Sdk = ReturnType<typeof getSdk>;
 export const namedOperations = {
   Query: {
     GetPerson: 'GetPerson'
+  },
+  Mutation: {
+    InsertPerson: 'InsertPerson'
   }
 }

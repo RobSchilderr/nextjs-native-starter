@@ -1,4 +1,4 @@
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { useMutation, useQuery, UseMutationOptions, UseQueryOptions } from '@tanstack/react-query';
 import { hasuraAnonymousFetcher } from 'lib/next-apps/fetchers/hasuraAnonymousFetcher';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -14,6 +14,19 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+};
+
+export type RegisterInput = {
+  deviceToken?: InputMaybe<Scalars['String']['input']>;
+  email: Scalars['String']['input'];
+  givenName: Scalars['String']['input'];
+  marketingSource?: InputMaybe<Scalars['String']['input']>;
+  supertokensUserId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RegisterOutput = {
+  __typename?: 'RegisterOutput';
+  success: Scalars['Boolean']['output'];
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
@@ -56,6 +69,19 @@ export enum Cursor_Ordering {
   /** descending ordering of the cursor */
   Desc = 'DESC'
 }
+
+/** mutation root */
+export type Mutation_Root = {
+  __typename?: 'mutation_root';
+  /** registerPerson */
+  registerPerson: RegisterOutput;
+};
+
+
+/** mutation root */
+export type Mutation_RootRegisterPersonArgs = {
+  object: RegisterInput;
+};
 
 /** column ordering options */
 export enum Order_By {
@@ -150,12 +176,35 @@ export type Subscription_RootPerson_StreamArgs = {
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
+export type RegisterPersonMutationVariables = Exact<{
+  variables: RegisterInput;
+}>;
+
+
+export type RegisterPersonMutation = { __typename?: 'mutation_root', registerPerson: { __typename?: 'RegisterOutput', success: boolean } };
+
 export type GetPersonQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', given_name: string }> };
 
 
+export const RegisterPersonDocument = `
+    mutation RegisterPerson($variables: RegisterInput!) {
+  registerPerson(object: $variables) {
+    success
+  }
+}
+    `;
+export const useRegisterPersonMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(options?: UseMutationOptions<RegisterPersonMutation, TError, RegisterPersonMutationVariables, TContext>) =>
+    useMutation<RegisterPersonMutation, TError, RegisterPersonMutationVariables, TContext>(
+      ['RegisterPerson'],
+      (variables?: RegisterPersonMutationVariables) => hasuraAnonymousFetcher<RegisterPersonMutation, RegisterPersonMutationVariables>(RegisterPersonDocument, variables)(),
+      options
+    );
 export const GetPersonDocument = `
     query GetPerson {
   person {
@@ -178,5 +227,8 @@ export const useGetPersonQuery = <
 export const namedOperations = {
   Query: {
     GetPerson: 'GetPerson'
+  },
+  Mutation: {
+    RegisterPerson: 'RegisterPerson'
   }
 }

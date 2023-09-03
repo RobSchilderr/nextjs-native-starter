@@ -11,7 +11,7 @@ export async function getUserFromDatabase() {
     } = {
       id: '1',
       email: 'test@test.com',
-      role: 'admin',
+      role: 'moderator',
     }
     return user
   } catch (err) {
