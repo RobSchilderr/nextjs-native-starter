@@ -30,6 +30,8 @@ module.exports = {
     'prefer-const': 'off',
 
     // react
+    'react/require-default-props': 'off',
+    'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',
 

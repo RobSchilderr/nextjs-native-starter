@@ -1,6 +1,6 @@
 import { logError } from 'lib/utils/logError'
-import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { useUserStore } from 'ui/global-stores/useUserStore'
 import LoadingSpinnerPage from './LoadingSpinnerPage'
 
@@ -27,6 +27,7 @@ export const PleaseSignIn = ({ children }: Props) => {
   }, [userFromDatabase, isFetched, isAuthenticatedWithSupertokens])
 
   return isFetched && userFromDatabase ? (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>{children}</>
   ) : (
     <LoadingSpinnerPage />

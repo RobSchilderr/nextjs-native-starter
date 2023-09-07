@@ -8,9 +8,9 @@ export const GoogleButton = ({ onClick }: { onClick: () => void }) => (
     onClick={onClick}
     className="inline-flex justify-center items-center px-4 py-3 text-sm font-medium  bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50"
   >
-    <span className="sr-only">Sign in with Google</span>
+    <span className="sr-only">Continue with Google</span>
     <GoogleIcon />
-    <span className="ml-2 font-medium text-xl">Sign in with Google</span>
+    <span className="ml-2 font-medium text-xl">Continue with Google</span>
   </button>
 )
 
@@ -20,7 +20,7 @@ export const FacebookButton = ({ onClick }: { onClick: () => void }) => (
     onClick={onClick}
     className="inline-flex justify-center px-4 py-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full shadow-sm hover:bg-gray-50"
   >
-    <span className="sr-only">Sign in with Facebook</span>
+    <span className="sr-only">Continue with Facebook</span>
     <FacebookIcon />
   </button>
 )
@@ -31,8 +31,8 @@ export const AppleButton = ({ onClick }: { onClick: () => void }) => (
     onClick={onClick}
     className="inline-flex items-center rounded-full justify-center px-4 py-3 text-sm font-medium bg-white border border-gray-300 shadow-sm hover:bg-gray-50"
   >
-    <span className="sr-only">Sign in with Apple</span>
+    <span className="sr-only">Continue with Apple</span>
     <AppleIcon />
-    <span className="ml-2 font-medium text-xl">Sign in with Apple</span>
+    <span className="ml-2 font-medium text-xl">Continue with Apple</span>
   </button>
 )

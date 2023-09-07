@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { RadioGroup } from '@headlessui/react'
-import RadioGroupOptionDouble, {
+import {
+  RadioGroupOptionDouble,
   RadioGroupOptionDoubleType,
 } from './RadioGroupOptionDouble'
 
-type Props = {
+// todo: reduce props
+type CustomRadioGroupProps = {
   onChange: any
   radioGroupValue: any
   radioGroupLabel: string
@@ -19,7 +21,7 @@ type Props = {
   radioGroupOptionTagColor?: string
 }
 
-const CustomRadioGroup: React.FC<Props> = ({
+export const CustomRadioGroup = ({
   onChange,
   radioGroupValue,
   radioGroupOptions,
@@ -30,10 +32,8 @@ const CustomRadioGroup: React.FC<Props> = ({
   radioGroupLabelClassName = 'text-lg',
   error,
   gridClassName,
-}) => {
-  const gridClass = gridClassName
-    ? gridClassName
-    : ' grid-cols-1  sm:grid-cols-2'
+}: CustomRadioGroupProps) => {
+  const gridClass = gridClassName || ' grid-cols-1  sm:grid-cols-2'
 
   return (
     <>
@@ -58,22 +58,18 @@ const CustomRadioGroup: React.FC<Props> = ({
 
         <div className={`mt-4 grid gap-y-6 sm:gap-x-4 ${gridClass}`}>
           {radioGroupOptions &&
-            radioGroupOptions.map(radioGroupOption => {
-              return (
-                <RadioGroupOptionDouble
-                  key={radioGroupOption.id}
-                  radioGroupOptionDoubleCheckboxClassName={
-                    radioGroupOptionDoubleCheckboxClassName
-                  }
-                  {...radioGroupOption}
-                />
-              )
-            })}
+            radioGroupOptions.map(radioGroupOption => (
+              <RadioGroupOptionDouble
+                key={radioGroupOption.id}
+                radioGroupOptionDoubleCheckboxClassName={
+                  radioGroupOptionDoubleCheckboxClassName
+                }
+                {...radioGroupOption}
+              />
+            ))}
         </div>
       </RadioGroup>
       {error && <div className="mt-2 text-sm text-red-500">{error} </div>}
     </>
   )
 }
-
-export default CustomRadioGroup

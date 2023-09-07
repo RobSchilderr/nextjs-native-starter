@@ -52,9 +52,7 @@ export const useUserStore = create(
         }
 
         if (!hasuraClaims['https://hasura.io/jwt/claims']) {
-          toastError('You are not allowed to access this page')
           set(getDefaultValues())
-
           set(state => ({
             ...state,
             isFetched: true,

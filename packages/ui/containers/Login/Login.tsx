@@ -22,35 +22,17 @@ const ThirdPartyEmailPasswordLogin = () => {
       </Head>
       <AuthLayout>
         <div className="flex flex-col px-4 sm:[x-">
-          <p className="mt-2 text-sm text-gray-700">
-            <Link
-              href="/"
-              className="font-medium text-blue-600 hover:underline"
-            >
-              Go back to homee{' '}
-            </Link>{' '}
-          </p>
           {/* make some nice title with Tailwind here in the middle of the screen */}
           <div className="mt-8">
             <h2 className="text-lg font-semibold text-gray-900">
               Sign in to your account
             </h2>
-            <p className="mt-2 text-sm text-gray-700">
-              Or{' '}
-              <Link
-                href="/register"
-                className="font-medium text-blue-600 hover:underline"
-              >
-                go to register{' '}
-              </Link>{' '}
-            </p>
           </div>
         </div>
 
         <div className="mt-8">
           <div>
             <div>
-              <p className="text-sm font-medium text-gray-700">Login with</p>
               <div className="flex flex-col mt-2 space-y-6">
                 <GoogleButton
                   onClick={() =>
@@ -133,26 +115,19 @@ const ThirdPartyLogin = () => {
         <title>Sign In - Supertokens</title>
       </Head>
       <AuthLayout>
-        <div className="flex flex-col">
-          <p className="mt-2 text-sm text-gray-700">
-            <Link
-              href="/"
-              className="font-medium text-blue-600 hover:underline"
-            >
-              Go back to home{' '}
-            </Link>{' '}
-          </p>
-          <div className="mt-8">
-            <h2 className="text-lg font-semibold text-gray-900">
-              Sign in to your account
-            </h2>
-          </div>
+        <div className="flex items-center  flex-row mt-6 px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="text-4xl mx-auto font-display font-bold text-gray-900 "
+          >
+            NextJs Native
+          </Link>
+          {/* // dummy link to make the logo centered */}
         </div>
 
         <div className="mt-8">
           <div>
             <div>
-              <p className="text-sm font-medium text-gray-700">Login with</p>
               <div className="flex flex-col mt-2 space-y-6">
                 <GoogleButton
                   onClick={() =>
@@ -193,23 +168,37 @@ const PasswordlessLogin = () => {
         <title>Sign In - Supertokens</title>
       </Head>
       <AuthLayout>
-        <div className="flex flex-col">
-          <p className="mt-2 text-sm text-gray-700">
-            <Link
-              href="/"
-              className="font-medium text-blue-600 hover:underline"
+        <div className="flex items-center  flex-row mt-6 px-4 sm:px-6 lg:px-8">
+          {hasRequestedCode && (
+            <button
+              className="text-blue-600 w-8"
+              type="button"
+              onClick={onChangeEmail}
             >
-              Go back to home{' '}
-            </Link>{' '}
-          </p>
-          <div className="mt-8">
-            <h2 className="text-lg font-semibold text-gray-900">
-              Sign in to your account
-            </h2>
-          </div>
+              Back
+            </button>
+          )}
+          <Link
+            href="/"
+            className="text-4xl mx-auto font-display font-bold text-gray-900 "
+          >
+            NextJs Native
+          </Link>
+          {/* // dummy link to make the logo centered */}
+          {hasRequestedCode && <div className="w-8"></div>}
         </div>
 
-        <div className="mt-6">
+        <div className="mt-8 px-4  text-center mx-auto">
+          {!hasRequestedCode && (
+            <h2 className="text-2xl  text-gray-900">Enter your email</h2>
+          )}
+          {hasRequestedCode && (
+            <h2 className="text-md text-gray-900">
+              Enter the code that is sent to your email
+            </h2>
+          )}
+        </div>
+        <div className="mt-8">
           <PasswordlessLoginForm
             isGettingCode={isGettingCode}
             setIsGettingCode={setIsGettingCode}
@@ -253,13 +242,13 @@ const ThirdPartyPasswordlessLogin = () => {
               href="/"
               className="text-4xl mx-auto font-display font-bold text-gray-900 "
             >
-              Supertokens
+              NextJs Native
             </Link>
             {/* // dummy link to make the logo centered */}
             {hasRequestedCode && <div className="w-8"></div>}
           </div>
 
-          <div className="mt-8 px-4   max-w-[320px] mx-auto">
+          <div className="mt-8 px-4  mx-auto">
             {!hasRequestedCode && (
               <h2 className="text-2xl  text-gray-900">Enter your email</h2>
             )}
@@ -271,7 +260,7 @@ const ThirdPartyPasswordlessLogin = () => {
           </div>
         </div>
 
-        <div className="mt-8 px-4 max-w-[320px] mx-auto">
+        <div className="mt-8 px-4 mx-auto">
           <div>
             <div>
               <div className="mt-6">
@@ -289,7 +278,7 @@ const ThirdPartyPasswordlessLogin = () => {
                     <TextDivider text="Or" />
                   </div>
 
-                  <div className="flex flex-col mt-0 space-y-6">
+                  <div className="flex flex-col mt-0 space-y-8">
                     <GoogleButton
                       onClick={() =>
                         onThirdPartyLogin({
@@ -318,19 +307,19 @@ const ThirdPartyPasswordlessLogin = () => {
 }
 
 export const LoginComponent = () => {
-  if (AUTH_MODE === "emailpassword") {
+  if (AUTH_MODE === 'emailpassword') {
     return <EmailPasswordLogin />
   }
 
-  if (AUTH_MODE === "thirdparty") {
+  if (AUTH_MODE === 'thirdparty') {
     return <ThirdPartyLogin />
   }
 
-  if (AUTH_MODE === "passwordless") {
+  if (AUTH_MODE === 'passwordless') {
     return <PasswordlessLogin />
   }
 
-  if (AUTH_MODE === "thirdpartypasswordless") {
+  if (AUTH_MODE === 'thirdpartypasswordless') {
     return <ThirdPartyPasswordlessLogin />
   }
 

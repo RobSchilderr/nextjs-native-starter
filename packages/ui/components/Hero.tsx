@@ -1,4 +1,6 @@
-import React from 'react'
+// @ts-nocheck -- file gonna be removed soon
+// @ts-ignore
+
 import { Container } from './Container'
 import { useRouter } from 'next/router'
 
@@ -7,15 +9,17 @@ import { useRouter } from 'next/router'
 
 // import {
 //   useGetPostsQuery,
- 
-// } from 'graphql-generated/anonymous'
 
+// } from 'graphql-generated/anonymous'
+// Define a state to handle
 export function Hero() {
   const router = useRouter()
-  // const {
+  const handleButtonClick = (route: string) => {
+    setIsLoading(true)
+    router.push(route)
+  }
   //   data: postsData,
   // } = useGetPostsQuery()
-  
 
   // console.log('postsData', postsData)
   return (

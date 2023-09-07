@@ -2,17 +2,17 @@ import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import { cn } from 'lib/utils/util'
 import { useRouter } from 'next/router'
 
-type Props = {
+type MobileTopNavWithReturnProps = {
   pageTitle: string
   showOnDesktop?: boolean
   withReturn?: boolean
 }
 
-const MobileTopNavWithReturn: React.FC<Props> = ({
+const MobileTopNavWithReturn = ({
   pageTitle,
   showOnDesktop,
   withReturn = false,
-}) => {
+}: MobileTopNavWithReturnProps) => {
   const router = useRouter()
 
   // position fixed is necessary because on safari the sticky top nav doesnt appear in viewport on capacitor when switching between apps after opening a Drawer from Headless UI. Super edge case.
