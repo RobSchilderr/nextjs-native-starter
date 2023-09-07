@@ -1,21 +1,20 @@
-// todo:
+import { useEffect, useState } from 'react'
 
-import RegisterLayout from 'ui/containers/Register/RegisterLayout'
-import { SingleFieldTextForm } from 'ui/components/Form/SingleFieldTextForm'
 import { useNativeOS } from 'lib/utils/capacitor'
-import { useUserStore } from '../../global-stores/useUserStore'
 import { useRegisterPersonMutation } from 'graphql-generated/anonymous'
 import {
   SuperTokensUserData,
   fetchUserData,
   renewSession,
 } from 'lib/utils/supertokensUtilities'
-import { toastError, toastSuccess } from '../../components/Toast/toast'
 import { logError } from 'lib/utils/logError'
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 // import Success from '../../components/SuccessRegister'
 import { useRefreshUser } from 'lib/next-apps/hooks/useRefreshUser'
+import RegisterLayout from 'ui/containers/Register/RegisterLayout'
+import { SingleFieldTextForm } from 'ui/components/Form/SingleFieldTextForm'
+import { useUserStore } from 'ui/global-stores/useUserStore'
+import { toastError, toastSuccess } from 'ui/components/Toast/toast'
 
 const pageTitle = 'Complete registration'
 
@@ -51,14 +50,14 @@ export const RegisterFlow = () => {
           givenName: values.text,
           supertokensUserId: supertokensUserData.userId,
           ...(isNative && {
-            deviceToken: deviceToken,
+            deviceToken,
           }),
         },
       })
 
       if (registerResult.registerPerson.success) {
         toastSuccess('Successfully registered!')
-        // we create the new payload with the JWT token
+        // We create the new payload with the JWT token
         await renewSession()
         // we add the user to the global store
         await refreshUser()

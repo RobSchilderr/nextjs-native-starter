@@ -3,10 +3,10 @@
 // https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt#3--add-custom-claims-to-the-jwt
 // in the useUserStore we check the role that the user has and we can use it to protect routes
 
-import { AuthLayout } from 'ui/components/AuthLayout'
-import { useUserStore } from 'ui/global-stores/useUserStore'
 import { useSignout } from 'lib/next-apps/hooks/signout'
 import Link from 'next/link'
+import { AuthLayout } from 'ui/components/AuthLayout'
+import { useUserStore } from 'ui/global-stores/useUserStore'
 
 export const ProtectedRoute = () => {
   const user = useUserStore(state => state.user)

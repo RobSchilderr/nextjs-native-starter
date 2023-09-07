@@ -1,5 +1,9 @@
+import { useState } from 'react'
 import Head from 'next/head'
-import React, { useState } from 'react'
+import { AUTH_MODE } from 'lib/utils/config'
+import { onThirdPartyLogin } from 'lib/utils/supertokensUtilities'
+import { usePlatform } from 'lib/utils/capacitor'
+import Link from 'next/link'
 import {
   EmailPasswordLoginForm,
   LoginForm,
@@ -7,11 +11,7 @@ import {
 } from 'ui/containers/Forms/LoginForm'
 import { AuthLayout } from 'ui/components/AuthLayout'
 import { AppleButton, GoogleButton } from '../../components/SocialButtons'
-import { onThirdPartyLogin } from 'lib/utils/supertokensUtilities'
-import { usePlatform } from 'lib/utils/capacitor'
 import TextDivider from '../../components/TextDivider'
-import Link from 'next/link'
-import { AUTH_MODE } from 'lib/utils/config'
 
 const ThirdPartyEmailPasswordLogin = () => {
   const platform = usePlatform()

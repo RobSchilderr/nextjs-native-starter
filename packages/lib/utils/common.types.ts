@@ -9,8 +9,11 @@ export type Platform = 'WEB' | 'APP' | 'ALL'
  * passwordless: Passwordless login a code (sent via email by default but configurable)
  * thirdpartypasswordless: Combination of thirdparty and passwordless
  */
-export type AuthMode = 'thirdparty' | 'passwordless' | 'thirdpartypasswordless'
+export type AuthMode =
+  | 'thirdparty'
+  | 'passwordless'
+  | 'thirdpartypasswordless'
+  | 'emailpassword'
+  | 'thirdpartyemailpassword'
 
-// "emailpassword" | "thirdpartyemailpassword"
-// I have to change the registration flow to support email password, also requires lost pass flow
-// for now I will not support email password
+// todo: I have to change the registration flow to support email password, also requires lost pass flow

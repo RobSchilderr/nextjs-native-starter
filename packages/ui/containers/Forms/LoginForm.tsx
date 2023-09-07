@@ -1,18 +1,18 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import InputField from 'ui/components/InputField'
-import { Button } from 'ui/components/Button'
 // import { getPreviousPath } from 'lib/next-apps/shared/storage'
 // import { authPages } from 'lib/next-apps/platform/config'
 // import { SavePassword } from 'capacitor-ios-autofill-save-password'
 import { emailPasswordSignIn } from 'supertokens-web-js/recipe/thirdpartyemailpassword'
 import { doesSessionExist } from 'supertokens-web-js/recipe/session'
 import EmailPassword from 'supertokens-web-js/recipe/emailpassword'
-import { useState } from 'react'
 import {
   consumePasswordlessCode,
   createPasswordlessCode,
 } from 'lib/utils/supertokensUtilities'
+import InputField from 'ui/components/InputField'
+import { Button } from 'ui/components/Button'
 import { Spinner } from '../../components/ButtonSpinner'
 
 export function classNames(...classes: string[]) {

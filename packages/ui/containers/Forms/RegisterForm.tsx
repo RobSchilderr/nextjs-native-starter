@@ -1,14 +1,14 @@
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
+import {
+  signupWithEmailPassword,
+  signinWithEmailPassword,
+} from 'lib/utils/supertokensUtilities'
 import InputField from 'ui/components/InputField'
 import { Button } from 'ui/components/Button'
 // import { getPreviousPath } from 'lib/next-apps/shared/storage'
 // import { authPages } from 'lib/next-apps/platform/config'
 // import { SavePassword } from 'capacitor-ios-autofill-save-password'
-import {
-  signupWithEmailPassword,
-  signinWithEmailPassword,
-} from 'lib/utils/supertokensUtilities'
 
 export type LoginFormVariables = {
   email: string
@@ -37,7 +37,7 @@ export const RegisterForm = ({ redirectUri }: { redirectUri?: string }) => {
     // console.log({ pref: previousPath })
     const superTokensResponse = await signupWithEmailPassword({
       email: emailLowerCase,
-      password: password,
+      password,
     })
 
     if (superTokensResponse.status !== 'OK') {
@@ -64,7 +64,7 @@ export const RegisterForm = ({ redirectUri }: { redirectUri?: string }) => {
     ) {
       await signinWithEmailPassword({
         email: emailLowerCase,
-        password: password,
+        password,
       })
     }
 

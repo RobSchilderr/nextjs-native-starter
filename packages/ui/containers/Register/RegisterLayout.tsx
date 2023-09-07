@@ -13,18 +13,10 @@ type Props = {
 const RegisterLayout = ({ children, pageTitle }: Props) => {
   const router = useRouter()
 
-  const registerPageTitleClick = {
-    href: '/registerpasswordless',
-    // query: '?step=1',
-  }
   const isSuccess = router?.query?.step === 'success'
 
   return (
-    <NoAccountLayout
-      withReturn={!isSuccess}
-      pageTitle={pageTitle}
-      onClickPageTitle={registerPageTitleClick}
-    >
+    <NoAccountLayout withReturn={!isSuccess} pageTitle={pageTitle}>
       <div className="w-full min-h-full ">
         <div className="relative flex flex-col flex-1 w-full h-full min-w-full px-4 mx-auto sm:w-full sm:max-w-2xl lg:px-8">
           <div className="relative w-full h-full pt-6 mx-auto sm:max-w-2xl">

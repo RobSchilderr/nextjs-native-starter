@@ -1,6 +1,6 @@
 import { Controller } from 'react-hook-form'
+import { CustomRadioGroup } from 'ui/components/Form/CustomRadioGroup/CustomRadioGroup'
 import { InsertPersonProps } from './register.types'
-import CustomRadioGroup from 'ui/components/Form/CustomRadioGroup/CustomRadioGroup'
 
 const marketingSourceData = [
   {

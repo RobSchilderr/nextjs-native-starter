@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 import { combine } from 'zustand/middleware'
 import { doesSessionExist } from 'supertokens-web-js/recipe/session'
+import { Role_Enum } from 'graphql-generated/admin'
+import { GetPersonQuery } from 'graphql-generated/moderator'
 import { logError } from 'lib/utils/logError'
 import { getAccessTokenPayload, signout } from 'lib/utils/supertokensUtilities'
-import { Role_Enum } from 'graphql-generated/admin'
 import { toastError } from 'ui/components/Toast/toast'
 import { getUserFromDatabase } from 'ui/global-stores/helpers/useUserStore.helpers'
-import { GetPersonQuery } from 'graphql-generated/moderator'
 
 export type User = Pick<GetPersonQuery, 'person'>['person'][0]
 

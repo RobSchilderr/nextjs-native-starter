@@ -7,10 +7,6 @@ type Props = {
   withDarkBG?: boolean
   children: React.ReactNode
   pageTitle: string
-  onClickPageTitle?: {
-    href: string
-    query?: string
-  }
   withTopNav?: boolean
 }
 
