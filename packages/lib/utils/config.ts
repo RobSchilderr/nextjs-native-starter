@@ -9,6 +9,7 @@ export const HASURA_ENDPOINT = 'http://localhost:8080/v1/graphql'
 export const HASURA_ADMIN_SECRET = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'myadminsecretkey'
   : (process.env.HASURA_GRAPHQL_ADMIN_SECRET as string)
+
 // if you want to test Apple login on your iPhone, set the API server to be your local IP address (so instead of http://localhost:3001, it would be  http://000.000.0.0:3001)
 export const FRONTEND_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'http://localhost:3001'

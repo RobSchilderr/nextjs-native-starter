@@ -8,6 +8,7 @@ select_permissions:
         - given_name
       filter: {}
       limit: 1
+      allow_aggregations: true
   - role: moderator
     permission:
       columns:

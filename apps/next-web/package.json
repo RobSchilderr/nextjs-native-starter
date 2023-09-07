@@ -3,14 +3,29 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
     "build": "next build",
-    "graphql-codegen": "graphql-codegen --config codegen.ts",
-    "hasuraStart": "(cd ./hasura; docker-compose up)",
-    "hasuraConsole": "(cd ./hasura; hasura console --skip-update-check --no-browser --console-port 9690)",
+    "dev": "yarn dockerClear; run-p hasuraLocal genWatch devNext startNgrok",
+    "devNext": "cross-env NODE_OPTIONS=\"--inspect\" next dev -p 3001",
+    "devRemote": "run-p devNext genWatchRemote",
+    "dockerClear": "docker ps -aq | xargs -I {} docker stop {}; docker ps -aq | xargs -I {} docker rm {}",
     "start": "next start",
-    "test": "jest --coverage",
-    "lint": "eslint src --fix"
+    "export": "next export",
+    "format": "prettier --write .",
+    "graphql-codegen": "graphql-codegen --config codegen.ts",
+    "gen": "graphql-codegen --config codegen.ts eslint ../../packages/graphql/generated/**/*.ts --fix",
+    "genRemote": "graphql-codegen --config codegen.remote.js ",
+    "genWatch": "node ./hasura/wait-for-url.js && chokidar \"../../packages/graphql/generated/**/*.gql\" \"./hasura/migrations/**/*.sql\" --initial -c \"yarn gen\"",
+    "genWatchRemote": "chokidar \"../../packages/graphql/generated/**/*.gql\" --initial -c \"yarn genRemote\"",
+    "hasuraLocal": "run-p hasuraStart hasuraConsole",
+    "hasuraStart": "(cd ./hasura; docker-compose up)",
+    "hasuraConsole": "(cd ./hasura; node ./wait-for-url.js && hasura console --skip-update-check --no-browser --console-port 9690)",
+    "migrateLocalToStaging": "set -o allexport && . ./.env.local && set +o allexport && (cd ./hasura; hasura migrate apply --skip-update-check --endpoint \"$HASURA_PROD_SERVER_URL\" --admin-secret=$HASURA_PROD_ADMIN_SECRET; hasura metadata apply --skip-update-check --endpoint \"$HASURA_PROD_SERVER_URL\" --admin-secret=$HASURA_PROD_ADMIN_SECRET)",
+    "migrationLocalApply": "set -o allexport && . ./.env.local && set +o allexport && (cd ./hasura; hasura migrate apply --skip-update-check --admin-secret=$HASURA_ADMIN_SECRET; hasura metadata apply --skip-update-check --admin-secret=$HASURA_ADMIN_SECRET)",
+    "remove-local-database": "(cd ./hasura; docker-compose down -v)",
+    "startNgrok": "ngrok http --region=eu --hostname=localhostsupertokens.eu.ngrok.io 3001",
+    "lint": "eslint --fix -c ./.eslintrc.js src && next lint --fix -c ./.eslintrc.js src",
+    "checkAll": "yarn lint && yarn test:ci && yarn build && yarn gen",
+    "push": "yarn checkAll && git push"
   },
   "dependencies": {
     "@graphql-codegen/add": "^5.0.0",
@@ -66,6 +81,10 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "lint-staged": "^13.2.2"
+    "chokidar": "^3.5.3",
+    "chokidar-cli": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "lint-staged": "^13.2.2",
+    "npm-run-all": "^4.1.5"
   }
 }

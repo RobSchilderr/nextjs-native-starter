@@ -20,7 +20,7 @@ export type RegisterInput = {
   deviceToken?: InputMaybe<Scalars['String']['input']>;
   givenName: Scalars['String']['input'];
   marketingSource?: InputMaybe<Scalars['String']['input']>;
-  supertokensUserId?: InputMaybe<Scalars['String']['input']>;
+  supertokensUserId: Scalars['String']['input'];
 };
 
 export type RegisterOutput = {
@@ -104,12 +104,46 @@ export type Person = {
   given_name: Scalars['String']['output'];
 };
 
+/** aggregated selection of "person" */
+export type Person_Aggregate = {
+  __typename?: 'person_aggregate';
+  aggregate?: Maybe<Person_Aggregate_Fields>;
+  nodes: Array<Person>;
+};
+
+/** aggregate fields of "person" */
+export type Person_Aggregate_Fields = {
+  __typename?: 'person_aggregate_fields';
+  count: Scalars['Int']['output'];
+  max?: Maybe<Person_Max_Fields>;
+  min?: Maybe<Person_Min_Fields>;
+};
+
+
+/** aggregate fields of "person" */
+export type Person_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Person_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 /** Boolean expression to filter rows from the table "person". All fields are combined with a logical 'AND'. */
 export type Person_Bool_Exp = {
   _and?: InputMaybe<Array<Person_Bool_Exp>>;
   _not?: InputMaybe<Person_Bool_Exp>;
   _or?: InputMaybe<Array<Person_Bool_Exp>>;
   given_name?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Person_Max_Fields = {
+  __typename?: 'person_max_fields';
+  given_name?: Maybe<Scalars['String']['output']>;
+};
+
+/** aggregate min on columns */
+export type Person_Min_Fields = {
+  __typename?: 'person_min_fields';
+  given_name?: Maybe<Scalars['String']['output']>;
 };
 
 /** Ordering options when selecting data from "person". */
@@ -140,6 +174,8 @@ export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "person" */
   person: Array<Person>;
+  /** fetch aggregated fields from the table: "person" */
+  person_aggregate: Person_Aggregate;
 };
 
 
@@ -151,16 +187,36 @@ export type Query_RootPersonArgs = {
   where?: InputMaybe<Person_Bool_Exp>;
 };
 
+
+export type Query_RootPerson_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Person_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Person_Order_By>>;
+  where?: InputMaybe<Person_Bool_Exp>;
+};
+
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "person" */
   person: Array<Person>;
+  /** fetch aggregated fields from the table: "person" */
+  person_aggregate: Person_Aggregate;
   /** fetch data from the table in a streaming manner: "person" */
   person_stream: Array<Person>;
 };
 
 
 export type Subscription_RootPersonArgs = {
+  distinct_on?: InputMaybe<Array<Person_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Person_Order_By>>;
+  where?: InputMaybe<Person_Bool_Exp>;
+};
+
+
+export type Subscription_RootPerson_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Person_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
