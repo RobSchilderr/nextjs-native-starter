@@ -10,7 +10,7 @@ export const handleRegister = async ({
   try {
     const superTokensResponse = await signupWithEmailPassword({
       email: email.toLowerCase().trim(),
-      password: password,
+      password,
     })
 
     // if (superTokensResponse !== 'OK') {

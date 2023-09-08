@@ -33,14 +33,13 @@ export const createNewSessionPayload = async (input: Input) => {
   // like roles, permissions, an organisation id, etc. and add it to the accessTokenPayload
   const allowedRoles = [user.data.person[0].role]
   const userId = user.data.person[0].id
-  const role = user.data.person[0].role
+  const { role } = user.data.person[0]
   // Important: Hasura requires claims to be set in a specifc way
   // Read the official documentation to know more:
   //  https://hasura.io/docs/latest/auth/authentication/jwt/
 
-  input.accessTokenPayload = {
+  const newAccessTokenPayload = {
     ...input.accessTokenPayload,
-
     'https://hasura.io/jwt/claims': {
       'x-hasura-user-id': userId,
       'x-hasura-default-role': role,
@@ -48,5 +47,5 @@ export const createNewSessionPayload = async (input: Input) => {
     },
   }
 
-  return input.accessTokenPayload
+  return newAccessTokenPayload
 }

@@ -28,7 +28,7 @@ module.exports = {
   },
   rules: {
     'prefer-const': 'off',
-
+    'import/no-extraneous-dependencies': 'off',
     // react
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',

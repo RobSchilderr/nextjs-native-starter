@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useScreenType } from 'lib/utils/useScreenType'
+import { useScreenType } from 'lib/next-apps/hooks/useScreenType'
 import LoadingSpinnerPage from 'ui/components/LoadingSpinnerPage'
 import { APP_BUNDLE_URL } from 'lib/utils/config'
 
