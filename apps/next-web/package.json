@@ -59,7 +59,7 @@
     "jest-watch-typeahead": "^2.2.2",
     "lib": "*",
     "msw": "^1.2.1",
-    "next": "^13.4.1",
+    "next": "^13.4.19",
     "nextjs-cors": "^2.1.2",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",

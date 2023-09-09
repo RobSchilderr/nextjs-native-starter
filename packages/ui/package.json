@@ -23,7 +23,7 @@
     "@types/react-dom": "^18.2.4",
     "graphql-generated": "*",
     "lib": "*",
-    "next": "13.4.1",
+    "next": "^13.4.19",
     "react-hook-form": "7.43.9",
     "react-hot-toast": "2.4.1",
     "supertokens-web-js": "0.6.0",

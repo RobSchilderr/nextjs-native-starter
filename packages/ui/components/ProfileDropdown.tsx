@@ -1,5 +1,6 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import { GetPersonQuery } from 'graphql-generated/admin'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { getInitialNameAvatar } from 'lib/utils/util'
 import { MenuLink } from 'ui/components/MenuLink'
@@ -7,11 +8,12 @@ import { MenuButton } from 'ui/components//MenuButton'
 
 type Props = {
   onSignout: () => Promise<void>
+  user: Pick<GetPersonQuery, 'person'>['person'][0] | null
 }
 
-const ProfileDropdown = ({ onSignout }: Props) => {
+const ProfileDropdown = ({ onSignout, user }: Props) => {
   // refactor after mvp
-  const userName = 'Test tester'
+  const userName = user ? user.email : 'Not logged in'
   const userAvatar = getInitialNameAvatar(userName)
 
   return (
@@ -29,7 +31,7 @@ const ProfileDropdown = ({ onSignout }: Props) => {
                   />
                 )}
                 <span className="ml-3 hidden text-sm font-medium text-gray-800 lg:block">
-                  <span className="sr-only">Menu openen voor </span>
+                  <span className="sr-only">Open menu for</span>
                   {userName}
                 </span>
                 <ChevronDownIcon
@@ -70,7 +72,7 @@ const ProfileDropdown = ({ onSignout }: Props) => {
                     activeMenuState={active}
                     onClick={onSignout}
                   >
-                    <span> Uitloggen</span>
+                    <span>Sign out</span>
                   </MenuButton>
                 )}
               </Menu.Item>
