@@ -1,0 +1,8 @@
+mutation UpdatePerson(
+  $variables: person_set_input!
+  $condition: person_bool_exp!
+) {
+  update_person(_set: $variables, where: $condition) {
+    affected_rows
+  }
+}

@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Dialog, Switch } from '@headlessui/react'
-import { Bars3Icon } from '@heroicons/react/20/solid'
+import { Switch } from '@headlessui/react'
 import {
   BellIcon,
   CreditCardIcon,
@@ -8,17 +7,12 @@ import {
   FingerPrintIcon,
   UserCircleIcon,
   UsersIcon,
-  XMarkIcon,
 } from '@heroicons/react/24/outline'
+import { useGetPersonQuery } from 'graphql-generated/moderator'
 import { cn } from 'lib/utils/util'
-import PageLayout from '../Layout/PageLayout'
+import { PageLayout } from 'ui/containers/Layout/PageLayout'
+import { ProfileInformation } from 'ui/containers/Settings/ProfileInformation'
 
-const navigation = [
-  { name: 'Home', href: '#' },
-  { name: 'Invoices', href: '#' },
-  { name: 'Clients', href: '#' },
-  { name: 'Expenses', href: '#' },
-]
 const secondaryNavigation = [
   { name: 'General', href: '#', icon: UserCircleIcon, current: true },
   { name: 'Security', href: '#', icon: FingerPrintIcon, current: false },
@@ -29,8 +23,9 @@ const secondaryNavigation = [
 ]
 
 export const Settings = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true)
+
+  const user = useGetPersonQuery()
 
   return (
     <PageLayout>
@@ -68,61 +63,9 @@ export const Settings = () => {
 
         <main className="px-4 py-16 sm:px-6 lg:flex-auto lg:px-0 lg:py-20">
           <div className="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
-            <div>
-              <h2 className="text-base font-semibold leading-7 text-gray-900">
-                Profile
-              </h2>
-              <p className="mt-1 text-sm leading-6 text-gray-500">
-                This information will be displayed publicly so be careful what
-                you share.
-              </p>
-
-              <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
-                <div className="pt-6 sm:flex">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
-                    Full name
-                  </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">Tom Cook</div>
-                    <button
-                      type="button"
-                      className=" text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                  </dd>
-                </div>
-                <div className="pt-6 sm:flex">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
-                    Email address
-                  </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">tom.cook@example.com</div>
-                    <button
-                      type="button"
-                      className=" text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                  </dd>
-                </div>
-                <div className="pt-6 sm:flex">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
-                    Title
-                  </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">Human Resources Manager</div>
-                    <button
-                      type="button"
-                      className=" text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
+            {user?.data?.person[0] && (
+              <ProfileInformation user={user.data.person[0]} />
+            )}
             <div>
               <h2 className="text-base  leading-7 text-gray-900">
                 Bank accounts

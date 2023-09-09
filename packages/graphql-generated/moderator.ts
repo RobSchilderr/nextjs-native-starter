@@ -1,4 +1,4 @@
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { useMutation, useQuery, UseMutationOptions, UseQueryOptions } from '@tanstack/react-query';
 import { hasuraUserFetcher } from 'lib/next-apps/fetchers/hasuraUserFetcher';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -58,6 +58,37 @@ export enum Cursor_Ordering {
   Desc = 'DESC'
 }
 
+/** mutation root */
+export type Mutation_Root = {
+  __typename?: 'mutation_root';
+  /** update data of the table: "person" */
+  update_person?: Maybe<Person_Mutation_Response>;
+  /** update single row of the table: "person" */
+  update_person_by_pk?: Maybe<Person>;
+  /** update multiples rows of table: "person" */
+  update_person_many?: Maybe<Array<Maybe<Person_Mutation_Response>>>;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_PersonArgs = {
+  _set?: InputMaybe<Person_Set_Input>;
+  where: Person_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Person_By_PkArgs = {
+  _set?: InputMaybe<Person_Set_Input>;
+  pk_columns: Person_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Person_ManyArgs = {
+  updates: Array<Person_Updates>;
+};
+
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
@@ -94,12 +125,26 @@ export type Person_Bool_Exp = {
   role?: InputMaybe<Role_Enum_Comparison_Exp>;
 };
 
+/** response of any mutation on the table "person" */
+export type Person_Mutation_Response = {
+  __typename?: 'person_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Person>;
+};
+
 /** Ordering options when selecting data from "person". */
 export type Person_Order_By = {
   email?: InputMaybe<Order_By>;
   given_name?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   role?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: person */
+export type Person_Pk_Columns_Input = {
+  id: Scalars['uuid']['input'];
 };
 
 /** select columns of table "person" */
@@ -113,6 +158,11 @@ export enum Person_Select_Column {
   /** column name */
   Role = 'role'
 }
+
+/** input type for updating data in table "person" */
+export type Person_Set_Input = {
+  given_name?: InputMaybe<Scalars['String']['input']>;
+};
 
 /** Streaming cursor of the table "person" */
 export type Person_Stream_Cursor_Input = {
@@ -128,6 +178,13 @@ export type Person_Stream_Cursor_Value_Input = {
   given_name?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   role?: InputMaybe<Role_Enum>;
+};
+
+export type Person_Updates = {
+  /** sets the columns of the filtered rows to the given values */
+  _set?: InputMaybe<Person_Set_Input>;
+  /** filter the rows which have to be updated */
+  where: Person_Bool_Exp;
 };
 
 export type Query_Root = {
@@ -210,12 +267,36 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
 };
 
+export type UpdatePersonMutationVariables = Exact<{
+  variables: Person_Set_Input;
+  condition: Person_Bool_Exp;
+}>;
+
+
+export type UpdatePersonMutation = { __typename?: 'mutation_root', update_person?: { __typename?: 'person_mutation_response', affected_rows: number } | null };
+
 export type GetPersonQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', email: string, id: any, role: Role_Enum, given_name: string }> };
 
 
+export const UpdatePersonDocument = `
+    mutation UpdatePerson($variables: person_set_input!, $condition: person_bool_exp!) {
+  update_person(_set: $variables, where: $condition) {
+    affected_rows
+  }
+}
+    `;
+export const useUpdatePersonMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(options?: UseMutationOptions<UpdatePersonMutation, TError, UpdatePersonMutationVariables, TContext>) =>
+    useMutation<UpdatePersonMutation, TError, UpdatePersonMutationVariables, TContext>(
+      ['UpdatePerson'],
+      (variables?: UpdatePersonMutationVariables) => hasuraUserFetcher<UpdatePersonMutation, UpdatePersonMutationVariables>(UpdatePersonDocument, variables)(),
+      options
+    );
 export const GetPersonDocument = `
     query GetPerson {
   person {
@@ -241,5 +322,8 @@ export const useGetPersonQuery = <
 export const namedOperations = {
   Query: {
     GetPerson: 'GetPerson'
+  },
+  Mutation: {
+    UpdatePerson: 'UpdatePerson'
   }
 }

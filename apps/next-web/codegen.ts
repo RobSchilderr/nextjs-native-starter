@@ -75,7 +75,7 @@ const config: CodegenConfig = {
       },
       documents: [
         '../../packages/graphql-lib/hasura/query/moderator/**/*.gql',
-        // '../../packages/graphql-lib/hasura/mutation/moderator/**/*.gql',
+        '../../packages/graphql-lib/hasura/mutation/moderator/**/*.gql',
       ],
       plugins: [
         'typescript',
