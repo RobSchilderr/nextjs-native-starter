@@ -1,21 +1,17 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { BellIcon } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { ProfileNavBar } from './ProfileNavBar'
+import { ProfileNavBar } from 'ui/components/TopNav/ProfileNavBar'
 
 const TopNavDesktop = () => {
   const router = useRouter()
 
   const navLinks = [
     {
-      name: 'Home',
-      href: '/',
-      current: router.pathname.includes('/'),
-    },
-    {
-      name: 'Contact',
-      href: '/contact',
-      current: router.pathname.includes('/contact'),
+      name: 'Settings',
+      href: '/settings',
+      current: router.pathname.includes('/settings'),
     },
   ]
 
@@ -35,7 +31,7 @@ const TopNavDesktop = () => {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link
-                  href="/"
+                  href="/home"
                   className="text-4xl mx-auto font-display font-bold text-gray-900 "
                 >
                   NextJs Native
@@ -66,6 +62,16 @@ const TopNavDesktop = () => {
                     className="h-6 w-6"
                     aria-hidden="true"
                   />
+                </div>
+                <div className=" flex items-center  md:ml-3">
+                  <div className="cursor-pointer p-2 text-gray-400 hover:text-gray-500">
+                    <span className="sr-only">Zoeken</span>
+                    <BellIcon
+                      onClick={() => console.log('Notifications')}
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               </div>
 

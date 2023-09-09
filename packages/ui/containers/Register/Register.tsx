@@ -87,11 +87,6 @@ const EmailPasswordRegister = () => (
     </Head>
     <AuthLayout>
       <div className="flex flex-col">
-        <p className="mt-2 text-sm text-gray-700">
-          <Link href="/" className="font-medium text-blue-600 hover:underline">
-            Go back to home{' '}
-          </Link>{' '}
-        </p>
         <div className="mt-8">
           <h2 className="text-lg font-semibold text-gray-900">
             Get started for free

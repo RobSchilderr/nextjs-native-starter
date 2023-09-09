@@ -3,5 +3,6 @@ query GetPerson {
     email
     id
     role
+    given_name
   }
 }

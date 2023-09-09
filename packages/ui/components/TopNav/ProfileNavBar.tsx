@@ -1,8 +1,8 @@
 // import { NotificationFeed } from 'ui-shared/src/components/Notification/NotificationFeed'
 
 import { useSignout } from 'lib/next-apps/hooks/signout'
-import { useUserStore } from '../../global-stores/useUserStore'
-import ProfileDropdown from '../ProfileDropdown'
+import { useUserStore } from 'ui/global-stores/useUserStore'
+import ProfileDropdown from 'ui/components/ProfileDropdown'
 
 export const ProfileNavBar = () => {
   const user = useUserStore(state => state.user)
@@ -16,7 +16,6 @@ export const ProfileNavBar = () => {
         </div>
 
         {/* Notifications */}
-        <div className="ml-4 flex items-center  md:ml-6">Notifi</div>
       </div>
     </div>
   )

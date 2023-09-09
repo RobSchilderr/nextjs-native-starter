@@ -62,7 +62,7 @@ export const RegisterFlow = () => {
         // we add the user to the global store
         await refreshUser()
 
-        await router.push('/myaccount')
+        await router.push('/home')
       }
     } catch (error) {
       toastError('Error: something went wrong. Please try again.')

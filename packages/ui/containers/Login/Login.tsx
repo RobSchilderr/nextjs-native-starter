@@ -92,7 +92,7 @@ const EmailPasswordLogin = () => {
                 href="/register"
                 className="font-medium text-blue-600 hover:underline"
               >
-                go to register{' '}
+                create a new account{' '}
               </Link>{' '}
             </p>
           </div>
@@ -122,7 +122,6 @@ const ThirdPartyLogin = () => {
           >
             NextJs Native
           </Link>
-          {/* // dummy link to make the logo centered */}
         </div>
 
         <div className="mt-8">

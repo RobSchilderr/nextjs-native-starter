@@ -213,7 +213,7 @@ export type Uuid_Comparison_Exp = {
 export type GetPersonQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', email: string, id: any, role: Role_Enum }> };
+export type GetPersonQuery = { __typename?: 'query_root', person: Array<{ __typename?: 'person', email: string, id: any, role: Role_Enum, given_name: string }> };
 
 
 export const GetPersonDocument = `
@@ -222,6 +222,7 @@ export const GetPersonDocument = `
     email
     id
     role
+    given_name
   }
 }
     `;

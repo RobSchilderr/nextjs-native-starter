@@ -94,7 +94,7 @@ export const LoginForm = ({ redirectUri }: { redirectUri?: string }) => {
     //     password: password,
     //   })
     // }
-    router.push('/login-result')
+    router.push('/home')
   }
 
   return (
@@ -183,7 +183,7 @@ export const EmailPasswordLoginForm = () => {
       return
     }
 
-    router.push('/login-result')
+    router.push('/home')
   }
 
   return (
@@ -305,7 +305,7 @@ export const PasswordlessLoginForm = ({
       })
     }
 
-    router.push('/login-result')
+    router.push('/home')
   }
 
   const hasEnteredEmail = watch('email') !== undefined && watch('email') !== ''

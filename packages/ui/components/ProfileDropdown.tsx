@@ -1,6 +1,6 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { GetPersonQuery } from 'graphql-generated/admin'
+import type { User } from 'lib/types/common'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { getInitialNameAvatar } from 'lib/utils/util'
 import { MenuLink } from 'ui/components/MenuLink'
@@ -8,12 +8,11 @@ import { MenuButton } from 'ui/components//MenuButton'
 
 type Props = {
   onSignout: () => Promise<void>
-  user: Pick<GetPersonQuery, 'person'>['person'][0] | null
+  user: User | null
 }
 
 const ProfileDropdown = ({ onSignout, user }: Props) => {
-  // refactor after mvp
-  const userName = user ? user.email : 'Not logged in'
+  const userName = user ? user.given_name : 'Not logged in'
   const userAvatar = getInitialNameAvatar(userName)
 
   return (

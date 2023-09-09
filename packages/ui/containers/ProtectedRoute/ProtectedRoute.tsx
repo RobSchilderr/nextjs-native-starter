@@ -30,7 +30,7 @@ export const ProtectedRoute = () => {
           <p>Go to the login result:</p>
           <Link
             className="px-6 py-2 text-sm text-white max-w-xs bg-blue-600 text-center border border-transparent rounded-md  hover:bg-blue-700 focus:ring-blue-500 disabled:text-accent-disabled disabled:bg-accent-hover"
-            href="/login-result"
+            href="/home"
           >
             Login Result
           </Link>

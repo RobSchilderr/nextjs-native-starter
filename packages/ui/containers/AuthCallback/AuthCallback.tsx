@@ -32,7 +32,7 @@ export const AuthCallback = ({
           return
         }
 
-        router.push('/login-result')
+        router.push('/home')
       } catch (err) {
         // add error handling  here
         setError(err)

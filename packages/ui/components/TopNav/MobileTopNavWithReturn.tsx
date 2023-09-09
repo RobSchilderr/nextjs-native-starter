@@ -28,7 +28,7 @@ const MobileTopNavWithReturn = ({
           {withReturn && (
             <button
               type="button"
-              onClick={() => router.push('/login-result')}
+              onClick={() => router.push('/home')}
               className="inline-flex items-center font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               <ArrowLeftIcon
