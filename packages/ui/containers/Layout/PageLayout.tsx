@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { cn } from 'lib/utils/util'
 import TopNavDesktop from '../../components/TopNav/TopNavDesktop'
+import { BottomNavigation } from './BottomNavigation'
 
 type PageLayoutProps = {
   withBottomNav?: boolean
@@ -20,7 +21,7 @@ export const PageLayout = ({
 
       <div className="disable-scrollbars relative flex h-full w-full flex-1 flex-col">
         {children}
-        {/* {withBottomNav && <BottomNav />} */}
+        {withBottomNav && <BottomNavigation />}
       </div>
     </div>
   </>

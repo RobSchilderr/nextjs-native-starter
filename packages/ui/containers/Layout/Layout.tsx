@@ -1,6 +1,7 @@
 import { Bebas_Neue, Work_Sans } from '@next/font/google'
 import { Toaster } from 'react-hot-toast'
 import { ConfirmModal } from 'ui/components/ConfirmModal/ConfirmModal'
+import { InitiateLayout } from '../Login/InitiateLayout'
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -20,10 +21,12 @@ type Props = {
 export const Layout = ({ children }: Props) => (
   <main className={`${bebasNeue.variable} font-display`}>
     <div className={`${workSans.variable} font-sans`}>
-      <ConfirmModal />
+      <InitiateLayout>
+        <ConfirmModal />
 
-      <Toaster />
-      {children}
+        <Toaster />
+        {children}
+      </InitiateLayout>
     </div>
   </main>
 )
