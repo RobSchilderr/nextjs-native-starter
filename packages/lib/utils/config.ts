@@ -1,6 +1,6 @@
 import { AuthMode } from './common.types'
 
-export const PROD_URL_NO_HTTPS = 'next-capacitor-supertokens.app'
+export const PROD_URL_NO_HTTPS = 'nextjs-native.dev'
 
 export const IS_IN_PRODUCTION_ENVIRONMENT =
   process.env.NEXT_PUBLIC_APP_STAGE !== 'development'
@@ -14,7 +14,7 @@ export const APP_BUNDLE_URL = `next.supertokens.app` // used to create the deep 
 
 export const REDIRECT_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? FRONTEND_URL
-  : 'https://capacitor-supertokens-nextjs-turborepo-next-web-one.vercel.app'
+  : 'https://nextjs-native-git-main-robschilderr.vercel.app'
 
 export const APP_ORIGIN_URLS = [
   'capacitor://localhost',
@@ -29,12 +29,12 @@ export const APP_ORIGIN_URLS = [
 
 export const ALLOWED_CORS_URLS = [
   ...APP_ORIGIN_URLS,
-  'capacitor://next-capacitor-supertokens.app',
+  'capacitor://nextjs-native.dev',
   'http://localhost:3000',
   'http://localhost:3001',
-  'https://www.next-capacitor-supertokens.app',
-  'https://next-capacitor-supertokens.app',
-  'https://capacitor-supertokens-nextjs-turborepo-next-web-one.vercel.app',
+  'https://www.nextjs-native.dev',
+  'https://nextjs-native.dev',
+  'https://nextjs-native-git-main-robschilderr.vercel.app',
   'http://localhost',
 ]
 

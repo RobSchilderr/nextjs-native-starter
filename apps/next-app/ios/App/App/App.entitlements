@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:next-capacitor-supertokens.app</string>
+		<string>applinks:nextjs-native.dev</string>
 	</array>
 </dict>
 </plist>
