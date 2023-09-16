@@ -1,6 +1,8 @@
-# NextJS Native Starter 🏄‍♂️
+<p align="center">
+  <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/52cd8433-f8d2-4bfd-9b0e-d753690330b2" width="500">
+</p>
 
-### Use NextJS on iOS and Android + access to native APIs with Capacitor
+### Use Next.js on iOS and Android + access to native APIs with Capacitor
 
 This monorepo provides a starter project for building a truly **universal** application with Next.js, Tailwind CSS, and Capacitor. This allows you to use NextJS and React on iOS and Android. You don't need React Native or Expo anymore. Now, you can truly share all your code between all platforms while staying in your familiar web-dev stack.
 
