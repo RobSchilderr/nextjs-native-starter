@@ -1,9 +1,6 @@
 <p align="left">
-  <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/61ff3abb-f709-41d1-8349-6a5844cc89cf" width="500">
+  <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/18602926-d323-43d6-b713-b154caaeeeca" width="500">
 </p>
-
-
----
 
 ### Use Next.js on iOS and Android + access to native APIs with Capacitor
 
