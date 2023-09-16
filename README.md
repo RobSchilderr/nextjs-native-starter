@@ -12,7 +12,7 @@ Live example: https://www.next-capacitor-supertokens.app/
 
 TIP: in the code you find some "Important Capacitor note" which explains the differences in authentication via web/app.
 
-<img width="375" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/232318901-c4bb8eeb-aa04-42f3-bc33-82cbc454ebc9.png">
+<img width="375" alt="Mobile auth screenshot" src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/f41b2317-676f-4d68-9ffd-af20ade7417d">
 
 ## How to use
 
