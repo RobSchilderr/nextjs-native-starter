@@ -80,6 +80,11 @@ const googleClientInfo = {
   clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
 }
 
+const githubClientInfo = {
+  clientId: process.env.GITHUB_CLIENT_ID as string,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+}
+
 const thirdPartyEmailPasswordConfig = (): TypeInput => ({
   framework,
   supertokens,
@@ -92,6 +97,7 @@ const thirdPartyEmailPasswordConfig = (): TypeInput => ({
       providers: [
         ThirdPartyEmailPassword.Google(googleClientInfo),
         ThirdPartyEmailPassword.Apple(appleClientInfo),
+        ThirdPartyEmailPassword.Github(githubClientInfo),
       ],
     }),
     sessionInit,
@@ -132,6 +138,7 @@ const thirdPartyConfig = (): TypeInput => ({
         providers: [
           ThirdParty.Google(googleClientInfo),
           ThirdParty.Apple(appleClientInfo),
+          ThirdParty.Github(githubClientInfo),
         ],
       },
     }),
@@ -154,6 +161,7 @@ const thirdPartyPasswordlessConfig = (): TypeInput => ({
       providers: [
         ThirdPartyPasswordless.Google(googleClientInfo),
         ThirdPartyPasswordless.Apple(appleClientInfo),
+        ThirdPartyPasswordless.Github(githubClientInfo),
       ],
     }),
     sessionInit,

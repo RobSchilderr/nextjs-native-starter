@@ -15,11 +15,11 @@ const sizeClassnames = {
 
 export const buttonColorClassnames = {
   primary:
-    'text-white font-semibold bg-blue-600 rounded-md border border-transparent hover:bg-blue-500 focus:ring-blue-500  ',
+    'text-white font-semibold bg-orange-600 rounded-md border border-transparent hover:bg-orange-500 focus:ring-orange-500  ',
   error:
     'text-white bg-red-600 rounded-md border border-transparent hover:bg-red-700 focus:ring-red-500',
   secondary:
-    'text-gray-700 bg-white border border-blue-600 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-blue-500',
+    'text-gray-700 bg-white border border-orange-600 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-orange-500',
   //   'secondary-800': 'text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300',
   transparent:
     'text-button border bg-transparent text-button bg-white hover:bg-gray-50',

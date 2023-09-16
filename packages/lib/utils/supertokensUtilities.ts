@@ -137,7 +137,7 @@ export const requestPassword = async ({ email }: { email: string }) => {
 }
 
 const getThirdPartyURL = async (
-  thirdPartyId: 'google' | 'apple',
+  thirdPartyId: 'google' | 'apple' | 'github',
   authorisationURL: string,
 ) => {
   if (AUTH_MODE === 'thirdparty') {
@@ -166,7 +166,7 @@ export const onThirdPartyLogin = async ({
   provider,
   platform,
 }: {
-  provider: 'google' | 'apple'
+  provider: 'google' | 'apple' | 'github'
   platform: Platform
 }) => {
   try {
