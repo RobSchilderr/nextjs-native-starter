@@ -1,8 +1,12 @@
-# Use Capacitor without Ionic, with TailwindCSS + NextJS only
+<p align="left">
+  <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/18602926-d323-43d6-b713-b154caaeeeca" width="500">
+</p>
 
-### Publish apps to iOS and Android + access to native APIs
+### Use Next.js on iOS and Android + access to native APIs with Capacitor
 
-This monorepo provides a starter project for building a web application with Next.js, Tailwind CSS, and Supertokens for authentication and session management, as well as a mobile application using Capacitor. This allows you to use the same React UI for iOS, Android and the Web. The project is structured using Turborepo, with one repository for the web application and another for the mobile app. The code for both is shared using a `ui` package and other packages.
+This monorepo provides a starter project for building truly **universal** applications with Next.js, Tailwind CSS, and Capacitor. This allows you to use Next.js on iOS and Android. You don't need React Native or Expo anymore. Now, you can truly share all your code between all platforms while staying in your familiar web-dev stack.
+
+The project is structured using Turborepo, with one repository for the web application and another for the mobile apps. For authentication and session management, we use Supertokens and have official support from their team to continue supporting secure auth on all platforms. The React components for both are shared using a `ui` package. Besides that, we share the lib, configs and other operations.
 
 Live example: https://www.next-capacitor-supertokens.app/
 
@@ -22,7 +26,7 @@ TIP: in the code you find some "Important Capacitor note" which explains the dif
 
 8. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides).
 
-9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt). A good rule of thumb for mobile apps is that authentication should _usually_ (always exceptions 😄 ) be handled through something like JWTs. Supertokens their authentication with JWTs make it super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for more broad role-based access control and an easy-to-use API.  In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with a PostgreSQL instance hosted on Heroku/Render/Railway, you'd have a very compelling alternative to Supabase or Firebase without being locked in. In this repository, I added an example of JWT authentication as of 29/08/2023, if things are not clear, let me know on Discord or Twitter.
+9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt). A good rule of thumb for mobile apps is that authentication should _usually_ (always exceptions 😄 ) be handled through something like JWTs. Supertokens their authentication with JWTs make it super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for more broad role-based access control and an easy-to-use API.  In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with a PostgreSQL instance hosted on Heroku/Render/Railway, you'd have a very compelling alternative to  Firebase without being locked in. Another possibility is to use Supabase and have a similar stack.
 
 <img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
 
