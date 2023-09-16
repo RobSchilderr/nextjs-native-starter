@@ -1,4 +1,4 @@
-# # NextJS **Native** Starter 🏄‍♂️
+# NextJS Native Starter 🏄‍♂️
 
 ### Use NextJS on iOS and Android + access to native APIs with Capacitor
 
