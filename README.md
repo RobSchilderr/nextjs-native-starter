@@ -7,7 +7,7 @@
 
 ### Use Next.js on iOS and Android + access to native APIs with Capacitor
 
-This monorepo provides a starter project for building a truly **universal** application with Next.js, Tailwind CSS, and Capacitor. This allows you to use NextJS and React on iOS and Android. You don't need React Native or Expo anymore. Now, you can truly share all your code between all platforms while staying in your familiar web-dev stack.
+This monorepo provides a starter project for building truly **universal** application with Next.js, Tailwind CSS, and Capacitor. This allows you to use NextJS and React on iOS and Android. You don't need React Native or Expo anymore. Now, you can truly share all your code between all platforms while staying in your familiar web-dev stack.
 
 The project is structured using Turborepo, with one repository for the web application and another for the mobile app. For authentication and session management, we use Supertokens and have official support from their team to continue supporting secure auth on all platforms. The React components for both are shared using a `ui` package. Besides that, we share the lib, configs and other operations.
 
