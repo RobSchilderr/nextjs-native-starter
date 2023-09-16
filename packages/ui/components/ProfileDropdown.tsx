@@ -1,6 +1,5 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import type { User } from 'lib/types/common'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { getInitialNameAvatar } from 'lib/utils/util'
 import { MenuLink } from 'ui/components/MenuLink'
@@ -8,11 +7,10 @@ import { MenuButton } from 'ui/components//MenuButton'
 
 type Props = {
   onSignout: () => Promise<void>
-  user: User | null
 }
 
-const ProfileDropdown = ({ onSignout, user }: Props) => {
-  const userName = user ? user.given_name : 'Not logged in'
+const ProfileDropdown = ({ onSignout }: Props) => {
+  const userName = 'Test User'
   const userAvatar = getInitialNameAvatar(userName)
 
   return (

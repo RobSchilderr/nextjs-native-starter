@@ -6,11 +6,6 @@ import ThirdPartyPasswordless from 'supertokens-web-js/recipe/thirdpartypassword
 import Session from 'supertokens-web-js/recipe/session'
 import { AUTH_MODE, FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
 import { Platform } from './common.types'
-import {
-  doesSessionExist,
-  getAccessTokenPayloadSecurely,
-} from 'supertokens-web-js/recipe/session'
-import { Payload } from './authUtils'
 
 type LoginWithEmailPasswordArgs = {
   email: string
@@ -217,17 +212,6 @@ export const consumePasswordlessCode = async (userInputCode: string) => {
   })
 }
 
-export const getAccessTokenPayload = async () => {
-  // 1. check if valid session, if not return null
-  const validSession = await doesSessionExist()
-  if (!validSession) return null
-  const payload = (await getAccessTokenPayloadSecurely()) as Payload
-
-  if (!payload) return null
-
-  return payload
-}
-
 export type SuperTokensUserData = {
   note: string
   userId: string
@@ -256,8 +240,4 @@ export async function fetchUserData() {
     console.error(`Fetch failed: ${error}`)
     return null
   }
-}
-
-export const renewSession = async (frontendUrl: string = FRONTEND_URL) => {
-  await fetch(`${frontendUrl}/api/auth/renew`)
 }

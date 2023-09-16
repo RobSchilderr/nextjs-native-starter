@@ -1,27 +1,18 @@
 // @ts-nocheck -- file gonna be removed soon
 // @ts-ignore
 
-import { Container } from './Container'
 import { useRouter } from 'next/router'
+import { Container } from './Container'
 
 // READ BEFORE UNCOMMENTING: Make sure to add a database record with a posts table for this to work. To do this from the console, check Step 3 from this link: https://hasura.io/docs/latest/getting-started/docker-simple/
-// Also: the JWT authentication with Hasura and Supertokens is not done yet. I just added an anonymous role for now. Might continue later.
 
-// import {
-//   useGetPostsQuery,
-
-// } from 'graphql-generated/anonymous'
-// Define a state to handle
 export function Hero() {
   const router = useRouter()
   const handleButtonClick = (route: string) => {
     setIsLoading(true)
     router.push(route)
   }
-  //   data: postsData,
-  // } = useGetPostsQuery()
 
-  // console.log('postsData', postsData)
   return (
     <Container className="pt-20 pb-16 text-center lg:pt-32">
       <div className="flex flex-col space-y-6">

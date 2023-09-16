@@ -7,8 +7,6 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.0",
-    "graphql-generated": "*",
-    "graphql-lib": "*",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
     "tsconfig": "*",
@@ -21,7 +19,6 @@
     "@tippyjs/react": "4.2.6",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
-    "graphql-generated": "*",
     "lib": "*",
     "next": "^13.4.19",
     "react-hook-form": "7.43.9",

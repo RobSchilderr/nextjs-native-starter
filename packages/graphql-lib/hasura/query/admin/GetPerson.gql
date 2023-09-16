@@ -1,7 +1,0 @@
-query GetPerson($condition: person_bool_exp!) {
-  person(where: $condition) {
-    email
-    id
-    role
-  }
-}

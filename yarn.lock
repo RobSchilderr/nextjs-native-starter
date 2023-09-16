@@ -8441,10 +8441,10 @@ supertokens-js-override@0.0.4, supertokens-js-override@^0.0.4:
   resolved "https://registry.yarnpkg.com/supertokens-js-override/-/supertokens-js-override-0.0.4.tgz#9af583fbc5e1f0195dbb358c4fcf75f44c76dc09"
   integrity sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==
 
-supertokens-node@14.1.3:
-  version "14.1.3"
-  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-14.1.3.tgz#0faf63b84d92c35d4820936ff86a1a02f9d3f052"
-  integrity sha512-cwnzmJMHRQvqiztdRITlkK0o2psAw2wAYP+tJVYyIk4fm/93Yb0e9QMekuCJnhZAP0KXaZi+PGjA6F5FEE123Q==
+supertokens-node@14.1.4:
+  version "14.1.4"
+  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-14.1.4.tgz#0b5d5f095c0dfa660baf41bbd5066dc5e55720c5"
+  integrity sha512-Hf/z4r1W9Pk6rlRp7Pa9ibgsqnIy0tc4kzZk72gZ/fHArNKb+G0BZI3JJ5Vm8TrOZx5+DabLN40xahx2qLwalQ==
   dependencies:
     content-type "^1.0.5"
     cookie "0.4.0"

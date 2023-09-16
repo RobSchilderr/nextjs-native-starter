@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { loginToThirdParty } from 'lib/utils/supertokensUtilities'
+import { logError } from 'lib/utils/logError'
 import LoadingSpinnerPage from 'ui/components/LoadingSpinnerPage'
 import Error from 'ui/components/Error'
 
@@ -16,7 +17,8 @@ export const AuthCallback = ({
 }) => {
   const [error, setError] = useState<ErrorPage | any>(null)
   const router = useRouter()
-  console.log(provider)
+  const routerIsReady = router?.isReady
+  console.log(provider, 'provider')
   useEffect(() => {
     async function login() {
       try {
@@ -32,15 +34,17 @@ export const AuthCallback = ({
           return
         }
 
-        router.push('/home')
+        router.push('/login-result')
       } catch (err) {
-        // add error handling  here
         setError(err)
+        logError(err)
       }
     }
 
-    login()
-  }, [router])
+    if (routerIsReady) {
+      login()
+    }
+  }, [routerIsReady])
 
   if (error) return <Error title={`Something went wrong, ${error?.message}`} />
   return <LoadingSpinnerPage />

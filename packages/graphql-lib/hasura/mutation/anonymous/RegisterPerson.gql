@@ -1,5 +1,0 @@
-mutation RegisterPerson($variables: RegisterInput!) {
-  registerPerson(object: $variables) {
-    success
-  }
-}

@@ -11,8 +11,6 @@ import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
 import { Layout } from 'ui/containers/Layout/Layout'
 
-import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from 'lib/utils/reactQuery'
 import { getFrontendConfig } from '../../config/frontendConfig'
 
 if (typeof window !== 'undefined') {
@@ -69,18 +67,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Layout>
-        {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component
-          {
-            // eslint-disable-next-line react/jsx-props-no-spreading
+    <Layout>
+      {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Component
+        {
+          // eslint-disable-next-line react/jsx-props-no-spreading
 
-            ...pageProps
-          }
-        />
-      </Layout>
-    </QueryClientProvider>
+          ...pageProps
+        }
+      />
+    </Layout>
   )
 }
 

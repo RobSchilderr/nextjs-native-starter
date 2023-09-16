@@ -91,7 +91,7 @@ export const RegisterForm = ({ redirectUri }: { redirectUri?: string }) => {
     //     password: password,
     //   })
     // }
-    router.push('/protected-route')
+    router.push('/login-result')
   }
 
   return (
