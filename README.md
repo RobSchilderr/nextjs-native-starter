@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/61ff3abb-f709-41d1-8349-6a5844cc89cf" width="500">
 </p>
 
