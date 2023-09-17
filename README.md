@@ -63,6 +63,8 @@ The biggest advantage Capacitor brings is full native access and app store distr
 
 - As of yet, push notifications on iOS for PWA's is not fully done yet.
 
+- According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot.
+
 So, if those things matter to you, Capacitor is the way to go. You can build your app such that you're building a PWA first but then "enhancing" it with native Capacitor plugins or custom native code. The decision is not either/or because Capacitor was built to enable PWAs to run natively with almost 100% code sharing on the web.
 
 Capacitor will offer APIs for various smartphone functionalities like the keyboard, camera, Near Field Communication (NFC), and contacts. It will also provide interfaces for native machine learning Software Development Kits (SDKs) and Google Maps. Moreover, Capacitor allows the execution of code even when the app is closed, thanks to its background plugins, among other features.
