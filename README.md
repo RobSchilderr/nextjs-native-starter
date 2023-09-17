@@ -25,7 +25,7 @@ TIP: in the code you find some "Important Capacitor note" which explains the dif
 
 8. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides).
 
-9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt). A good rule of thumb for mobile apps is that authentication should _usually_ (always exceptions 😄 ) be handled through something like JWTs. Supertokens their authentication with JWTs make it super easy to set up with [Hasura](https://hasura.io/docs/latest/index/), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with a PostgreSQL instance hosted on Heroku/Render/Railway, you'd have a very compelling alternative to Firebase without being locked in. Another possibility is to use Supabase and have a similar stack.
+9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt). A good rule of thumb for mobile apps is that authentication should _usually_ (always exceptions 😄 ) be handled through something like JWTs. Supertokens their authentication with JWTs make it super easy to set up with [Hasura](https://hasura.io/docs/latest/index/) or [Supabase](https://supertokens.com/docs/emailpassword/supabase-intergration/setup), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with a PostgreSQL instance hosted on Heroku/Render/Railway, you'd have a very compelling alternative to Firebase without being locked in. Another possibility is to use Supabase and have a similar stack.
 
 <img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
 
@@ -93,9 +93,7 @@ If you have more questions about Capacitor, I recommend you to read: [Capacitor:
 
 Side note: Choosing not to use the Ionic UI framework is purely a personal preference. While Ionic is excellent for creating a native app-like feel, focusing on Tailwind CSS allows for a faster development process. If you're seeking a balance between native feel and development speed, consider using 'Konsta UI'—a UI library based on Tailwind that offers a more native-like experience. By embracing this trade-off, you can expedite your app's launch without needing to learn Ionic or create a new component library. Simply leverage an existing Tailwind UI library or explore Konsta UI, and you'll be good to go even faster 🚀
 
-[SuperTokens Example](https://github.com/supertokens/next.js/tree/canary/examples/with-supertokens) - The Supertokens dev team does not yet have an example with Capacitor or clearly address Capacitor-related issues such as CORS, cookies, and domain configuration. The previous Supertokens example uses Server Side Rendering in Next.js and uses the `supertokens-auth-react` package, while this starter project utilizes `supertokens-web-js` and ThirdPartyEmailPassword. It serves however as the prime example of how to use Supertokens in a Next.js app, but does not address the issues that arise when using Supertokens with Capacitor. On another note, for styling we use Tailwind CSS, meaning that we use the custom UI in Supertokens. Here you can find the corresponding docs for our scenario: [Supertokens Docs](https://supertokens.com/docs/thirdpartyemailpassword/custom-ui/init/frontend)
-
-[Turborepo Tutorial](https://github.com/leoroese/turborepo-tutorial) - This current repository is build on top of the Turborepo tutorial. This makes it easier to follow along for those that have not heard of Turborepo yet. The Turborepo tutorial comes with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s) The Turborepo tutorial does not use Capacitor or Supertokens.
+[Turborepo Tutorial](https://github.com/leoroese/turborepo-tutorial) - This current repository is build on top of the Turborepo tutorial. This makes it easier to follow along for those that have not heard of Turborepo yet. The Turborepo tutorial comes with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s) The Turborepo tutorial does not use Capacitor or Supertokens, but you can totally use this video to get more familiar with Turborepo and master the current setup.
 
 ---
 
@@ -131,7 +129,7 @@ The `next-app` in this starter project relies on the API routes of the `next-web
 
 #### Changing authentication method
 
-By default `next-app` and `next-web` uses Social + Email password based login with SuperTokens to implement auth. To change this, set the value of `AUTH_MODE` in `packages/lib/utils/config.ts` to the type of auth you want to use.
+By default `next-app` and `next-web` uses Social logins + passwordless (thirdpartypasswordless) based login with SuperTokens to implement auth. To change this, set the value of `AUTH_MODE` in `packages/lib/utils/config.ts` to the type of auth you want to use.
 
 Refer to the comments in `packages/lib/utils/common.types.ts` to know what the different values of `AUTH_MODE` mean
 
@@ -170,31 +168,6 @@ Testing Apple login doesn't work in your xCode simulator. For this, use a native
 
 ### Known caveats
 
-#### Caveat 1 - [Token Transfer Method](https://supertokens.com/docs/thirdpartyemailpassword/common-customizations/sessions/token-transfer-method)
-
-We are using auth requests with the `Authorization` header:
-`Supertokens recommends cookie-based sessions in browsers because header-based sessions require saving the access and refresh tokens in storage vulnerable to XSS attacks.`
-
-Supertokens supports 2 methods of authorizing requests:
-
-1. Based on cookies
-   The default in our web SDKs
-   Uses HttpOnly cookies by default to prevent token theft via XSS
-
-2. Based on the Authorization header
-   The default in our mobile SDKs
-   Uses the Authorization header with a Bearer auth-scheme
-   This can make it easier to work with API gateways and third-party services
-   Preferable in mobile environments, since they can have buggy and/or unreliable cookie implementations
-
-Possible solution if you want extra security: use Supertokens anyway with cookies on Capacitor with the custom cookie handler that is in this repository. This works, but requires extra effort, you need to know what you're doing.
-
-> Do note that browsers have built in defense mechanisms now (CORS for example) that prevent XSS attacks. Supertokens also has anti csrf tokens that can help but in general as long as you use short lived sessions (which Supertokens enables with their rotating refresh tokens) you should be fine. Even if an attack happens it would be minimised to the duration of your access token lifetime. Moreover Supertokens has theft detection mechanisms in place that would log all sessions for that user out.
-
-#### Caveat 2: Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening
+#### Caveat 1: Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening
 
 In conclusion: Apple login does not work on the mobile web right now. You can find more information about this on the /temp route of the web. Supertokens developers are currently working on a solution that will allow information to be stored in the state sent to the provider, which can then be checked in the API layer to determine if it's mobile or web. However, until this solution is available, a workaround is being used that prevents iOS login from working on the web, so it should be removed from the UI until further notice.
-
-#### Caveat 3: [Live Reload Capacitor](https://capacitorjs.com/docs/guides/live-reload)
-
-Live reload is not working on Capacitor when using Supertokens. We are looking into a solution.
