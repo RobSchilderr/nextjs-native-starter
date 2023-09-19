@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bebas_Neue, Work_Sans } from '@next/font/google'
+import { Bebas_Neue, Work_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
 const workSans = Work_Sans({
