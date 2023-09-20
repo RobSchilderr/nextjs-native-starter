@@ -44,5 +44,6 @@
     "ui": "*",
     "zod": "^3.22.2",
     "zustand": "4.4.1"
-  }
+  },
+  "packageManager": "bun@1.0.2"
 }
