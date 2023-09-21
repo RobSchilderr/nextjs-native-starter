@@ -11,7 +11,7 @@ The project is structured using Turborepo, with one repository for the web appli
 
 TIP: in the code you find some "Important Capacitor note" which explains the differences in authentication via web/app.
 
-<img width="375" alt="Mobile auth screenshot" src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/f41b2317-676f-4d68-9ffd-af20ade7417d">
+<img width="375" alt="Mobile auth screenshot" src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/7816b312-daae-43aa-a918-7fd9ce91c0fa">
 
 ## How to use
 
