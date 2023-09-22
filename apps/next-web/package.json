@@ -42,7 +42,7 @@
     "tailwindcss": "^3.3.3",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
-    "typescript": "^4.9.4",
+    "typescript": "5.2.2",
     "ui": "*",
     "zod": "^3.22.2",
     "zustand": "4.4.1"

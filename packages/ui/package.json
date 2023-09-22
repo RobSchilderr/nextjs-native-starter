@@ -9,7 +9,7 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.23",
     "tsconfig": "*",
-    "typescript": "^4.9.4"
+    "typescript": "5.2.2"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
