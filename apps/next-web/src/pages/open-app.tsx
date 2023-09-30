@@ -5,6 +5,7 @@ import React from 'react'
 
 const OpenAppPage: React.FC = () => <p className="text-gray-600">Loading..</p>
 
+/* eslint-disable require-await */
 export const getServerSideProps: GetServerSideProps = async ({
   res,
   query,

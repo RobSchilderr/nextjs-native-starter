@@ -142,23 +142,23 @@ const getThirdPartyURL = async (
 ) => {
   if (AUTH_MODE === 'thirdparty') {
     return ThirdParty.getAuthorisationURLWithQueryParamsAndSetState({
-      providerId: thirdPartyId,
-      authorisationURL,
+      thirdPartyId,
+      frontendRedirectURI: authorisationURL,
     })
   }
 
   if (AUTH_MODE === 'thirdpartypasswordless') {
     return ThirdPartyPasswordless.getThirdPartyAuthorisationURLWithQueryParamsAndSetState(
       {
-        providerId: thirdPartyId,
-        authorisationURL,
+        thirdPartyId,
+        frontendRedirectURI: authorisationURL,
       },
     )
   }
 
   return ThirdPartyEmailPassword.getAuthorisationURLWithQueryParamsAndSetState({
-    providerId: thirdPartyId,
-    authorisationURL,
+    thirdPartyId,
+    frontendRedirectURI: authorisationURL,
   })
 }
 

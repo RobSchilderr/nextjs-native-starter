@@ -11,7 +11,7 @@ export default async function user(req: any, res: any) {
   await authCors(req, res)
 
   await superTokensNextWrapper(
-    async next => verifySession()(req, res, next),
+    next => verifySession()(req, res, next),
     req,
     res,
   )

@@ -61,13 +61,18 @@ const sessionInit: RecipeListFunction = Session.init({
  * Remember to replace these with your own before deploying to production
  */
 const appleClientInfo = {
-  clientId: '4398792-io.supertokens.example.service',
-  clientSecret: {
-    keyId: '7M48Y4RYDL',
-    privateKey:
-      '-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----',
-    teamId: 'YWQCXGJRJL',
-  },
+  thirdPartyId: 'apple',
+  clients: [
+    {
+      clientId: '4398792-io.supertokens.example.service',
+      additionalConfig: {
+        keyId: '7M48Y4RYDL',
+        privateKey:
+          '-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----',
+        teamId: 'YWQCXGJRJL',
+      },
+    },
+  ],
 }
 
 /**
@@ -76,13 +81,23 @@ const appleClientInfo = {
  * Remember to replace these with your own before deploying to production
  */
 const googleClientInfo = {
-  clientId: process.env.GOOGLE_CLIENT_ID as string,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+  thirdPartyId: 'google',
+  clients: [
+    {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    },
+  ],
 }
 
 const githubClientInfo = {
-  clientId: process.env.GITHUB_CLIENT_ID as string,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+  thirdPartyId: 'github',
+  clients: [
+    {
+      clientId: process.env.GITHUB_CLIENT_ID as string,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+    },
+  ],
 }
 
 const thirdPartyEmailPasswordConfig = (): TypeInput => ({
@@ -95,9 +110,21 @@ const thirdPartyEmailPasswordConfig = (): TypeInput => ({
       override: overrideAppleThirdParty,
 
       providers: [
-        ThirdPartyEmailPassword.Google(googleClientInfo),
-        ThirdPartyEmailPassword.Apple(appleClientInfo),
-        ThirdPartyEmailPassword.Github(githubClientInfo),
+        {
+          config: {
+            ...githubClientInfo,
+          },
+        },
+        {
+          config: {
+            ...googleClientInfo,
+          },
+        },
+        {
+          config: {
+            ...appleClientInfo,
+          },
+        },
       ],
     }),
     sessionInit,
@@ -136,9 +163,21 @@ const thirdPartyConfig = (): TypeInput => ({
       override: overrideAppleThirdParty,
       signInAndUpFeature: {
         providers: [
-          ThirdParty.Google(googleClientInfo),
-          ThirdParty.Apple(appleClientInfo),
-          ThirdParty.Github(githubClientInfo),
+          {
+            config: {
+              ...githubClientInfo,
+            },
+          },
+          {
+            config: {
+              ...googleClientInfo,
+            },
+          },
+          {
+            config: {
+              ...appleClientInfo,
+            },
+          },
         ],
       },
     }),
@@ -159,9 +198,21 @@ const thirdPartyPasswordlessConfig = (): TypeInput => ({
       contactMethod: 'EMAIL',
       flowType: 'USER_INPUT_CODE',
       providers: [
-        ThirdPartyPasswordless.Google(googleClientInfo),
-        ThirdPartyPasswordless.Apple(appleClientInfo),
-        ThirdPartyPasswordless.Github(githubClientInfo),
+        {
+          config: {
+            ...githubClientInfo,
+          },
+        },
+        {
+          config: {
+            ...googleClientInfo,
+          },
+        },
+        {
+          config: {
+            ...appleClientInfo,
+          },
+        },
       ],
     }),
     sessionInit,
