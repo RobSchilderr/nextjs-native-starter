@@ -2,9 +2,9 @@
   <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/18602926-d323-43d6-b713-b154caaeeeca" width="500">
 </p>
 
-![Website](https://img.shields.io/badge/Website-nextjs--native.com-blue)
-![Last Commit](https://img.shields.io/github/last-commit/robschilderr/nextjs-native-starter)
-![Twitter Follow](https://img.shields.io/twitter/follow/realRobSchilder?style=social)
+[![Website](https://img.shields.io/badge/Website-nextjs--native.com-blue)](https://nextjs-native.com)
+[![Last Commit](https://img.shields.io/github/last-commit/robschilderr/nextjs-native-starter)](https://github.com/robschilderr/nextjs-native-starter/commits/main)
+[![Twitter Follow](https://img.shields.io/twitter/follow/realRobSchilder?style=social)](https://twitter.com/realRobSchilder)
 
 
 
