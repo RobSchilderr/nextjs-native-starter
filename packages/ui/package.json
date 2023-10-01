@@ -22,7 +22,6 @@
     "next": "13.5.1",
     "react-hook-form": "^7.46.1",
     "react-hot-toast": "2.4.1",
-    "supertokens-web-js": "0.6.0",
     "zod": "3.22.2",
     "zustand": "4.4.1"
   }
