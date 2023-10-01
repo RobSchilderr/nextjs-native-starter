@@ -21,8 +21,9 @@ import ThirdPartyPasswordless from 'supertokens-node/recipe/thirdpartypasswordle
 import { appInfo } from './appInfo'
 
 const supertokens: SuperTokensInfo = {
-  connectionURI: process.env.SUPERTOKENS_CONNECTION_URI as string,
-  apiKey: process.env.SUPERTOKENS_API_KEY as string,
+  // connectionURI: process.env.SUPERTOKENS_CONNECTION_URI as string,
+  // apiKey: process.env.SUPERTOKENS_API_KEY as string,
+  connectionURI: 'https://try.supertokens.com',
 }
 
 const isUsingJWTAuth = false

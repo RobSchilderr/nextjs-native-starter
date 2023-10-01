@@ -1368,14 +1368,14 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.4.tgz#cd667bcfdd025213aafb7ca5915a932590acdcdc"
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
 
-"@types/react-dom@18.2.4", "@types/react-dom@^18.0.0", "@types/react-dom@^18.2.4":
+"@types/react-dom@^18.0.0", "@types/react-dom@^18.2.4":
   version "18.2.4"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.4.tgz#13f25bfbf4e404d26f62ac6e406591451acba9e0"
   integrity sha512-G2mHoTMTL4yoydITgOGwWdWMVd8sNgyEP85xVmMKAPUBwQWm9wBPQUmvbeF4V3WBY1P7mmL4BkjQ0SqUpf1snw==
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18.2.6", "@types/react@^18.2.6":
+"@types/react@*", "@types/react@^18.2.6":
   version "18.2.6"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.6.tgz#5cd53ee0d30ffc193b159d3516c8c8ad2f19d571"
   integrity sha512-wRZClXn//zxCFW+ye/D2qY65UsYP1Fpex2YXorHc8awoNamkMZSvBxwxdYVInsHOZZd2Ppq8isnSzJL5Mpf8OA==
@@ -3095,7 +3095,7 @@ eslint-visitor-keys@^3.1.0, eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz#0cd72fe8550e3c2eae156a96a4dddcd1c8ac5800"
   integrity sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==
 
-eslint@8.5.0, eslint@^8.5.0:
+eslint@^8.5.0:
   version "8.5.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.5.0.tgz#ddd2c1afd8f412036f87ae2a063d2aa296d3175f"
   integrity sha512-tVGSkgNbOfiHyVte8bCM8OmX+xG9PzVG/B4UCF60zx7j61WIVY/AqJECDgpLD4DbbESD0e174gOg3ZlrX15GDg==
@@ -6562,10 +6562,10 @@ supertokens-js-override@0.0.4, supertokens-js-override@^0.0.4:
   resolved "https://registry.yarnpkg.com/supertokens-js-override/-/supertokens-js-override-0.0.4.tgz#9af583fbc5e1f0195dbb358c4fcf75f44c76dc09"
   integrity sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==
 
-supertokens-node@15.2.1:
-  version "15.2.1"
-  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-15.2.1.tgz#1f8c5ddd3dc0126ed354a774ba31d34ca8ee90bd"
-  integrity sha512-3zJ2EsiHYJHnYwAzDQI5Alp+4x/KcwEOBgeoPN5bWglZY0Xw0AzcZvd8S3N71vjLGvab0J3XxWmHeEHqSz5dbg==
+supertokens-node@^16.2.0:
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-16.2.0.tgz#76ae6bb4373d8b487fd049c7ece9682533432e41"
+  integrity sha512-UUUd4KKec26Nvq2WdAUPNpXvC5wlrX1OJTyPVTWOh8wrN14jJEtmB6dnFLbw10CpXJI0tv5JRzxSF+9enppiwg==
   dependencies:
     content-type "^1.0.5"
     cookie "0.4.0"
@@ -6580,15 +6580,15 @@ supertokens-node@15.2.1:
     supertokens-js-override "^0.0.4"
     twilio "^4.7.2"
 
-supertokens-web-js@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/supertokens-web-js/-/supertokens-web-js-0.7.2.tgz#a370e06cfa1295f78d4501a9dfa7b538c1cfabe5"
-  integrity sha512-8TQFfuDzOkdbP/br7AHI8PJaslAYOVmHKT9rxb+v2cuFXYbZzHKoZeY12C1hepqHED8Cbt+rnIIVb2VUYlzd/w==
+supertokens-web-js@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/supertokens-web-js/-/supertokens-web-js-0.8.0.tgz#10973d51b9c8f75e757f7261b078abd93cb794bb"
+  integrity sha512-kkvuPbdy1I0e7nejVJAhpPJhR5h7EUHdn7Fh1YqfSjZfSJh46J3JU2qWGCgSDVZuD1hSuUKb6skF9CQnltHWrQ==
   dependencies:
     supertokens-js-override "0.0.4"
-    supertokens-website "^17.0.1"
+    supertokens-website "^17.0.3"
 
-supertokens-website@^17.0.1:
+supertokens-website@^17.0.3:
   version "17.0.4"
   resolved "https://registry.yarnpkg.com/supertokens-website/-/supertokens-website-17.0.4.tgz#82b1da4bfc01bc0eeb2598a114e178ad7e7dc035"
   integrity sha512-ayWhEFvspUe26YhM1bq11ssEpnFCZIsoHZtJwJHgHsoflfMUKdgrzOix/bboI0PWJeNTUphHyZebw0ApctaS1Q==
