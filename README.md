@@ -55,6 +55,62 @@ This starter project provides several benefits to developers looking to build a 
 
 - Scalability: This starter project is built on top of Turborepo, which allows developers to easily add new packages and applications to the monorepo as their project grows and scales.
 
+--- 
+
+## Choosing an Authentication Provider in a Cross-Platform App
+
+### Introduction
+When developing a cross-platform application, selecting the right authentication provider is a critical decision. The choice can significantly influence user experience, security, and even the business model. This section aims to offer a detailed comparison of popular authentication providers, focusing on their suitability for cross-platform apps. My criteria were: 
+
+- Never log a user out unless they want to.
+- Support Social login: Google / Apple / Github / Facebook
+- Have affordable pricing
+- As an alternative for affordable pricing, have a nice self-hosting experience.
+- A nice integration with NextJS, client-side as well as server side.
+- A focus on the auth solution and security
+
+### Comparison of Authentication Providers for cross-platform apps
+
+#### NextAuth
+- **Pros**: 
+  - Popular in the Next.js ecosystem.
+  - Good for server-side setups.
+- **Cons**: 
+  - Challenging to integrate with Capacitor, you're working client side with different domains
+  - Limited customization options
+
+#### Supabase
+- **Pros**: 
+  - Comprehensive backend solution offering databases and serverless functions.
+- **Cons**: 
+  - Authentication is not their core focus.
+  - Complex social authentication setup.
+
+#### Firebase
+- **Pros**: 
+  - Robust native integration on iOS and Android by the Capawesome team.
+  - Ideal for B2C apps with a large user base.
+- **Cons**: 
+  - Less customizable
+  - You could get locked in the Firebase ecosystem
+  - No self hosting
+
+#### Supertokens
+- **Pros**:
+  - Works with JWT auth
+  - Serverless routes with NextJS
+  - As an alternative for affordable pricing, has a nice self-hosting experience.
+  - Has header-based authentication so you're not working with cookies on Safari
+  - Highly customizable.
+  - Reasonable pricing with the first 5K users free.
+  - Exceptional 24/7 support via Discord.
+- **Cons**: 
+  - None identified, making it the go-to choice for cross-platform apps.
+
+### Conclusion
+For cross-platform apps with specific needs, Supertokens emerges as the most suitable authentication provider. It offers the customization, pricing, and support that align well with cross-platform project requirements.
+
+
 ---
 
 ## Common questions:
