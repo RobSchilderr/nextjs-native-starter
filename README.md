@@ -137,7 +137,7 @@ One side note that I have to add is that, if your app requires a lot of performa
 
 - I appreciate the swift development process that comes from working exclusively with React and TailwindCSS. Leveraging pre-existing Tailwind components means I can bypass the need for original design work, thereby speeding up the development process. Utilizing Ionic would necessitate designing the UI/UX myself, and its web support doesn't replicate the same feel or appearance as when I develop with Tailwind only.
 
-- Another reason is the complete limitation of SSR with Ionic. The issue is that ionic web components are web components and can't be SSR'ed in Next.js since Next.js doesn't have a window object. There are workarounds (such as using a custom Next.js server) but those workarounds then make it not able to run on Vercel (at least that used to be a limitation, I haven't been following if there's any progress there). 
+- Another reason is the complete limitation of SSR with Ionic. As a quote by Max Lynch: "The issue is that ionic web components are web components and can't be SSR'ed in Next.js since Next.js doesn't have a window object. There are workarounds (such as using a custom Next.js server) but those workarounds then make it not able to run on Vercel (at least that used to be a limitation, I haven't been following if there's any progress there). "
 
 ### When would you choose Ionic?
 
