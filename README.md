@@ -63,11 +63,9 @@ This starter project provides several benefits to developers looking to build a 
 When developing a cross-platform application, selecting the right authentication provider is a critical decision. The choice can significantly influence user experience, security, and even the business model. This section aims to offer a detailed comparison of popular authentication providers, focusing on their suitability for cross-platform apps. My criteria were: 
 
 - Never log a user out unless they want to.
-- Support Social login: Google / Apple / Github / Facebook
+- Support social login: Google / Apple / Github / Facebook
 - Have affordable pricing
-- As an alternative for affordable pricing, have a nice self-hosting experience.
-- A nice integration with NextJS, client-side as well as server side.
-- A focus on the auth solution and security
+- As an alternative for affordable pricing, have a nice self-hosting experience
 
 ### Comparison of Authentication Providers for cross-platform apps
 
