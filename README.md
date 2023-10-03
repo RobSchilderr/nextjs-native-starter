@@ -133,6 +133,8 @@ Capacitor will offer APIs for various smartphone functionalities like the keyboa
 
 One side note that I have to add is that, if your app requires a lot of performance on Android (especially old Android phones), there is this trade off you have to make: [WebView performance significantly slower than PWA](https://bugs.chromium.org/p/chromium/issues/detail?id=1289741). I do not experience this issue on iOS and it is barely noticable on newer Android phones.
 
+To stay in the loop of what PWAs can do, check [what can pwa do](https://whatpwacando.today/).
+
 ### Why did you use to not use Ionic?
 
 - I appreciate the swift development process that comes from working exclusively with React and TailwindCSS. Leveraging pre-existing Tailwind components means I can bypass the need for original design work, thereby speeding up the development process. Utilizing Ionic would necessitate designing the UI/UX myself, and its web support doesn't replicate the same feel or appearance as when I develop with Tailwind only.
