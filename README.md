@@ -135,6 +135,11 @@ One side note that I have to add is that, if your app requires a lot of performa
 
 To stay in the loop of what PWAs can do, check [what can pwa do today](https://whatpwacando.today/).
 
+### Will NextJS App Router be supported soon?
+
+Ideally yes, right now I am waiting on the Supertokens team to fully support authentication with the app router as well as pages router at the same time. 
+
+
 ### Why did you use to not use Ionic?
 
 - I appreciate the swift development process that comes from working exclusively with React and TailwindCSS. Leveraging pre-existing Tailwind components means I can bypass the need for original design work, thereby speeding up the development process. Utilizing Ionic would necessitate designing the UI/UX myself, and its web support doesn't replicate the same feel or appearance as when I develop with Tailwind only.
@@ -143,7 +148,7 @@ To stay in the loop of what PWAs can do, check [what can pwa do today](https://w
 
 ### When would you choose Ionic?
 
-Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application.
+Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application. However, in that scenario I would also consider React Native with Expo again. 
 
 ### So when to choose Capacitor over other alternatives like React Native or Flutter?
 
