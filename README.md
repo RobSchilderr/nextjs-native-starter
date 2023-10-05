@@ -3,7 +3,7 @@
 </p>
 
 [![Website](https://img.shields.io/badge/Website-nextjs--native.com-blue)](https://nextjs-native.com)
-[![Last Commit](https://img.shields.io/github/last-commit/robschilderr/nextjs-native-starter)](https://github.com/robschilderr/nextjs-native-starter/commits/main)
+[![Discord](https://img.shields.io/discord/1159178873129414778?logo=discord&label=Discord&cacheSeconds=3600")](https://discord.gg/zN2HxJjR)
 [![Twitter Follow](https://img.shields.io/twitter/follow/realRobSchilder?style=social)](https://twitter.com/realRobSchilder)
 
 
