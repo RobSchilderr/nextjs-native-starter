@@ -54,7 +54,7 @@ const ThirdPartyEmailPasswordLogin = () => {
           </div>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-12">
           <div>
             <div>
               <StackedSocialButtons

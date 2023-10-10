@@ -26,6 +26,7 @@ import { ALLOWED_CORS_URLS } from './config'
 // * By specifying and including allowed origins in the ALLOWED_CORS_URLS array, we ensure that our
 // * API routes are accessible only from the specified origins, which include Capacitor configurations,
 // * local development environments, and deployed apps on various domains.
+// * If experiencing CORS isues on Vercel: make sure that your website has no 'www' in the domain name, or change the config to include it.
 
 
 export const authCors = async (req: NextApiRequest, res: NextApiResponse) => {
