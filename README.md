@@ -30,7 +30,72 @@ TIP: in the code you find some "Important Capacitor note" which explains the dif
 
 9. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt). A good rule of thumb for mobile apps is that authentication should _usually_ (always exceptions 😄 ) be handled through something like JWTs. Supertokens their authentication with JWTs make it super easy to set up with [Hasura](https://hasura.io/docs/latest/index/) or [Supabase](https://supertokens.com/docs/emailpassword/supabase-intergration/setup), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with a PostgreSQL instance hosted on Heroku/Render/Railway, you'd have a very compelling alternative to Firebase without being locked in. Another possibility is to use Supabase and have a similar stack.
 
+10. If you want a production-ready setup made for you with Hasura, check out [Next Native](https://nextjs-native.com)
+
 <img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
+
+---
+
+---
+
+## What's inside?
+
+This turborepo uses Yarn as a package manager. It includes the following packages/apps:
+
+### Apps and Packages
+
+- `apps`
+  - `next-app` (Native)
+  - `next-web` (Web)
+- `packages` Shared packages across apps
+  - `ui` a React component library shared by both `next-web` and `next-app` applications
+  - `app` a shared package that includes all the common dependencies for the next-app and next-web applications. This helps to ensure consistency and reduce duplication across the applications.
+  - `config` this is for shared `eslint` and `tailwindcss` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+  - `tsconfig` `tsconfig.json`s used throughout the monorepo
+  - `lib` shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
+
+### Shared dependencies
+
+Shared dependencies are libraries that will be used across all platforms (web, iOS, Android). This includes JavaScript-only libraries as well as Capacitor plugins, which can include native code but are designed to work well in a web environment.
+
+For example, if you're installing a JavaScript-only dependency or a Capacitor plugin that will be used across platforms, install it in `packages/app`:
+
+```sh
+cd packages/app
+yarn add zod @capacitor/core
+cd ../..
+yarn
+```
+
+In this example, zod is a JavaScript-only library and `@capacitor/core` is a Capacitor plugin. Both can be used across all platforms.
+
+### Native dependencies
+
+Native dependencies are iOS/Android specific libraries that you only want to use on native platforms.
+
+If you are sure it will only be used in the native app, you can add it in the `next-app` directory:
+
+```sh
+cd apps/next-app
+yarn add @capacitor/splash-screen
+cd ..
+yarn
+```
+
+In this example, `@capacitor/splash-screen` is a Capacitor plugin that is only used in the native app.
+
+### NodeJS dependencies
+
+NodeJS dependencies are libraries that will be used on your serverless API routes in your web project. These are typically used for server-side operations and are not intended to be used on the native app, because this is a client-side application.
+
+```sh
+cd apps/next-web
+yarn add resend
+cd ..
+yarn
+```
+
+Because `resend` is a NodeJS library for sending emails, we don't want the env variables to be exposed on the client-side. We send the emails from the server-side, in our case the serverless API routes, so we install it in the `next-web` directory only.
 
 ---
 
@@ -131,8 +196,6 @@ So, if those things matter to you, Capacitor is the way to go. You can build you
 
 Capacitor will offer APIs for various smartphone functionalities like the keyboard, camera, Near Field Communication (NFC), and contacts. It will also provide interfaces for native machine learning Software Development Kits (SDKs) and Google Maps. Moreover, Capacitor allows the execution of code even when the app is closed, thanks to its background plugins, among other features.
 
-One side note that I have to add is that, if your app requires a lot of performance on Android (especially old Android phones), there is this trade off you have to make: [WebView performance significantly slower than PWA](https://bugs.chromium.org/p/chromium/issues/detail?id=1289741). I do not experience this issue on iOS and it is barely noticable on newer Android phones.
-
 To stay in the loop of what PWAs can do, check [what can pwa do today](https://whatpwacando.today/).
 
 ### Will NextJS App Router be supported soon?
@@ -166,65 +229,6 @@ Side note: Choosing not to use the Ionic UI framework is purely a personal prefe
 [Turborepo Tutorial](https://github.com/leoroese/turborepo-tutorial) - This current repository is build on top of the Turborepo tutorial. This makes it easier to follow along for those that have not heard of Turborepo yet. The Turborepo tutorial comes with a corresponding [video on YouTube.](https://www.youtube.com/watch?v=YQLw5kJ1yrQ&t=1s) The Turborepo tutorial does not use Capacitor or Supertokens, but you can totally use this video to get more familiar with Turborepo and master the current setup.
 
 ---
-
-## What's inside?
-
-This turborepo uses Yarn as a package manager. It includes the following packages/apps:
-
-### Apps and Packages
-
-- `apps`
-  - `next-app` (Native)
-  - `next-web` (Web)
-- `packages` Shared packages across apps
-  - `ui` a React component library shared by both `next-web` and `next-app` applications
-  - `app` a shared package that includes all the common dependencies for the next-app and next-web applications. This helps to ensure consistency and reduce duplication across the applications.
-  - `config` this is for shared `eslint` and `tailwindcss` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-  - `tsconfig` `tsconfig.json`s used throughout the monorepo
-  - `lib` shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
-
-### Shared dependencies
-
-Shared dependencies are libraries that will be used across all platforms (web, iOS, Android). This includes JavaScript-only libraries as well as Capacitor plugins, which can include native code but are designed to work well in a web environment.
-
-For example, if you're installing a JavaScript-only dependency or a Capacitor plugin that will be used across platforms, install it in `packages/app`:
-
-```sh
-cd packages/app
-yarn add zod @capacitor/core
-cd ../..
-yarn
-```
-
-In this example, zod is a JavaScript-only library and `@capacitor/core` is a Capacitor plugin. Both can be used across all platforms.
-
-### Native dependencies
-
-Native dependencies are iOS/Android specific libraries that you only want to use on native platforms.
-
-If you are sure it will only be used in the native app, you can add it in the `next-app` directory:
-
-```sh
-cd apps/next-app
-yarn add @capacitor/splash-screen
-cd ..
-yarn
-```
-
-In this example, `@capacitor/splash-screen` is a Capacitor plugin that is only used in the native app.
-
-### NodeJS dependencies
-
-NodeJS dependencies are libraries that will be used on your serverless API routes in your web project. These are typically used for server-side operations and are not intended to be used on the native app, because this is a client-side application.
-
-```sh
-cd apps/next-web
-yarn add resend
-cd ..
-yarn
-```
-
-Because `resend` is a NodeJS library for sending emails, we don't want the env variables to be exposed on the client-side. We send the emails from the server-side, in our case the serverless API routes, so we install it in the `next-web` directory only.
 
 ### Utilities
 
