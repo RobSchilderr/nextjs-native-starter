@@ -6,14 +6,11 @@
 [![Discord](https://img.shields.io/discord/1159178873129414778?logo=discord&label=Discord&cacheSeconds=3600")](https://discord.gg/zN2HxJjR)
 [![Twitter Follow](https://img.shields.io/twitter/follow/realRobSchilder?style=social)](https://twitter.com/realRobSchilder)
 
-
-
 ### Use Next.js on iOS and Android + access to native APIs with Capacitor
 
 This monorepo provides a starter project for building truly **universal** applications with Next.js, Tailwind CSS, and Capacitor. This allows you to use Next.js it's routing on iOS and Android. Now, you can truly share all your code between all platforms while staying in your familiar web-dev stack, making it more maintainable compared to keeping up a seperate project with React Native.
 
 The project is structured using Turborepo, with one repository for the web application and another for the mobile apps. For authentication and session management, we use Supertokens and have official support from their team to continue supporting secure auth on all platforms. The React components for both are shared using a `ui` package. Besides that, we share the lib, configs and other operations.
-
 
 TIP: in the code you find some "Important Capacitor note" which explains the differences in authentication via web/app.
 
@@ -55,12 +52,13 @@ This starter project provides several benefits to developers looking to build a 
 
 - Scalability: This starter project is built on top of Turborepo, which allows developers to easily add new packages and applications to the monorepo as their project grows and scales.
 
---- 
+---
 
 ## Choosing an Authentication Provider in a Cross-Platform App
 
 ### Introduction
-When developing a cross-platform application, selecting the right authentication provider is a critical decision. The choice can significantly influence user experience, security, and even the business model. This section aims to offer a detailed comparison of popular authentication providers, focusing on their suitability for cross-platform apps. My criteria were: 
+
+When developing a cross-platform application, selecting the right authentication provider is a critical decision. The choice can significantly influence user experience, security, and even the business model. This section aims to offer a detailed comparison of popular authentication providers, focusing on their suitability for cross-platform apps. My criteria were:
 
 - Never log a user out unless they want to.
 - Support social login: Google / Apple / Github / Facebook
@@ -70,30 +68,34 @@ When developing a cross-platform application, selecting the right authentication
 ### Comparison of Authentication Providers for cross-platform apps
 
 #### NextAuth
-- **Pros**: 
+
+- **Pros**:
   - Popular in the Next.js ecosystem.
   - Good for server-side setups.
-- **Cons**: 
+- **Cons**:
   - Challenging to integrate with Capacitor, you're working client side with different domains
   - Limited customization options
 
 #### Supabase
-- **Pros**: 
+
+- **Pros**:
   - Comprehensive backend solution offering databases and serverless functions.
-- **Cons**: 
+- **Cons**:
   - Authentication is not their core focus.
   - Complex social authentication setup.
 
 #### Firebase
-- **Pros**: 
+
+- **Pros**:
   - Robust native integration on iOS and Android by the Capawesome team.
   - Ideal for B2C apps with a large user base.
-- **Cons**: 
+- **Cons**:
   - Less customizable
   - You could get locked in the Firebase ecosystem
   - No self hosting
 
 #### Supertokens
+
 - **Pros**:
   - Works with JWT auth
   - Serverless routes with NextJS
@@ -102,12 +104,12 @@ When developing a cross-platform application, selecting the right authentication
   - Highly customizable.
   - Reasonable pricing with the first 5K users free.
   - Exceptional 24/7 support via Discord.
-- **Cons**: 
+- **Cons**:
   - None identified, making it the go-to choice for cross-platform apps.
 
 ### Conclusion
-For cross-platform apps with specific needs, Supertokens emerges as the most suitable authentication provider. It offers the customization, pricing, and support that align well with cross-platform project requirements.
 
+For cross-platform apps with specific needs, Supertokens emerges as the most suitable authentication provider. It offers the customization, pricing, and support that align well with cross-platform project requirements.
 
 ---
 
@@ -135,8 +137,7 @@ To stay in the loop of what PWAs can do, check [what can pwa do today](https://w
 
 ### Will NextJS App Router be supported soon?
 
-Ideally yes, right now I am waiting on the Supertokens team to fully support authentication with the app router as well as pages router at the same time. 
-
+Ideally yes, right now I am waiting on the Supertokens team to fully support authentication with the app router as well as pages router at the same time.
 
 ### Why did you use to not use Ionic?
 
@@ -146,7 +147,7 @@ Ideally yes, right now I am waiting on the Supertokens team to fully support aut
 
 ### When would you choose Ionic?
 
-Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application. However, in that scenario I would also consider React Native with Expo again. 
+Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application. However, in that scenario I would also consider React Native with Expo again.
 
 ### So when to choose Capacitor over other alternatives like React Native or Flutter?
 
@@ -172,12 +173,58 @@ This turborepo uses Yarn as a package manager. It includes the following package
 
 ### Apps and Packages
 
-- `next-app`: a [Next.js](https://nextjs.org) app using [Supertokens](https://supertokens.com/) and [Capacitor](https://capacitorjs.com/)
-- `next-web`: another [Next.js](https://nextjs.org) app using only [Supertokens](https://supertokens.com/)
-- `ui`: a React component library shared by both `next-web` and `next-app` applications
-- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
-- `lib`: shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
+- `apps`
+  - `next-app` (Native)
+  - `next-web` (Web)
+- `packages` Shared packages across apps
+  - `ui` a React component library shared by both `next-web` and `next-app` applications
+  - `app` a shared package that includes all the common dependencies for the next-app and next-web applications. This helps to ensure consistency and reduce duplication across the applications.
+  - `config` this is for shared `eslint` and `tailwindcss` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+  - `tsconfig` `tsconfig.json`s used throughout the monorepo
+  - `lib` shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
+
+### Shared dependencies
+
+Shared dependencies are libraries that will be used across all platforms (web, iOS, Android). This includes JavaScript-only libraries as well as Capacitor plugins, which can include native code but are designed to work well in a web environment.
+
+For example, if you're installing a JavaScript-only dependency or a Capacitor plugin that will be used across platforms, install it in `packages/app`:
+
+```sh
+cd packages/app
+yarn add zod @capacitor/core
+cd ../..
+yarn
+```
+
+In this example, zod is a JavaScript-only library and `@capacitor/core` is a Capacitor plugin. Both can be used across all platforms.
+
+### Native dependencies
+
+Native dependencies are iOS/Android specific libraries that you only want to use on native platforms.
+
+If you are sure it will only be used in the native app, you can add it in the `next-app` directory:
+
+```sh
+cd apps/next-app
+yarn add @capacitor/splash-screen
+cd ..
+yarn
+```
+
+In this example, `@capacitor/splash-screen` is a Capacitor plugin that is only used in the native app.
+
+### NodeJS dependencies
+
+NodeJS dependencies are libraries that will be used on your serverless API routes in your web project. These are typically used for server-side operations and are not intended to be used on the native app, because this is a client-side application.
+
+```sh
+cd apps/next-web
+yarn add resend
+cd ..
+yarn
+```
+
+Because `resend` is a NodeJS library for sending emails, we don't want the env variables to be exposed on the client-side. We send the emails from the server-side, in our case the serverless API routes, so we install it in the `next-web` directory only.
 
 ### Utilities
 
