@@ -12,7 +12,6 @@
   "dependencies": {
     "@types/express": "^4.17.15",
     "app": "*",
-    "qs": "^6.11.1",
     "supertokens-node": "^16.2.0"
   }
 }

@@ -271,6 +271,12 @@ export const PasswordlessLoginForm = ({
 
     const response = await createPasswordlessCode(emailLowerCase)
 
+
+    if (response.status === 'SIGN_IN_UP_NOT_ALLOWED') {
+      return setError('email', {
+        message: 'Not allowed to sign in or sign up',
+      })
+    }
     setCodeResponse({
       deviceId: response.deviceId,
       preAuthSessionId: response.preAuthSessionId,

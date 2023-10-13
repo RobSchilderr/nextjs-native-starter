@@ -41,13 +41,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       })
 
       CapApp.addListener('appUrlOpen', (data: any) => {
-        /**
-         * On https://www.nextjs-native.dev we have a /open-app endpoint that redirects directly to app
-         * usecase: user opens a link from e-mail, but we don't to use deeplinking
-         * the url containts queryParams and a page as param
-         * if page param exists redirect user to the specific page.
-         * NOTE: this does not work on iOS
-         */
         const isOpenedFromOpenAppUrl = data.url.includes(`${APP_BUNDLE_URL}`)
 
         const isOpenedFromWeb = data.url === PROD_URL_NO_HTTPS

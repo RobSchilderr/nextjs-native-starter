@@ -14,6 +14,12 @@
     "ionic:serve": "npm run start"
   },
   "dependencies": {
+    "@capacitor/android": "^5.4.0",
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/cli": "^5.4.0",
+    "@capacitor/core": "^5.4.0",
+    "@capacitor/ios": "^5.4.0",
+    "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "^5.0.6",
     "app": "*"
   }

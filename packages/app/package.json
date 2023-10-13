@@ -10,12 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@capacitor/android": "^5.4.0",
-    "@capacitor/app": "^5.0.6",
-    "@capacitor/cli": "^5.4.0",
-    "@capacitor/core": "^5.4.0",
-    "@capacitor/ios": "^5.4.0",
-    "@capacitor/preferences": "^5.0.6",
+
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.3.1",
