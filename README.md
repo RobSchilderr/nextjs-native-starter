@@ -212,6 +212,12 @@ Ideally yes, right now I am waiting on the Supertokens team to fully support aut
 
 Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application. However, in that scenario I would also consider React Native with Expo again.
 
+#### Would you recommend this stack in any scenario?
+
+In any computer science problem, multiple solutions can exist for the same issue. Therefore, I would always evaluate whether this particular stack is the best fit for the problem at hand. However, I do believe that this stack serves as an excellent solution for a wide range of problems.
+
+This stack is particularly well-suited for B2B applications that require a robust web presence on desktop platforms while offering identical functionality on mobile apps. For B2C applications expecting a large user base (over 5,000 customers), it's important to note that Supertokens would necessitate a paid subscription unless self-hosted. Additionally, Over-the-Air (OTA) updates are not free; they come at a cost when using either (Capgo)[https://capgo.app/pricing/] or (Appflow)[https://ionic.io/appflow/pricing]. This cost consideration isn't unique to Capacitor; Expo also charges for [OTA updates](https://expo.dev/pricing).
+
 ### So when to choose Capacitor over other alternatives like React Native or Flutter?
 
 <img width="800" src="https://ionic.io/blog/wp-content/uploads/2023/01/Framework-Decision-Flowchart-1-1024x830.png" />

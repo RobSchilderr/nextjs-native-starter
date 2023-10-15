@@ -36,7 +36,7 @@ export default async function redirectAuthUrl(
     // Combine all current query params in a single string
     let queryString = queryParts.length === 0 ? '' : queryParts.join('&')
 
-    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}&${queryString}`
+    const redirectUrl = `${APP_BUNDLE_URL}://auth/callback/${req.query.provider}?${queryString}`
 
     return res.redirect(redirectUrl)
   }
