@@ -18,7 +18,6 @@ export const AuthCallback = ({
   const [error, setError] = useState<ErrorPage | any>(null)
   const router = useRouter()
   const routerIsReady = router?.isReady
-  console.log(provider, 'provider')
   useEffect(() => {
     async function login() {
       try {

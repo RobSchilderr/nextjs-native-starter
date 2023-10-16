@@ -1,9 +1,9 @@
-import { FRONTEND_URL } from 'lib/utils/config'
+import { APP_BUNDLE_URL, FRONTEND_URL } from 'lib/utils/config'
 
 export const appInfo = {
   appName: 'SuperTokens Capacitor Demo App',
   apiDomain: FRONTEND_URL,
-  websiteDomain: `next.supertokens.app`, // NOTE: this is the same as the appId in the capacitor.config
+  websiteDomain: APP_BUNDLE_URL, // NOTE: this is the same as the appId in the capacitor.config
   apiBasePath: '/api/auth',
   websiteBasePath: '/auth',
 }

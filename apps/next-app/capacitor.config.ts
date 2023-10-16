@@ -1,7 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli'
+import { APP_BUNDLE_URL } from 'lib/utils/config'
 
 const config: CapacitorConfig = {
-  appId: 'next.supertokens.app',
+  appId: APP_BUNDLE_URL,
   appName: 'next-app-supertokens',
   webDir: 'out',
   // For live reload: comment out server.

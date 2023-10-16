@@ -5,7 +5,11 @@ import { AppProps } from 'next/app'
 import '../../styles/globals.css'
 import SuperTokens from 'supertokens-web-js'
 import capacitorCookieHandler from 'lib/utils/capacitorCookieHandler'
-import { APP_BUNDLE_URL, PROD_URL_NO_HTTPS } from 'lib/utils/config'
+import {
+  APP_BUNDLE_URL,
+  IS_IN_PRODUCTION_ENVIRONMENT,
+  PROD_URL_NO_HTTPS,
+} from 'lib/utils/config'
 import { useRouter } from 'next/router'
 import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
@@ -25,7 +29,7 @@ if (typeof window !== 'undefined') {
      * In this instance, we are using the 'capacitorCookieHandler' to handle cookies.
      */
     cookieHandler: capacitorCookieHandler,
-    // enableDebugLogs: !IS_IN_PRODUCTION_ENVIRONMENT,
+    enableDebugLogs: !IS_IN_PRODUCTION_ENVIRONMENT,
   })
 }
 

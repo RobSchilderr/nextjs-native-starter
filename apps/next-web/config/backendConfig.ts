@@ -29,22 +29,6 @@ const supertokens: SuperTokensInfo = {
 const isUsingJWTAuth = false
 const isInServerlessEnv: boolean = true
 
-const overrideAppleThirdParty = {
-  apis: (oI: any) => ({
-    ...oI,
-    async appleRedirectHandlerPOST(input: any) {
-      // 5. Important Capacitor note (iOS login only):
-      // redirect to frontend domain/auth/callback/apple/temp with query params code and state
-      // we do this because Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening.
-      const { code, state } = input
-      const redirectUrl = `${FRONTEND_URL}/auth/callback/apple/temp?code=${code}&state=${state}`
-      input.options.res.sendHTMLResponse(
-        `<html><head><script>window.location.replace("${redirectUrl}");</script></head></html>`,
-      )
-    },
-  }),
-}
-
 const framework = 'express'
 
 const sessionInit: RecipeListFunction = Session.init({
@@ -108,8 +92,6 @@ const thirdPartyEmailPasswordConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdPartyEmailPassword.init({
-      override: overrideAppleThirdParty,
-
       providers: [
         {
           config: {
@@ -161,7 +143,6 @@ const thirdPartyConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdParty.init({
-      override: overrideAppleThirdParty,
       signInAndUpFeature: {
         providers: [
           {
@@ -194,8 +175,6 @@ const thirdPartyPasswordlessConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdPartyPasswordless.init({
-      override: overrideAppleThirdParty,
-
       contactMethod: 'EMAIL',
       flowType: 'USER_INPUT_CODE',
       providers: [

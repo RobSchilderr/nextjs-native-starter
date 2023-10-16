@@ -138,12 +138,14 @@ export const requestPassword = async ({ email }: { email: string }) => {
 
 const getThirdPartyURL = async (
   thirdPartyId: 'google' | 'apple' | 'github',
-  authorisationURL: string,
+  frontendRedirectURI: string,
+  redirectURIOnProviderDashboard?: string,
 ) => {
   if (AUTH_MODE === 'thirdparty') {
     return ThirdParty.getAuthorisationURLWithQueryParamsAndSetState({
       thirdPartyId,
-      frontendRedirectURI: authorisationURL,
+      frontendRedirectURI,
+      redirectURIOnProviderDashboard,
     })
   }
 
@@ -151,14 +153,16 @@ const getThirdPartyURL = async (
     return ThirdPartyPasswordless.getThirdPartyAuthorisationURLWithQueryParamsAndSetState(
       {
         thirdPartyId,
-        frontendRedirectURI: authorisationURL,
+        frontendRedirectURI,
+        redirectURIOnProviderDashboard,
       },
     )
   }
 
   return ThirdPartyEmailPassword.getAuthorisationURLWithQueryParamsAndSetState({
     thirdPartyId,
-    frontendRedirectURI: authorisationURL,
+    frontendRedirectURI,
+    redirectURIOnProviderDashboard,
   })
 }
 
@@ -171,11 +175,17 @@ export const onThirdPartyLogin = async ({
 }) => {
   try {
     const isApp = platform === 'APP'
-    const authorisationURL = isApp
-      ? `${REDIRECT_URL}/api/auth/redirect?provider=${provider}`
-      : `${FRONTEND_URL}/auth/callback/${provider}`
+    const isApple = provider === 'apple'
+    const appAuthUrl = `${REDIRECT_URL}/api/auth/redirect?provider=${provider}`
+    const redirectURIOnProviderDashboard = `${FRONTEND_URL}/api/auth/callback/${provider}`
+    const webAuthUrl = `${FRONTEND_URL}/auth/callback/${provider}`
+    const frontendRedirectURI = isApp ? appAuthUrl : webAuthUrl
 
-    const response = await getThirdPartyURL(provider, authorisationURL)
+    const response = await getThirdPartyURL(
+      provider,
+      frontendRedirectURI,
+      ...(isApple ? [redirectURIOnProviderDashboard] : []),
+    )
 
     if (isApp) {
       window.open(response, '_self')
