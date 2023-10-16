@@ -279,19 +279,30 @@ Please create an `env.local` file and add the following ENV variables for testin
 NODE_ENV=development
 NEXT_PUBLIC_APP_STAGE=development
 
-GOOGLE_CLIENT_ID=1060725074195-kmeum4crr01uirfl2op9kd5acmi9jutn.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=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
+# Supertokens
+## Prod Supertokens auth email: your supertokens email to login to the dashboard
+SUPERTOKENS_CONNECTION_URI=https://try.supertokens.com
+SUPERTOKENS_API_KEY=
+DEBUG=com.supertokens
 
-GITHUB_CLIENT_ID=467101b197249757c71f
-GITHUB_CLIENT_SECRET=e97051221f4b6426e8fe8d51486396703012f5bd
+# GoogleClientInfo
+## Prod Google auth email: your google email to login to google cloud console
+GOOGLE_CLIENT_ID="1060725074195-kmeum4crr01uirfl2op9kd5acmi9jutn.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET="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"
 
+# AppleClientInfo
+## Prod Apple auth email: your apple email to login to the developer dashboard
 APPLE_CLIENT_ID="4398792-io.supertokens.example.service"
-APPLE_KEY_ID="7M48Y4RYDL"
+APPLE_CLIENT_SECRET_KEY_ID="7M48Y4RYDL"
 APPLE_TEAM_ID="YWQCXGJRJL"
-APPLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----"
+APPLE_CLIENT_SECRET_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu8gXs+XYkqXD6Ala9Sf/iJXzhbwcoG5dMh1OonpdJUmgCgYIKoZIzj0DAQehRANCAASfrvlFbFCYqn3I2zeknYXLwtH30JuOKestDbSfZYxZNMqhF/OzdZFTV0zc5u5s3eN+oCWbnvl0hM+9IW0UlkdA\n-----END PRIVATE KEY-----"
 
-SUPERTOKENS_CONNECTION_URI = "yourenv"
-SUPERTOKENS_API_KEY = "yourenv"
+# GithubClientInfo
+## Prod Github auth email: your github email to login to github
+
+GITHUB_CLIENT_ID="467101b197249757c71f"
+GITHUB_CLIENT_SECRET="e97051221f4b6426e8fe8d51486396703012f5bd"
+
 ```
 
 These are the test environment variables from Supertokens. You should replace these with your own later on.

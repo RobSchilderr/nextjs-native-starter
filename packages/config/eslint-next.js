@@ -10,6 +10,7 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'prettier',
+    'turbo',
   ],
   plugins: ['@typescript-eslint', 'import'],
   settings: {
@@ -27,6 +28,7 @@ module.exports = {
     },
   },
   rules: {
+    'turbo/no-undeclared-env-vars': 'error',
     'prefer-const': 'off',
     'import/no-extraneous-dependencies': 'off',
     // react
@@ -55,6 +57,8 @@ module.exports = {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react', 'plugin:jest/recommended'],
       rules: {
+        'turbo/no-undeclared-env-vars': 'error',
+
         'import/no-extraneous-dependencies': [
           'off',
           { devDependencies: ['**/?(*.)+(spec|test).[jt]s?(x)'] },
