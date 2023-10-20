@@ -204,11 +204,11 @@ To stay in the loop of what PWAs can do, check [what can pwa do today](https://w
 
 ### Why Next.JS? 
 
-This could be a long answer, but in short Next.js comes with all the modern optimilisations that you probably don't think about. Code splitting, pre-rendering, link prefetching and more. However, you can probably also find this in other frameworks, so why still Next.js? For me the ease of working with serverless routes, the large ecosystem aroudn Vercel such as the Vercel AI SDK, Vercel Analytics, their Edge support, are all big reasons to stay close to Vercel. Even though I am not a big fan of their app router yet, as I don't want to be the first explorer, I want to build applications quickly.
+Next.js encapsulates modern optimizations often overlooked, including code splitting, pre-rendering, SEO optimalizations, SSR, and link prefetching, among others. While these features are available in other frameworks, Next.js stands out due to its seamless integration with serverless routes and the extensive ecosystem surrounding Vercel, its parent company. The offerings from Vercel, such as the Vercel AI SDK, Vercel Analytics, and Edge support, significantly enhance the Next.js experience. The framework's popularity, evidenced by over 5 million weekly downloads, contributes to its continuous improvement as the community expands.
 
 ### Will NextJS App Router be supported soon?
 
-Ideally yes, but it's all fairly new right now still. If you want to be bleeding edge, you can surely go this route. However, do have the time to be the one that is running into unknown issues all the time? One would have to fight against it's new caching logic and also deal with constant changes and refactors. For example, Server Actions is still not stable, hence you're code could soon have to be refactored again. Also Supertokens support for the app router is still quite new and I am expecting some bugs to be fixed first.
+Ideally yes, but it's all fairly new right now still. If you want to go bleeding edge, you can surely go this route. But you have to ask yourself, do you have the time to be the one that is running into unknown issues all the time? The new caching logic and ongoing changes might pose challenges, necessitating occasional code refactoring. For instance, the Server Actions feature hasn't reached a stable release, indicating that future modifications are likely. Similarly, the relatively new integration with Supertokens suggests that some kinks may need ironing out before it matures.
 
 ### Why did you use to not use Ionic?
 
