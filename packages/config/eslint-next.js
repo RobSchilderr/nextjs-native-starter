@@ -45,7 +45,7 @@ module.exports = {
     ],
 
     // next
-
+    '@next/next/no-img-element': 'off', // on iOS and Android we can't use next/image
     '@next/next/no-html-link-for-pages': 'off',
   },
   overrides: [

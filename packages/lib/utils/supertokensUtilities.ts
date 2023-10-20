@@ -4,7 +4,12 @@ import EmailPassword from 'supertokens-web-js/recipe/emailpassword'
 import Passwordless from 'supertokens-web-js/recipe/passwordless'
 import ThirdPartyPasswordless from 'supertokens-web-js/recipe/thirdpartypasswordless'
 import Session from 'supertokens-web-js/recipe/session'
-import { AUTH_MODE, FRONTEND_URL, REDIRECT_URL } from 'lib/utils/config'
+import {
+  AUTH_MODE,
+  FRONTEND_URL,
+  PROD_URL_NO_HTTPS,
+  REDIRECT_URL,
+} from 'lib/utils/config'
 import { Platform } from './common.types'
 
 type LoginWithEmailPasswordArgs = {
@@ -177,7 +182,7 @@ export const onThirdPartyLogin = async ({
     const isApp = platform === 'APP'
     const isApple = provider === 'apple'
     const appAuthUrl = `${REDIRECT_URL}/api/auth/redirect?provider=${provider}`
-    const redirectURIOnProviderDashboard = `${FRONTEND_URL}/api/auth/callback/${provider}`
+    const redirectURIOnProviderDashboard = `https://${PROD_URL_NO_HTTPS}/api/auth/callback/${provider}` // Apple doesn't take localhost as a redirect URI. Either add this or an NGROK URL
     const webAuthUrl = `${FRONTEND_URL}/auth/callback/${provider}`
     const frontendRedirectURI = isApp ? appAuthUrl : webAuthUrl
 

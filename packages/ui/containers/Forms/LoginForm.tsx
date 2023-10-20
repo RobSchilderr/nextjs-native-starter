@@ -271,7 +271,6 @@ export const PasswordlessLoginForm = ({
 
     const response = await createPasswordlessCode(emailLowerCase)
 
-
     if (response.status === 'SIGN_IN_UP_NOT_ALLOWED') {
       return setError('email', {
         message: 'Not allowed to sign in or sign up',
@@ -339,7 +338,7 @@ export const PasswordlessLoginForm = ({
             className="px-4 py-3 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
           />
           <button
-            type="button"
+            type="submit"
             onClick={handleSubmit(getPasswordlessCode)}
             className={classNames(
               !hasEnteredEmail && !isGettingCode
