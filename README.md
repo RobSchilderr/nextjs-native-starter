@@ -182,19 +182,23 @@ For cross-platform apps with specific needs, Supertokens emerges as the most sui
 
 ### Why not make a PWA instead?
 
+Don't get me wrong. I love PWA's. I long for the day that we can fully focus on one codebase that would be a PWA, but we aren't quite there yet. For all the things that aren't there yet, we have Capacitor. 
+
 The biggest advantage Capacitor brings is full native access and app store distribution. Yes, PWAs can do a lot, but they
 
-- Can't interface with every native iOS/Android SDK or feature out today or coming out tomorrow. Capacitor can.
+- Can't interface with every native iOS/Android SDK or feature out today or coming out tomorrow. Capacitor can. 
 
 - Can't use the massive ecosystem of third-party native SDKs. Capacitor can.
 
-- As of yet, push notifications on iOS for PWA's is not fully done yet.
+- As of yet, push notifications on iOS for PWA's is not fully done yet. Have to say that afer iOS 17 it has gotten quite good, but your users need to be on iOS 17 for this.
 
-- According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot.
+- According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot. So, you can't be in the App Store and users need to add the webpage to their homescreen.
+
+- [You can't change the color of the status bar](https://medium.com/appscope/changing-the-ios-status-bar-of-your-progressive-web-app-9fc8fbe8e6ab#:~:text=In%20order%20to%20change%20the,black%20%2C%20and%20black%2Dtranslucent%20.). This means that on PWA's with dark mdoe, the status bar will not display the time, connection and battery. This can be a trade-off when developing dark-mode applications.
 
 So, if those things matter to you, Capacitor is the way to go. You can build your app such that you're building a PWA first but then "enhancing" it with native Capacitor plugins or custom native code. The decision is not either/or because Capacitor was built to enable PWAs to run natively with almost 100% code sharing on the web.
 
-Capacitor will offer APIs for various smartphone functionalities like the keyboard, camera, Near Field Communication (NFC), and contacts. It will also provide interfaces for native machine learning Software Development Kits (SDKs) and Google Maps. Moreover, Capacitor allows the execution of code even when the app is closed, thanks to its background plugins, among other features.
+Capacitor will offer APIs for various smartphone functionalities like the keyboard, TouchID, ARKit, In App Payments, Split view on iPAD, camera, Near Field Communication (NFC), and contacts. It will also provide interfaces for native machine learning Software Development Kits (SDKs) and Google Maps. Moreover, Capacitor allows the execution of code even when the app is closed, thanks to its background plugins, among other features.
 
 To stay in the loop of what PWAs can do, check [what can pwa do today](https://whatpwacando.today/).
 
