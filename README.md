@@ -202,9 +202,13 @@ Capacitor will offer APIs for various smartphone functionalities like the keyboa
 
 To stay in the loop of what PWAs can do, check [what can pwa do today](https://whatpwacando.today/).
 
+### Why Next.JS? 
+
+This could be a long answer, but in short Next.js comes with all the modern optimilisations that you probably don't think about. Code splitting, pre-rendering, link prefetching and more. However, you can probably also find this in other frameworks, so why still Next.js? For me the ease of working with serverless routes, the large ecosystem aroudn Vercel such as the Vercel AI SDK, Vercel Analytics, their Edge support, are all big reasons to stay close to Vercel. Even though I am not a big fan of their app router yet, as I don't want to be the first explorer, I want to build applications quickly.
+
 ### Will NextJS App Router be supported soon?
 
-Ideally yes, right now I am waiting on the Supertokens team to fully support authentication with the app router as well as pages router at the same time.
+Ideally yes, but it's all fairly new right now still. If you want to be bleeding edge, you can surely go this route. However, do have the time to be the one that is running into unknown issues all the time? One would have to fight against it's new caching logic and also deal with constant changes and refactors. For example, Server Actions is still not stable, hence you're code could soon have to be refactored again. Also Supertokens support for the app router is still quite new and I am expecting some bugs to be fixed first.
 
 ### Why did you use to not use Ionic?
 
