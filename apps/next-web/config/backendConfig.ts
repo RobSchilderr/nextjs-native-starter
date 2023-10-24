@@ -40,11 +40,30 @@ const sessionInit: RecipeListFunction = Session.init({
   getTokenTransferMethod: () => 'any',
 })
 
+// This snippet could be relevant if redirect from apple to a deeplinked route does not work:
+// link to discussion: https://discord.com/channels/603466164219281420/1163389076217532487/1166228849919533146
+// const overrideAppleThirdParty = {
+//   apis: (oI: any) => ({
+//     ...oI,
+//     async appleRedirectHandlerPOST(input: any) {
+// Important Aplle login note (iOS login only):
+// redirect to frontend domain/auth/callback/apple/temp with query params code and state
+// we do this because Apple universal links dont work for HTTP redirects (when the API returns a status code for redirect) but only works if there is an actual navigation happening. (prior iOS 17)
+//       const { code, state } = input
+//       const redirectUrl = `${FRONTEND_URL}/auth/callback/apple/temp?code=${code}&state=${state}`
+//       input.options.res.sendHTMLResponse(
+//         `<html><head><script>window.location.replace("${redirectUrl}");</script></head></html>`,
+//       )
+//     },
+//   }),
+// }
+
 /**
  * These credentials are provided by the SuperTokens team for debugging purposes: https://supertokens.com/docs/thirdpartyemailpassword/custom-ui/init/backend#3-initialise-social-login-providers
  *
  * Remember to replace these with your own before deploying to production
  */
+
 const appleClientInfo = {
   thirdPartyId: 'apple',
   clients: [
@@ -60,11 +79,6 @@ const appleClientInfo = {
   ],
 }
 
-/**
- * These credentials are provided by the SuperTokens team for debugging purposes: https://supertokens.com/docs/thirdpartyemailpassword/custom-ui/init/backend#3-initialise-social-login-providers
- *
- * Remember to replace these with your own before deploying to production
- */
 const googleClientInfo = {
   thirdPartyId: 'google',
   clients: [
@@ -92,6 +106,7 @@ const thirdPartyEmailPasswordConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdPartyEmailPassword.init({
+      // override: overrideAppleThirdParty,
       providers: [
         {
           config: {
@@ -175,6 +190,7 @@ const thirdPartyPasswordlessConfig = (): TypeInput => ({
   isInServerlessEnv,
   recipeList: [
     ThirdPartyPasswordless.init({
+      // override: overrideAppleThirdParty,
       contactMethod: 'EMAIL',
       flowType: 'USER_INPUT_CODE',
       providers: [
