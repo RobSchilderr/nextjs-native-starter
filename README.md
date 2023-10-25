@@ -192,7 +192,7 @@ The biggest advantage Capacitor brings is full native access and app store distr
 
 - As of yet, push notifications on iOS for PWA's is not fully done yet. Have to say that afer iOS 17 it has gotten quite good, but your users need to be on iOS 17 for this.
 
-- According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot. So, you can't be in the App Store and users need to add the webpage to their homescreen.
+- According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot. So, you can't be in the App Store and users need to add the webpage to their homescreen, which might create suspicion for non-tech savvy users. In the end, common people won't trust a PWA as much as it being in the App Store, which is considered safe.
 
 - [You can't change the color of the status bar](https://medium.com/appscope/changing-the-ios-status-bar-of-your-progressive-web-app-9fc8fbe8e6ab#:~:text=In%20order%20to%20change%20the,black%20%2C%20and%20black%2Dtranslucent%20.). This means that on PWA's with dark mdoe, the status bar will not display the time, connection and battery. This can be a trade-off when developing dark-mode applications.
 
