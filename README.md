@@ -32,6 +32,8 @@ TIP: in the code you find some "Important Capacitor note" which explains the dif
 
 10. If you want a production-ready setup made for you with Hasura like in the video, check out [Next.js Native](https://nextjs-native.com)
 
+11. For more tutorials on how to continue: [Simon Grimm of Galaxies.dev has great tutorials](https://galaxies.dev/nextjs-and-capacitor)
+
 <img width="1436" alt="Screenshot_2023-02-20_at_6 00 08_PM" src="https://user-images.githubusercontent.com/35261620/221919365-4f784876-a79b-4f42-84e2-bbfc90ed91e2.png">
 
 ---
