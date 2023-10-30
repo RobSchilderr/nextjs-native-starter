@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
-    "build": "next build && next export && npx cap sync ios && npx cap sync android",
+    "build": "next build && npx cap sync ios && npx cap sync android",
     "start": "next start",
     "open:ios": "npx cap sync ios && npx cap open ios",
     "open:android": "npx cap sync android && npx cap open android",
@@ -21,6 +21,7 @@
     "@capacitor/ios": "^5.5.0",
     "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "^5.0.6",
-    "app": "*"
+    "app": "*",
+    "autoprefixer": "10.4.15"
   }
 }

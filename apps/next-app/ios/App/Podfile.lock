@@ -1,9 +1,9 @@
 PODS:
-  - Capacitor (5.4.0):
+  - Capacitor (5.5.0):
     - CapacitorCordova
   - CapacitorApp (5.0.6):
     - Capacitor
-  - CapacitorCordova (5.4.0)
+  - CapacitorCordova (5.5.0)
   - CapacitorPreferences (5.0.6):
     - Capacitor
   - CapacitorSplashScreen (5.0.6):
@@ -29,9 +29,9 @@ EXTERNAL SOURCES:
     :path: "../../../../node_modules/@capacitor/splash-screen"
 
 SPEC CHECKSUMS:
-  Capacitor: a5cd803e02b471591c81165f400ace01f40b11d3
+  Capacitor: 57890b363df14d5d2d5d8461aa23e886cb34da2a
   CapacitorApp: 024e1b1bea5f883d79f6330d309bc441c88ad04a
-  CapacitorCordova: 66ce22f9976de30fd816f746e9e92e07d6befafd
+  CapacitorCordova: 3d3908a3d208a11a75f9df3b18c4405c4de76e1d
   CapacitorPreferences: f03954bcb0ff09c792909e46bff88e3183c16b10
   CapacitorSplashScreen: 5fa2ab5e46cf5cc530cf16a51c80c7a986579ccd
 

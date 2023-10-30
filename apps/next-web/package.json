@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/express": "^4.17.15",
     "app": "*",
+    "autoprefixer": "10.4.15",
     "supertokens-node": "^16.2.0"
   }
 }
