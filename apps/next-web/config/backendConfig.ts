@@ -1,13 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/prefer-default-export */
 
-import {
-  AUTH_MODE,
-  FRONTEND_URL,
-  IS_IN_PRODUCTION_ENVIRONMENT,
-} from 'lib/utils/config'
+import { AUTH_MODE, IS_IN_PRODUCTION_ENVIRONMENT } from 'lib/utils/config'
+import SuperTokens from 'supertokens-node'
 
-import Session from 'supertokens-node/recipe/session'
+import SessionNode from 'supertokens-node/recipe/session'
 import {
   TypeInput,
   SuperTokensInfo,
@@ -31,7 +28,7 @@ const isInServerlessEnv: boolean = true
 
 const framework = 'express'
 
-const sessionInit: RecipeListFunction = Session.init({
+const sessionInit: RecipeListFunction = SessionNode.init({
   // For localhost, we need to set sameSite to strict, due to no https
   cookieSameSite: !IS_IN_PRODUCTION_ENVIRONMENT ? 'strict' : 'none',
   // For cookie based auth, the access token is not available on the frontend by default: https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt
@@ -233,4 +230,13 @@ export function getBackendConfig(): TypeInput {
   }
 
   return thirdPartyPasswordlessConfig()
+}
+
+let initialized = false
+// This function is used in your APIs to make sure SuperTokens is initialised
+export function ensureSuperTokensInit() {
+  if (!initialized) {
+    SuperTokens.init(getBackendConfig())
+    initialized = true
+  }
 }

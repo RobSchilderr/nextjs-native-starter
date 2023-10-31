@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { BellIcon } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
@@ -31,7 +31,7 @@ const TopNavDesktop = () => {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link
-                  href="/home"
+                  href="/"
                   className="text-4xl mx-auto font-display font-bold text-gray-900 "
                 >
                   NextJs Native

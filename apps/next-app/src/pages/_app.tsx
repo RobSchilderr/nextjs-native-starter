@@ -10,7 +10,7 @@ import {
   IS_IN_PRODUCTION_ENVIRONMENT,
   PROD_URL_NO_HTTPS,
 } from 'lib/utils/config'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { Capacitor } from '@capacitor/core'
 import { App as CapApp } from '@capacitor/app'
 import { Layout } from 'ui/containers/Layout/Layout'
@@ -22,7 +22,7 @@ if (typeof window !== 'undefined') {
     ...getFrontendConfig(),
     /*
      * 1. Important Capacitor note:
-     * This section deals with a challenge faced while working with SDKs in the context of frameworks like Electron and Capacitor.
+     * This section deals with a challenge faced while working with SDKs in the context of frameworks like Electron/Tauri and Capacitor.
      * These frameworks add an abstraction layer on top of the browser logic, which causes issues with how the SDK uses frontend cookies for information storage.
      * Because of this, a cookie handler is necessary, regardless of the token transfer method specified in the frontendConfig.
      *

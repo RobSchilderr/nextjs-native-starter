@@ -1,3 +1,5 @@
+'use client'
+
 import Head from 'next/head'
 import { onThirdPartyLogin } from 'lib/utils/supertokensUtilities'
 import { usePlatform } from 'lib/utils/capacitor'

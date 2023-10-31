@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { ButtonLink } from './ButtonLink'
 

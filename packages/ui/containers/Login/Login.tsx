@@ -1,3 +1,5 @@
+'use client'
+
 import { MouseEventHandler, useState } from 'react'
 import Head from 'next/head'
 import { AUTH_MODE } from 'lib/utils/config'
