@@ -26,9 +26,6 @@ TIP: in the code you find some "Important Capacitor note" which explains the dif
 | Desktop |
 |-----------|
 | ![Desktop 1](https://res.cloudinary.com/dpz2qqfck/image/upload/v1697815564/nextnative/Screenshots/desktop/1._Dark_mode_settings_screen_xqizzk.png) |
-| ![Desktop 2](https://res.cloudinary.com/dpz2qqfck/image/upload/v1698053768/nextnative/Screenshots/desktop/2_Web_dark_mode_-_passwordless_social_oocwt6.png) |
-
-<img width="375" alt="Mobile auth screenshot" src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/7816b312-daae-43aa-a918-7fd9ce91c0fa">
 
 ## How to use
 
