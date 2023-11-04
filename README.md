@@ -67,50 +67,6 @@ This turborepo uses Yarn as a package manager. It includes the following package
   - `tsconfig` `tsconfig.json`s used throughout the monorepo
   - `lib` shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
 
-### Shared dependencies
-
-Shared dependencies are libraries that will be used across all platforms (web, iOS, Android). This includes JavaScript-only libraries as well as Capacitor plugins, which can include native code but are designed to work well in a web environment.
-
-For example, if you're installing a JavaScript-only dependency or a Capacitor plugin that will be used across platforms, install it in `packages/app`:
-
-```sh
-cd packages/app
-yarn add zod @capacitor/core
-cd ../..
-yarn
-```
-
-In this example, zod is a JavaScript-only library and `@capacitor/core` is a Capacitor plugin. Both can be used across all platforms.
-
-### Native dependencies
-
-Native dependencies are iOS/Android specific libraries that you only want to use on native platforms.
-
-If you are sure it will only be used in the native app, you can add it in the `next-app` directory:
-
-```sh
-cd apps/next-app
-yarn add @capacitor/splash-screen
-cd ..
-yarn
-```
-
-In this example, `@capacitor/splash-screen` is a Capacitor plugin that is only used in the native app.
-
-### NodeJS dependencies
-
-NodeJS dependencies are libraries that will be used on your serverless API routes in your web project. These are typically used for server-side operations and are not intended to be used on the native app, because this is a client-side application.
-
-```sh
-cd apps/next-web
-yarn add resend
-cd ..
-yarn
-```
-
-Because `resend` is a NodeJS library for sending emails, we don't want the env variables to be exposed on the client-side. We send the emails from the server-side, in our case the serverless API routes, so we install it in the `next-web` directory only.
-
----
 
 ## Benefits of using this starter project
 
@@ -269,6 +225,51 @@ This turborepo has some additional tools already setup for you:
 - [Supertokens](https://supertokens.com/) Open-source authentication and session management system for your web apps.
 - [React Hook Form](https://react-hook-form.com/) Performant, flexible and extensible forms with easy-to-use validation.
 - [Tailwind CSS](https://tailwindcss.com/) CSS framework - rapidly build modern websites without ever leaving your HTML.
+
+### Shared dependencies
+
+Shared dependencies are libraries that will be used across all platforms (web, iOS, Android). This includes JavaScript-only libraries as well as Capacitor plugins, which can include native code but are designed to work well in a web environment.
+
+For example, if you're installing a JavaScript-only dependency or a Capacitor plugin that will be used across platforms, install it in `packages/app`:
+
+```sh
+cd packages/app
+yarn add zod @capacitor/core
+cd ../..
+yarn
+```
+
+In this example, zod is a JavaScript-only library and `@capacitor/core` is a Capacitor plugin. Both can be used across all platforms.
+
+### Native dependencies
+
+Native dependencies are iOS/Android specific libraries that you only want to use on native platforms.
+
+If you are sure it will only be used in the native app, you can add it in the `next-app` directory:
+
+```sh
+cd apps/next-app
+yarn add @capacitor/splash-screen
+cd ..
+yarn
+```
+
+In this example, `@capacitor/splash-screen` is a Capacitor plugin that is only used in the native app.
+
+### NodeJS dependencies
+
+NodeJS dependencies are libraries that will be used on your serverless API routes in your web project. These are typically used for server-side operations and are not intended to be used on the native app, because this is a client-side application.
+
+```sh
+cd apps/next-web
+yarn add resend
+cd ..
+yarn
+```
+
+Because `resend` is a NodeJS library for sending emails, we don't want the env variables to be exposed on the client-side. We send the emails from the server-side, in our case the serverless API routes, so we install it in the `next-web` directory only.
+
+---
 
 ### Note on Server Side rendering
 
