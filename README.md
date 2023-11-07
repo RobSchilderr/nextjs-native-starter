@@ -157,11 +157,13 @@ The biggest advantage Capacitor brings is full native access and app store distr
 
 - Can't use the massive ecosystem of third-party native SDKs. Capacitor can.
 
-- As of yet, push notifications on iOS for PWA's is not fully done yet. Have to say that afer iOS 17 it has gotten quite good, but your users need to be on iOS 17 for this.
+- As of yet, push notifications on iOS for PWA's is not fully done yet. Have to say that afer iOS 17 it has gotten quite good, but your users need to be on iOS 17 for this and have added your app as a PWA.
 
 - According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot. So, you can't be in the App Store and users need to add the webpage to their homescreen, which might create suspicion for non-tech savvy users. In the end, common people won't trust a PWA as much as it being in the App Store, which is considered safe.
 
 - [You can't change the color of the status bar](https://medium.com/appscope/changing-the-ios-status-bar-of-your-progressive-web-app-9fc8fbe8e6ab#:~:text=In%20order%20to%20change%20the,black%20%2C%20and%20black%2Dtranslucent%20.). This means that on PWA's with dark mdoe, the status bar will not display the time, connection and battery. This can be a trade-off when developing dark-mode applications.
+
+- You can't control the [native back button](https://discourse.wicg.io/t/set-back-button-url-in-pwas/4112/28), Capacitor can. This could potentially lead to [awkward situations](https://x.com/_mathmesquita/status/1714022789928149176?s=46).
 
 So, if those things matter to you, Capacitor is the way to go. You can build your app such that you're building a PWA first but then "enhancing" it with native Capacitor plugins or custom native code. The decision is not either/or because Capacitor was built to enable PWAs to run natively with almost 100% code sharing on the web.
 
