@@ -1,4 +1,4 @@
-import Session from 'supertokens-web-js/recipe/session'
+import Session from 'supertokens-auth-react/recipe/session'
 
 export const useSignout = () => async () => {
   await Session.signOut()

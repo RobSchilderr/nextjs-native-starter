@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 import { cn } from 'lib/utils/util'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 type MobileTopNavWithReturnProps = {
   pageTitle: string
@@ -28,7 +28,7 @@ const MobileTopNavWithReturn = ({
           {withReturn && (
             <button
               type="button"
-              onClick={() => router.push('/home')}
+              onClick={() => router.push('/')}
               className="inline-flex items-center font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               <ArrowLeftIcon

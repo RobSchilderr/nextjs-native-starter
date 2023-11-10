@@ -149,11 +149,11 @@ For cross-platform apps with specific needs, Supertokens emerges as the most sui
 
 ### Why not make a PWA instead?
 
-Don't get me wrong. I love PWA's. I long for the day that we can fully focus on one codebase that would be a PWA, but we aren't quite there yet. For all the things that aren't there yet, we have Capacitor. 
+Don't get me wrong. I love PWA's. I long for the day that we can fully focus on one codebase that would be a PWA, but we aren't quite there yet. For all the things that aren't there yet, we have Capacitor.
 
 The biggest advantage Capacitor brings is full native access and app store distribution. Yes, PWAs can do a lot, but they
 
-- Can't interface with every native iOS/Android SDK or feature out today or coming out tomorrow. Capacitor can. 
+- Can't interface with every native iOS/Android SDK or feature out today or coming out tomorrow. Capacitor can.
 
 - Can't use the massive ecosystem of third-party native SDKs. Capacitor can.
 
@@ -171,13 +171,13 @@ Capacitor will offer APIs for various smartphone functionalities like the keyboa
 
 To stay in the loop of what PWAs can do, check [what can pwa do today](https://whatpwacando.today/).
 
-### Why Next.JS? 
+### Why Next.JS?
 
 Next.js encapsulates modern optimizations often overlooked, including code splitting, pre-rendering, SEO optimalizations, SSR, and link prefetching, among others. While these features are available in other frameworks, Next.js stands out due to its seamless integration with serverless routes and the extensive ecosystem surrounding Vercel, its parent company. The offerings from Vercel, such as the Vercel AI SDK, Vercel Analytics, and Edge support, significantly enhance the Next.js experience. The framework's popularity, evidenced by over 5 million weekly downloads, contributes to its continuous improvement as the community expands.
 
-### Will NextJS App Router be supported soon?
+### Is NextJS App Router supported?
 
-Ideally yes, but it's all fairly new right now still. If you want to go bleeding edge, you can surely go this route. But you have to ask yourself, do you have the time to be the one that is running into unknown issues all the time? The new caching logic and ongoing changes might pose challenges, necessitating occasional code refactoring. For instance, the Server Actions feature hasn't reached a stable release, indicating that future modifications are likely. Similarly, the relatively new integration with Supertokens suggests that some kinks may need ironing out before it matures.
+App router is supported as of 10/11/2023 on this repo. If you're looking for pages router support, go back to this commit [here](https://github.com/RobSchilderr/nextjs-native-starter/commit/1e168e782c5a60a82fb3cec8974c66bf9eded86c) and follow the instructions there.
 
 ### Why did you use to not use Ionic?
 

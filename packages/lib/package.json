@@ -13,5 +13,7 @@
     "tsconfig": "*",
     "typescript": "5.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "nextjs-cors": "^2.1.2"
+  }
 }

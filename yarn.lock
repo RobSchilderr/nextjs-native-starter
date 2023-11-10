@@ -3927,6 +3927,11 @@ internal-slot@^1.0.3, internal-slot@^1.0.4, internal-slot@^1.0.5:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+intl-tel-input@^17.0.19:
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-17.0.21.tgz#2d69777ecf5fd188d545f7e482cefe4d3523645b"
+  integrity sha512-TfyPxLe41QZPOf6RqBxRE2dpQ0FThB/PBD/gRbxVhGW7IuYg30QD90x/vjmEo4vkZw7j8etxpVcjIZVRcG+Otw==
+
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/is-accessor-descriptor/-/is-accessor-descriptor-0.1.6.tgz#a9e12cb3ae8d876727eeef3843f8a0897b5c98d6"
@@ -5815,7 +5820,7 @@ prompts@^2.0.1, prompts@^2.4.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.1, prop-types@^15.8.1:
+prop-types@^15.6.1, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -6580,15 +6585,24 @@ sucrase@^3.32.0:
     pirates "^4.0.1"
     ts-interface-checker "^0.1.9"
 
+supertokens-auth-react@^0.35.6:
+  version "0.35.6"
+  resolved "https://registry.yarnpkg.com/supertokens-auth-react/-/supertokens-auth-react-0.35.6.tgz#c68a3b8356a26497310dcd58b4a696f918c2ee81"
+  integrity sha512-Bt+rYunzqP6g331Ks5Q66obiIU/t2k6siG6dtpJNY2DZqAnjgJlDr8S/UAU8I72f4qWwlYv8FKUTa8+O/0z3zA==
+  dependencies:
+    intl-tel-input "^17.0.19"
+    prop-types "^15.7.2"
+    supertokens-js-override "^0.0.4"
+
 supertokens-js-override@0.0.4, supertokens-js-override@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/supertokens-js-override/-/supertokens-js-override-0.0.4.tgz#9af583fbc5e1f0195dbb358c4fcf75f44c76dc09"
   integrity sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==
 
-supertokens-node@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-16.2.0.tgz#76ae6bb4373d8b487fd049c7ece9682533432e41"
-  integrity sha512-UUUd4KKec26Nvq2WdAUPNpXvC5wlrX1OJTyPVTWOh8wrN14jJEtmB6dnFLbw10CpXJI0tv5JRzxSF+9enppiwg==
+supertokens-node@^16.3.4:
+  version "16.3.4"
+  resolved "https://registry.yarnpkg.com/supertokens-node/-/supertokens-node-16.3.4.tgz#5be51321a185a1a832551e773dd8c3eb187011ee"
+  integrity sha512-mEoP+MFiFCxfM1Lul11M+FTK3/yucmNZjjD8C981VyOzoXEYnwvoPTnYPrDjTbkfGJt5wDioAdZ/b3ygknUYJg==
   dependencies:
     content-type "^1.0.5"
     cookie "0.4.0"

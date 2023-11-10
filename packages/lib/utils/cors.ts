@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import supertokens from 'supertokens-node'
 import { ALLOWED_CORS_URLS } from './config'
 
-
 // * 4. Important Capacitor note:
 // * This authCors function is created to set up CORS configurations for Next.js API routes.
 // * It is essential to call this function at the beginning of every API route.
@@ -27,7 +26,6 @@ import { ALLOWED_CORS_URLS } from './config'
 // * API routes are accessible only from the specified origins, which include Capacitor configurations,
 // * local development environments, and deployed apps on various domains.
 // * If experiencing CORS isues on Vercel: make sure that your website has no 'www' in the domain name, or change the config to include it.
-
 
 export const authCors = async (req: NextApiRequest, res: NextApiResponse) => {
   await NextCors(req, res, {

@@ -1,19 +1,18 @@
+'use client'
+
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/router'
-// import { getPreviousPath } from 'lib/next-apps/shared/storage'
-// import { authPages } from 'lib/next-apps/platform/config'
-// import { SavePassword } from 'capacitor-ios-autofill-save-password'
-import { emailPasswordSignIn } from 'supertokens-web-js/recipe/thirdpartyemailpassword'
-import { doesSessionExist } from 'supertokens-web-js/recipe/session'
-import EmailPassword from 'supertokens-web-js/recipe/emailpassword'
+import { useRouter } from 'next/navigation'
+import { emailPasswordSignIn } from 'supertokens-auth-react/recipe/thirdpartyemailpassword'
+import { doesSessionExist } from 'supertokens-auth-react/recipe/session'
+import EmailPassword from 'supertokens-auth-react/recipe/emailpassword'
 import {
   consumePasswordlessCode,
   createPasswordlessCode,
 } from 'lib/utils/supertokensUtilities'
-import InputField from 'ui/components/InputField'
 import { Button } from 'ui/components/Button'
 import { Spinner } from '../../components/ButtonSpinner'
+import InputErrorMsg from '../../components/InputErrorMsg'
 
 export function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -94,35 +93,42 @@ export const LoginForm = ({ redirectUri }: { redirectUri?: string }) => {
     //     password: password,
     //   })
     // }
-    router.push('/home')
+    router.push('/login-result')
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col space-y-6">
-        <InputField
+        <input
           id="email"
           type="text"
-          htmlForLabel="email"
+          placeholder="Email"
           autoComplete="email"
-          error={errors?.email?.message}
-          label="Email"
           required
-          name="email"
-          register={register('email')}
+          className="px-4 py-3 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+          {...register('email')}
         />
+        {errors && errors.email && (
+          <div className="mt-1 flex">
+            <InputErrorMsg>{errors.email.message}</InputErrorMsg>
+          </div>
+        )}
         <div className="space-y-2">
-          <InputField
+          <input
             id="password"
-            type="password"
-            htmlForLabel="password"
-            error={errors?.password?.message}
-            label="Password"
-            autoComplete="current-password"
-            name="password"
+            type="text"
+            placeholder="Password"
             required
-            register={register('password')}
+            autoComplete="current-password"
+            className="px-4 py-3 rounded-full w-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            {...register('password')}
           />
+          {errors && errors.password && (
+            <div className="mt-1 flex">
+              <InputErrorMsg>{errors.password.message}</InputErrorMsg>
+            </div>
+          )}
+
           {/* <Link href="/forgot-password">
             <a className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
               Forgot password?
@@ -183,35 +189,42 @@ export const EmailPasswordLoginForm = () => {
       return
     }
 
-    router.push('/home')
+    router.push('/login-result')
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col space-y-6">
-        <InputField
+        <p>Email </p>
+        <input
           id="email"
           type="text"
-          htmlForLabel="email"
           autoComplete="email"
-          error={errors?.email?.message}
-          label="Email"
           required
-          name="email"
-          register={register('email')}
+          className="px-4 py-3 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+          {...register('email')}
         />
+        {errors && errors.email && (
+          <div className="mt-1 flex">
+            <InputErrorMsg>{errors.email.message}</InputErrorMsg>
+          </div>
+        )}
         <div className="space-y-2">
-          <InputField
+          <p>Password</p>
+          <input
             id="password"
             type="password"
-            htmlForLabel="password"
-            error={errors?.password?.message}
-            label="Password"
             autoComplete="current-password"
-            name="password"
             required
-            register={register('password')}
+            className="px-4 py-3 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            {...register('password')}
           />
+          {errors && errors.password && (
+            <div className="mt-1 flex">
+              <InputErrorMsg>{errors.password.message}</InputErrorMsg>
+            </div>
+          )}
+
           {/* <Link href="/forgot-password">
             <a className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
               Forgot password?
@@ -252,7 +265,6 @@ export const PasswordlessLoginForm = ({
     handleSubmit,
     formState: { errors, isSubmitting },
     setError,
-    getValues,
     watch,
   } = useForm<LoginFormVariables>({
     mode: 'onBlur',
@@ -310,7 +322,7 @@ export const PasswordlessLoginForm = ({
       })
     }
 
-    router.push('/home')
+    router.push('/login-result')
   }
 
   const hasEnteredEmail = watch('email') !== undefined && watch('email') !== ''
@@ -337,6 +349,11 @@ export const PasswordlessLoginForm = ({
             placeholder="Email"
             className="px-4 py-3 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
           />
+          {errors && errors.email && (
+            <div className="mt-1 flex">
+              <InputErrorMsg>{errors.email.message}</InputErrorMsg>
+            </div>
+          )}
           <button
             type="submit"
             onClick={handleSubmit(getPasswordlessCode)}
@@ -349,7 +366,7 @@ export const PasswordlessLoginForm = ({
           >
             {isGettingCode ? (
               <div className="absolute flex">
-                <Spinner size={'4'} />
+                <Spinner size="4" />
               </div>
             ) : null}
 
@@ -366,6 +383,11 @@ export const PasswordlessLoginForm = ({
             required
             className="px-4 py-4 rounded-full text-sm font-medium text-gray-900 placeholder-gray-500 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
           />
+          {errors && errors.password && (
+            <div className="mt-1 flex">
+              <InputErrorMsg>{errors.password.message}</InputErrorMsg>
+            </div>
+          )}
 
           <button
             type="submit"
@@ -373,20 +395,11 @@ export const PasswordlessLoginForm = ({
           >
             {isSubmitting ? (
               <div className="absolute flex">
-                <Spinner size={'4'} />
+                <Spinner size="4" />
               </div>
             ) : null}
             <span className="ml-2 font-medium text-xl">Log in</span>
           </button>
-
-          {/*       
-          <ButtonText
-            type="button"
-            onClick={onChangeEmail}
-            className="mt-2 text-sm text-center text-gray-600 hover:text-gray-900"
-          >
-            Wijzig email
-          </ButtonText> */}
         </div>
       )}
     </form>

@@ -1,9 +1,9 @@
-import ThirdPartyEmailPassword from 'supertokens-web-js/recipe/thirdpartyemailpassword'
-import ThirdParty from 'supertokens-web-js/recipe/thirdparty'
-import EmailPassword from 'supertokens-web-js/recipe/emailpassword'
-import Passwordless from 'supertokens-web-js/recipe/passwordless'
-import ThirdPartyPasswordless from 'supertokens-web-js/recipe/thirdpartypasswordless'
-import Session from 'supertokens-web-js/recipe/session'
+import ThirdPartyEmailPassword from 'supertokens-auth-react/recipe/thirdpartyemailpassword'
+import ThirdParty from 'supertokens-auth-react/recipe/thirdparty'
+import EmailPassword from 'supertokens-auth-react/recipe/emailpassword'
+import Passwordless from 'supertokens-auth-react/recipe/passwordless'
+import ThirdPartyPasswordless from 'supertokens-auth-react/recipe/thirdpartypasswordless'
+import Session from 'supertokens-auth-react/recipe/session'
 import {
   AUTH_MODE,
   FRONTEND_URL,
