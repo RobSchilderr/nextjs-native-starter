@@ -189,6 +189,7 @@ export const onThirdPartyLogin = async ({
     const response = await getThirdPartyURL(
       provider,
       frontendRedirectURI,
+
       ...(isApple ? [redirectURIOnProviderDashboard] : []),
     )
 

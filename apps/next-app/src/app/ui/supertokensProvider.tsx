@@ -4,7 +4,6 @@ import React from 'react'
 import SuperTokensReact, { SuperTokensWrapper } from 'supertokens-auth-react'
 import { usePathname, useRouter } from 'next/navigation'
 import capacitorCookieHandler from 'lib/utils/capacitorCookieHandler'
-import { IS_IN_PRODUCTION_ENVIRONMENT } from 'lib/utils/config'
 import { getFrontendConfig, setRouter } from '../../../config/frontendConfig'
 
 if (typeof window !== 'undefined') {
@@ -21,7 +20,7 @@ if (typeof window !== 'undefined') {
      * In this instance, we are using the 'capacitorCookieHandler' to handle cookies.
      */
     cookieHandler: capacitorCookieHandler,
-    enableDebugLogs: !IS_IN_PRODUCTION_ENVIRONMENT,
+    enableDebugLogs: true,
   })
 }
 
