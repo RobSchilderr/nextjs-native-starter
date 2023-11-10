@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { Container } from './Container'
 
-// READ BEFORE UNCOMMENTING: Make sure to add a database record with a posts table for this to work. To do this from the console, check Step 3 from this link: https://hasura.io/docs/latest/getting-started/docker-simple/
-
 export const Hero = () => (
   <Container className="pt-20 pb-16 text-center lg:pt-32">
     <div className="flex flex-col space-y-6">
