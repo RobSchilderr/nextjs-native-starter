@@ -27,14 +27,14 @@ The project is structured using Turborepo, with one repository for the web appli
 
 ## How to use
 
-1. Run: `npx create-supertokens-app@latest --manager=yarn`
+1. Run: `npx create-supertokens-app@latest`
 2. Pick a name for your app
 3. Choose 'Capacitor'
-4. Make sure to have `yarn` and `npm` installed on your computer: If you don't have NPM, install NPM first. Then when you have npm, make sure to install `yarn` with the following command: `npm install --global yarn`
-5. Type `cd <folder>` to go to the folder and then type `yarn install` and then `yarn dev`
+4. Make sure to have `pnpm` and `node` installed on your computer: If you don't have node, install node first. Then when you have node, make sure to install `pnpm`.
+5. Type `cd <folder>` to go to the folder and then type `pnpm install` and then `pnpm dev`
 6. For native developmet, make sure to check the [Environment setup](https://capacitorjs.com/docs/getting-started/environment-setup) for Capacitor.
-7. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`. 
-8. for Android: go to the `next-app` folder and run `yarn build` and `yarn open:android`
+7. For iOS: go to the `next-app` folder and run `pnpm build` and `pnpm open:ios`. 
+8. for Android: go to the `next-app` folder and run `pnpm build` and `pnpm open:android`
 
 9. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides).
 
@@ -52,7 +52,7 @@ The project is structured using Turborepo, with one repository for the web appli
 
 ## What's inside?
 
-This turborepo uses Yarn as a package manager. It includes the following packages/apps:
+This turborepo uses pnpm as a package manager. It includes the following packages/apps:
 
 ### Apps and Packages
 
@@ -235,9 +235,9 @@ For example, if you're installing a JavaScript-only dependency or a Capacitor pl
 
 ```sh
 cd packages/app
-yarn add zod @capacitor/core
+pnpm add zod @capacitor/core
 cd ../..
-yarn
+pnpm
 ```
 
 In this example, zod is a JavaScript-only library and `@capacitor/core` is a Capacitor plugin. Both can be used across all platforms.
@@ -250,9 +250,9 @@ If you are sure it will only be used in the native app, you can add it in the `n
 
 ```sh
 cd apps/next-app
-yarn add @capacitor/splash-screen
+pnpm add @capacitor/splash-screen
 cd ..
-yarn
+pnpm
 ```
 
 In this example, `@capacitor/splash-screen` is a Capacitor plugin that is only used in the native app.
@@ -263,9 +263,9 @@ NodeJS dependencies are libraries that will be used on your serverless API route
 
 ```sh
 cd apps/next-web
-yarn add resend
+pnpm add resend
 cd ..
-yarn
+pnpm
 ```
 
 Because `resend` is a NodeJS library for sending emails, we don't want the env variables to be exposed on the client-side. We send the emails from the server-side, in our case the serverless API routes, so we install it in the `next-web` directory only.
