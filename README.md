@@ -32,7 +32,7 @@ The project is structured using Turborepo, with one repository for the web appli
 3. Choose 'Capacitor'
 4. Make sure to have `yarn` and `npm` installed on your computer: If you don't have NPM, install NPM first. Then when you have npm, make sure to install `yarn` with the following command: `npm install --global yarn`
 5. Type `cd <folder>` to go to the folder and then type `yarn install` and then `yarn dev`
-6. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`
+6. For iOS: go to the `next-app` folder and run `yarn build` and `yarn open:ios`. Make sure that `CocoaPods` is installed on your laptop.
 7. for Android: go to the `next-app` folder and run `yarn build` and `yarn open:android`
 
 8. To continue, I would suggest to read the [Capacitor docs](https://capacitorjs.com/docs) and [Supertokens docs](https://supertokens.com/docs/guides).
