@@ -10,6 +10,7 @@ export const FRONTEND_URL = !IS_IN_PRODUCTION_ENVIRONMENT
   ? 'http://localhost:3001'
   : `https://${PROD_URL_NO_HTTPS}`
 
+// Make sure to change this to your own unique URL
 export const APP_BUNDLE_URL = `next.supertokens.app` // used to create the deep link
 
 export const REDIRECT_URL = !IS_IN_PRODUCTION_ENVIRONMENT
@@ -19,6 +20,7 @@ export const REDIRECT_URL = !IS_IN_PRODUCTION_ENVIRONMENT
 export const APP_ORIGIN_URLS = [
   'capacitor://localhost',
   'http://localhost',
+  'https://localhost',
   'ionic://localhost',
   `ionic://${FRONTEND_URL.split('://')[1]}`,
   `next.supertokens.app`,
