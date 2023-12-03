@@ -21,7 +21,7 @@
     "@capacitor/ios": "^5.5.0",
     "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "^5.0.6",
-    "app": "*",
+    "app": "workspace:*",
     "autoprefixer": "10.4.15"
   }
 }

@@ -1,0 +1,5 @@
+packages:
+  # all packages in dir apps
+  - 'apps/*'
+  # all packages in dir packages
+  - 'packages/*'

@@ -2,10 +2,6 @@
   "name": "turborepo-basic-yarn",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -13,6 +9,13 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "app": "workspace:*",
+    "config": "workspace:*",
+    "lib": "workspace:*",
+    "tsconfig": "workspace:*",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
