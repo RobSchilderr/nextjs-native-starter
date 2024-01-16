@@ -12,6 +12,11 @@ This monorepo provides a starter project for building truly **universal** applic
 
 The project is structured using Turborepo, with one repository for the web application and another for the mobile apps. For authentication and session management, we use Supertokens and have official support from their team to continue supporting secure auth on all platforms. The React components for both are shared using a `ui` package. Besides that, we share the lib, configs and other operations.
 
+### UPDATE 2024: Starting a new cross-platform Next.js project from scratch? Check out [Tamagui Takeout](https://tamagui.dev/takeout) as well. It has become the go-to stack for cross-platform Next.js apps.
+
+---
+
+
 ## Gallery
 
 ### Mobile
