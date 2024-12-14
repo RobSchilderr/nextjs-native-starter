@@ -33,7 +33,7 @@ The project is structured using Turborepo, with one repository for the web appli
 
 1. Run: `npx create-supertokens-app@latest`
 2. Pick a name for your app
-3. Choose 'Capacitor'
+3. Scroll down and choose 'Capacitor'
 4. Make sure to have `pnpm` and `node` installed on your computer: If you don't have node, install node first. Then when you have node, make sure to install `pnpm`.
 5. Type `cd <folder>` to go to the folder and then type `pnpm install` and then `pnpm dev`
 6. For native developmet, make sure to check the [Environment setup](https://capacitorjs.com/docs/getting-started/environment-setup) for Capacitor.
