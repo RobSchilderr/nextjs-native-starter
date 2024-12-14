@@ -44,7 +44,7 @@ The project is structured using Turborepo, with one repository for the web appli
 
 10. Supertokens also supports [Authentication with JWT](https://supertokens.com/docs/thirdpartyemailpassword/hasura-integration/with-jwt). A good rule of thumb for mobile apps is that authentication should _usually_ (always exceptions 😄 ) be handled through something like JWTs. Supertokens their authentication with JWTs make it super easy to set up with [Hasura](https://hasura.io/docs/latest/index/) or [Supabase](https://supertokens.com/docs/emailpassword/supabase-intergration/setup), for more broad role-based access control and an easy-to-use API. In this [Youtube video](https://www.youtube.com/watch?v=sgicweOyDyk), Rishabh Poddar (co-founder and CTO Supertokens) explains his vision. By combining Supertokens and Hasura with a PostgreSQL instance hosted on Heroku/Render/Railway, you'd have a very compelling alternative to Firebase without being locked in. Another possibility is to use Supabase and have a similar stack.
 
-11. If you want a production-ready setup made for you with Hasura like in the video, check out [Next.js Native](https://nextjs-native.com)
+11. If you want a production-ready setup made for you with Hasura like in the video, send me a message on Discord
 
 12. For more tutorials on how to continue: [Simon Grimm of Galaxies.dev has great tutorials](https://galaxies.dev/nextjs-and-capacitor)
 
