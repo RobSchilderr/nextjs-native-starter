@@ -29,10 +29,9 @@ export async function getSSRSession(
     req !== undefined
       ? Object.fromEntries(new URL(req.url).searchParams.entries())
       : {}
+  const cookieStore = req !== undefined ? req.cookies : await cookies()
   const parsedCookies: Record<string, string> = Object.fromEntries(
-    (req !== undefined ? req.cookies : cookies())
-      .getAll()
-      .map(cookie => [cookie.name, cookie.value]),
+    cookieStore.getAll().map(cookie => [cookie.name, cookie.value]),
   )
 
   /**
@@ -40,11 +39,12 @@ export async function getSSRSession(
    * original request contains session tokens. We then use this pre parsed request to call `getSession`
    * to check if there is a valid session.
    */
+  const headerStore = req !== undefined ? req.headers : await headers()
   let baseRequest = new PreParsedRequest({
     method: req !== undefined ? (req.method as HTTPMethod) : 'get',
     url: req !== undefined ? req.url : '',
     query,
-    headers: req !== undefined ? req.headers : headers(),
+    headers: headerStore,
     cookies: parsedCookies,
     getFormBody: () => req!.formData(),
     getJSONBody: () => req!.json(),

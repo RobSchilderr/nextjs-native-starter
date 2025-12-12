@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.npmjs.com)",
+      "WebSearch",
+      "Bash(pnpm build:*)"
+    ]
+  }
+}

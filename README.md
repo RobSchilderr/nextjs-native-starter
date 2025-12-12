@@ -12,6 +12,11 @@ This monorepo provides a starter project for building truly **universal** applic
 
 The project is structured using Turborepo, with one repository for the web application and another for the mobile apps. For authentication and session management, we use Supertokens and have official support from their team to continue supporting secure auth on all platforms. The React components for both are shared using a `ui` package. Besides that, we share the lib, configs and other operations.
 
+### 2026 Update
+
+This starter is still a fun way to set up a proof of concept for a mobile app and web app without a lot of complexity. However, the versions here are quite outdated and some of the architecture has aged—**I would not recommend this for a real production app**. That said, with the latest LLMs you can definitely prompt your way into a cross-platform app!
+
+Interested in a professional cross-platform architecture with Capacitor or React Native/Expo? Feel free to contact me via Twitter, Discord, or my website. I've been in this space since 2020 and would be happy to help.
 
 ---
 
@@ -20,14 +25,9 @@ The project is structured using Turborepo, with one repository for the web appli
 
 ### Mobile
 
-| iOS | Android |
-|-----|---------|
-| ![iOS 1](https://res.cloudinary.com/dpz2qqfck/image/upload/v1699097270/nextnative/Screenshots/ios/Dark_mode_settings_screen-portrait_otpr8b.png) | ![Android 1](https://res.cloudinary.com/dpz2qqfck/image/upload/v1699097381/nextnative/Screenshots/android/Android_light_mode_-_only_social_login-portrait_e0hhzc.png) |
-| ![iOS 2](https://res.cloudinary.com/dpz2qqfck/image/upload/v1698996232/nextnative/Screenshots/ios/iosframescreen1-portrait_kpwzt1.png) | ![Android 2](https://res.cloudinary.com/dpz2qqfck/image/upload/v1699097381/nextnative/Screenshots/android/Android_light_mode_-_passwordless_social-portrait_ul3gqa.png) |
-
-| Desktop |
-|-----------|
-| ![Desktop 1](https://res.cloudinary.com/dpz2qqfck/image/upload/v1697815564/nextnative/Screenshots/desktop/1._Dark_mode_settings_screen_xqizzk.png) |
+| Screenshot 1 | Screenshot 2 |
+|--------------|--------------|
+| ![Mobile 1](IMG_7195.PNG) | ![Mobile 2](IMG_7196.PNG) |
 
 ## How to use
 
@@ -71,6 +71,11 @@ This turborepo uses pnpm as a package manager. It includes the following package
   - `lib` shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
 
 
+## Important Note 2026
+
+All of the content below is outdated. It is fun to see how the industry is rapidly changing with AI, and most of the recommendations given in this README, I wouldn't recommend in 2026. Therefore use this information with this in mind. 
+
+
 ## Benefits of using this starter project
 
 This starter project provides several benefits to developers looking to build a web application with authentication and session management, as well as a mobile application using Capacitor. Some of the benefits include:
@@ -102,7 +107,7 @@ When developing a cross-platform application, selecting the right authentication
 - Have affordable pricing
 - As an alternative for affordable pricing, have a nice self-hosting experience
 
-### Comparison of Authentication Providers for cross-platform apps
+### Comparison of Authentication Providers for cross-platform apps (outdated)
 
 #### NextAuth
 
@@ -162,7 +167,7 @@ The biggest advantage Capacitor brings is full native access and app store distr
 
 - Can't use the massive ecosystem of third-party native SDKs. Capacitor can.
 
-- As of yet, push notifications on iOS for PWA's is not fully done yet. Have to say that afer iOS 17 it has gotten quite good, but your users need to be on iOS 17 for this and have added your app as a PWA.
+- As of yet, push notifications on iOS for PWA's is not fully done yet. Have to say that after iOS 17 it has gotten quite good, but your users need to be on iOS 17 for this and have added your app as a PWA.
 
 - According to Apple, PWA's don't belong in the App Store, and you might be rejected for silly reasons a lot. So, you can't be in the App Store and users need to add the webpage to their homescreen, which might create suspicion for non-tech savvy users. In the end, common people won't trust a PWA as much as it being in the App Store, which is considered safe.
 
@@ -192,13 +197,13 @@ App router is supported as of 10/11/2023 on this repo. If you're looking for pag
 
 ### When would you choose Ionic?
 
-Ionic would be my go-to if I had a project that necessitated designing all elements from the ground up, demanded excellent mobile user experience, and also required web deployment, albeit with the web aspect being less critical than the mobile application. However, in that scenario I would also consider React Native with Expo again.
+I would not. I recommend Expo with React Native for most cross platform projects.
 
 #### Would you recommend this stack in any scenario?
 
 In any computer science problem, multiple solutions can exist for the same issue. Therefore, I would always evaluate whether this particular stack is the best fit for the problem at hand. However, I do believe that this stack serves as an excellent solution for a wide range of problems.
 
-This stack is particularly well-suited for B2B applications that require a robust web presence on desktop platforms while offering identical functionality on mobile apps. For B2C applications expecting a large user base (over 5,000 customers), it's important to note that Supertokens would necessitate a paid subscription unless self-hosted. Additionally, Over-the-Air (OTA) updates are not free; they come at a cost when using either (Capgo)[https://capgo.app/pricing/] or (Appflow)[https://ionic.io/appflow/pricing]. This cost consideration isn't unique to Capacitor; Expo also charges for [OTA updates](https://expo.dev/pricing).
+This stack is particularly well-suited for B2B applications that require a robust web presence on desktop platforms while offering identical functionality on mobile apps, with a requirement for native capabilities. Also useful if you have 100+ different versions of your native app and don't want to test every release. For B2C applications expecting a large user base (over 5,000 customers), it's important to note that Supertokens would necessitate a paid subscription unless self-hosted. Additionally, Over-the-Air (OTA) updates are not free; they come at a cost when using either (Capgo)[https://capgo.app/pricing/] or (Appflow)[https://ionic.io/appflow/pricing]. This cost consideration isn't unique to Capacitor; Expo also charges for [OTA updates](https://expo.dev/pricing).
 
 ### So when to choose Capacitor over other alternatives like React Native or Flutter?
 

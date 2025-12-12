@@ -1,6 +1,11 @@
 import { AuthCallback } from 'ui/containers/AuthCallback/AuthCallback'
-import React from 'react'
+import React, { Suspense } from 'react'
+import LoadingSpinnerPage from 'ui/components/LoadingSpinnerPage'
 
-const AppleCallback = () => <AuthCallback provider="apple" />
+const AppleCallback = () => (
+  <Suspense fallback={<LoadingSpinnerPage />}>
+    <AuthCallback provider="apple" />
+  </Suspense>
+)
 
 export default AppleCallback
