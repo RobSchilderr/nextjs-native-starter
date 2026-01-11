@@ -205,12 +205,6 @@ In any computer science problem, multiple solutions can exist for the same issue
 
 This stack is particularly well-suited for B2B applications that require a robust web presence on desktop platforms while offering identical functionality on mobile apps, with a requirement for native capabilities. Also useful if you have 100+ different versions of your native app and don't want to test every release. For B2C applications expecting a large user base (over 5,000 customers), it's important to note that Supertokens would necessitate a paid subscription unless self-hosted. Additionally, Over-the-Air (OTA) updates are not free; they come at a cost when using either (Capgo)[https://capgo.app/pricing/] or (Appflow)[https://ionic.io/appflow/pricing]. This cost consideration isn't unique to Capacitor; Expo also charges for [OTA updates](https://expo.dev/pricing).
 
-### So when to choose Capacitor over other alternatives like React Native or Flutter?
-
-<img width="800" src="https://ionic.io/blog/wp-content/uploads/2023/01/Framework-Decision-Flowchart-1-1024x830.png" />
-
-If you have more questions about Capacitor, I recommend you to read: [Capacitor: Everything You’ve Ever Wanted to Know](https://ionic.io/blog/capacitor-everything-youve-ever-wanted-to-know)
-
 ---
 
 ## Differences from related repositories:
