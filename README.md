@@ -2,8 +2,6 @@
   <img src="https://github.com/RobSchilderr/nextjs-native-starter/assets/35261620/18602926-d323-43d6-b713-b154caaeeeca" width="500">
 </p>
 
-[![Website](https://img.shields.io/badge/Website-nextjs--native.com-blue)](https://nextjs-native.com)
-[![Discord](https://img.shields.io/discord/1159178873129414778?logo=discord&label=Discord&cacheSeconds=3600")](https://discord.gg/zN2HxJjR)
 [![Twitter Follow](https://img.shields.io/twitter/follow/realRobSchilder?style=social)](https://twitter.com/realRobSchilder)
 
 ### Use Next.js on iOS and Android + access to native APIs with Capacitor
