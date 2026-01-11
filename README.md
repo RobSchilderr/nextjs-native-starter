@@ -71,7 +71,7 @@ This turborepo uses pnpm as a package manager. It includes the following package
   - `lib` shared utils for Capacitor, easy-to-use Capacitor hooks, supertokens functions to call the API, CORS setup.
 
 
-## Important Note 2026
+## Extra reminder for 2026 readers
 
 All of the content below is outdated. It is fun to see how the industry is rapidly changing with AI, and most of the recommendations given in this README, I wouldn't recommend in 2026. Therefore use this information with this in mind. 
 
